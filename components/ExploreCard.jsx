@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import styles from '../styles';
 import { fadeIn } from '../utils/motion';
-const ExploreCard = ({id,imgUrl,title,index,active,handleClick}) => (
+const ExploreCard = ({id,imgUrl,title,day,index,active,handleClick}) => (
   <motion.div 
   variants={fadeIn('right','spring',index*0.5,0.75)}
   className={`relative ${active===id ? 'lg:flex-[3.5] flex-[10]'
@@ -39,6 +39,9 @@ h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer`}
       <h2 className="mt-[24px] font-semibold sm:text-[32px] text-[24px] text-white">
         {title}
       </h2>
+      <span className="text-sm text-white">
+        {day}
+      </span>
     </div>
   )}
   </motion.div>

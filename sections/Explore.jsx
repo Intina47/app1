@@ -5,10 +5,10 @@ import { staggerContainer} from '../utils/motion';
 import { useState } from 'react';
 import { ExploreCard,  TitleText, TypingText} from '../components';
 import { exploreMore } from '../constants';
-import World from './World';
+// import World from './World';
 
 const Explore = () => {
-  const [active, setActive] = useState('world-6');
+  const [active, setActive] = useState('world-2');
   return(
   <section className={`${styles.paddings}`}
   id="explore">
@@ -32,7 +32,6 @@ const Explore = () => {
         ))}
       </div>
     </motion.div>
-    Explore section
   </section>
   )
 }

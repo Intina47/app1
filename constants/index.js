@@ -76,6 +76,10 @@ export const socials = [
     name: 'facebook',
     url: '/facebook.svg',
   },
+  {
+    name: 'tick-tock',
+    url: '/tick-tock.svg',
+  },
 ];
 
 export const menuIcon = {

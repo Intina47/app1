@@ -29,11 +29,8 @@ const Navbar = () => {
             whileHover: { scale: 1.1 }
           }}
           className={`cursor-pointer font-poppins font-normal text-[-16px] 
-            ${index === navlinks.length - 1 ? 'mr-0' : 'mr-10'} text-white`}
-        >
-
-          <a href={`#${nav.id}`}>{nav.title}</a>
-          
+            ${index === navlinks.length - 1 ? 'mr-0' : 'mr-10'} text-white`}>
+          <a href={`#${nav.id}`}>{nav.title}</a> 
         </motion.li>        
         ))}
       </ul>

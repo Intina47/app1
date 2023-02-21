@@ -120,3 +120,18 @@ li:hover {
   background: #65c4fa;
   filter: blur(150px);
 }
+@font-face {
+  font-family: 'afrobeats';
+  src: url(./phosphate.ttf) format(truetype);
+
+}
+
+.heroHeading{
+  font-family: 'afrobeats';
+  font-size: 3rem;
+ 
+
+}
+
+
+

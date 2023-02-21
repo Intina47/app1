@@ -8,6 +8,9 @@ module.exports = {
   ],
   mode: 'jit',
   theme: {
+    fontFamily: {
+      'afrobeats': ['afrobeats', 'serif']
+    },
     extend: {
       colors: {
         'primary-black': '#1A232E',

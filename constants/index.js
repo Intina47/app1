@@ -76,10 +76,6 @@ export const socials = [
     name: 'facebook',
     url: '/facebook.svg',
   },
-  {
-    name: 'tick-tock',
-    url: '/tick-tock.svg',
-  },
 ];
 
 export const menuIcon = {
@@ -88,7 +84,7 @@ export const menuIcon = {
 };
 export const closeIcon = {
   name: 'close',
-  Url: '/close.svg',
+  Url: '/close.png',
 };
 export const arrowIcon = {
   name: 'arrow',
@@ -106,6 +102,16 @@ export const navlinks = [
   {
     id:"gallery",
     title: 'Gallery',
+  },
+  {
+    id:"reservation",
+    title: 'Reservation',
+  },
+];
+export const navlink = [
+  {
+    id:"guest",
+    title: 'Guest List',
   },
   {
     id:"reservation",

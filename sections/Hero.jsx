@@ -69,6 +69,7 @@ const Hero = () => {
             autoPlay
             muted
             loop
+            playsInline
             style={{ filter: 'blur(0px)', animationDuration: '5s' }} // Apply CSS styles for blur and animation duration
           />
           <Link href="/reservation?type=Reservation">

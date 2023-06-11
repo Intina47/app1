@@ -8,9 +8,7 @@ import Booking from '../components/booking';
 const Reservations = () => (
   <div className="bg-primary-black overflow-hidden">
     <Navbar />
-    <div className="relative">
-      <Booking />
-    </div>
+    <Booking />
     <Footer />
   </div>
 );

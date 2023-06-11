@@ -5,7 +5,7 @@ export const exploreMore = [
     title: 'TNT Tuedays',
     day: 'From 8:00 PM, Tuesday',
     time: '8:00 PM',
-    url: "?type=TNTTuedaysReservation",
+    url: '?type=TNTTuedaysReservation',
   },
   {
     id: 'event-2',
@@ -13,7 +13,7 @@ export const exploreMore = [
     title: 'THIRSTY Thursdays',
     day: 'From 8:00 PM,Thursday',
     time: '8:00 PM',
-    url: "?type=ThirstyThursdaysReservation",
+    url: '?type=ThirstyThursdaysReservation',
   },
   {
     id: 'event-3',
@@ -21,7 +21,7 @@ export const exploreMore = [
     title: 'Urban Sound',
     day: 'From 8:00 PM,Friday',
     time: '8:00 PM',
-    url: "?type=UrbanSoundReservation",
+    url: '?type=UrbanSoundReservation',
   },
   {
     id: 'event-4',
@@ -29,9 +29,9 @@ export const exploreMore = [
     title: 'Good Vibes',
     day: 'From 8:00 PM,Saturday',
     time: '8:00 PM',
-    url: "?type=GoodVibesReservation",
+    url: '?type=GoodVibesReservation',
 
-  }
+  },
 ];
 
 export const startingFeatures = [
@@ -56,7 +56,7 @@ export const newFeatures = [
 ];
 
 export const insights = [
-  
+
 ];
 
 export const socials = [
@@ -78,7 +78,7 @@ export const menuIcon = {
 };
 export const closeIcon = {
   name: 'close',
-  Url: '/close.png',
+  Url: '/close.svg',
 };
 export const arrowIcon = {
   name: 'arrow',
@@ -86,27 +86,27 @@ export const arrowIcon = {
 };
 export const navlinks = [
   {
-    id: "home",
-    title: "Home",
-    url: "/",
+    id: 'home',
+    title: 'Home',
+    url: '/',
   },
   {
-    id: "contact-section",
-    title: "Contact us",
+    id: 'contact-section',
+    title: 'Contact us',
     onClick: () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
-  }
+  },
   },
   {
-    id: "ourNights",
-    title: "ourNights",
+    id: 'ourNights',
+    title: 'ourNights',
     onClick: () => {
-      const ourNightsSection = document.getElementById("ourNights");
+      const ourNightsSection = document.getElementById('ourNights');
       if (ourNightsSection) {
-        ourNightsSection.scrollIntoView({ behavior: "smooth" });
+        ourNightsSection.scrollIntoView({ behavior: 'smooth' });
       }
     },
   },
@@ -114,13 +114,23 @@ export const navlinks = [
 
 export const navlink = [
   {
-    id: "guest",
-    title: "Reservation",
-    url: "/reservation?type=Reservation",
+    id: 'home',
+    title: 'Home',
+    url: '/',
   },
   {
-    id: "reservation",
-    title: "Join Guest List",
-    url: "/reservation?type=Guestlist",
+    id: 'reservation',
+    title: 'Join Guest List',
+    url: '/reservation?type=Guestlist',
+  },
+  {
+    id: 'guest',
+    title: 'Make a Booth Reservation',
+    url: '/reservation?type=Reservation',
+  },
+  {
+    id: 'ourNights',
+    title: 'ourNights',
+    url: '#ourNights',
   },
 ];

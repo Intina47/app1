@@ -6,7 +6,6 @@ import { navlink, navlinks, menuIcon, closeIcon } from "../constants";
 const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
-
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar sticky">
       <img src="/afrobeats-logo2.png" alt="AFO BEATS" className="w-[140px] h-[50px] object-contain" />
@@ -21,14 +20,28 @@ const Navbar = () => {
       onClick={nav.onClick ? nav.onClick : () => setActive(nav.title)}
     >
       {nav.onClick ? (
-        <a href="/reservation?type=Guestlist#contact-section">{nav.title}</a>
-      ) : (
-        <Link href={nav.url}>{nav.title}</Link>
-      )}
+  <a
+    href={nav.id === "contact-section" ? "/reservation?type=Guestlist#contact-section" : "/#ourNights"}
+    onClick={(e) => {
+      e.preventDefault();
+      const section = document.getElementById(nav.id);
+      if (section) {
+        window.scrollTo({
+          top: section.offsetTop,
+          behavior: "smooth",
+        });
+      }
+    }}
+  >
+    {nav.title}
+  </a>
+) : (
+  <Link href={nav.url}>{nav.title}</Link>
+)}
+
     </li>
   ))
 }
-
         <li>
         <Link href={navlink[1].url}>
             <div className="bg-secondary-green rounded-md py-2 px-4 mx-4 text-black font-bold cursor-pointer">

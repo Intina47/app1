@@ -91,7 +91,7 @@ export const navlinks = [
     url: "/",
   },
   {
-    id: "Contact us",
+    id: "contact-section",
     title: "Contact us",
     onClick: () => {
     const contactSection = document.getElementById('contact-section');
@@ -99,6 +99,16 @@ export const navlinks = [
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   }
+  },
+  {
+    id: "ourNights",
+    title: "ourNights",
+    onClick: () => {
+      const ourNightsSection = document.getElementById("ourNights");
+      if (ourNightsSection) {
+        ourNightsSection.scrollIntoView({ behavior: "smooth" });
+      }
+    },
   },
 ];
 

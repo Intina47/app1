@@ -1,20 +1,23 @@
 import nodemailer from 'nodemailer';
+import { config } from 'dotenv';
+config();
 export default function handler(req, res){
-    const {name, email, date, time,guests,specialRequest} = req.body;
-    console.log(name, email, date, time,guests, specialRequest);
+    const {name, email, date, time,guests,specialRequest,reservationType} = req.body;
+    console.log(name, email, date, time,guests, specialRequest,reservationType);
     //send email to company
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'isaiahntina47@gmail.com',
-            pass: 'wvwkjnwjkhewcjmq',
+            user: process.env.COMPANY_EMAIL,
+            pass: process.env.EMAIL_PASSWORD,
         }
     });
     const mailOptions = {
-        from: email,
-        to: 'isaiahntina47@gmail.com',
+        from: '',
+        to: process.env.COMPANY_EMAIL,
         subject: 'New Reservation',
         text: `
+        RESERVATION TYPE: ${reservationType}
         Name: ${name}
         Email: ${email}
         Date: ${date}
@@ -31,13 +34,10 @@ export default function handler(req, res){
         }
     });
     const mailOptions2 = {
-        from: '',
+        from: process.env.COMPANY_EMAIL,
         to: email,
-        subject: 'Reservation Confirmation',
-        text: `
-        Dear ${name},
-        Thank you for making a reservation with us. We look forward to seeing you on ${date} at ${time}.
-        `
+        subject: `${reservationType} Reservation Confirmation`,
+        text: `Dear ${name},\nThank you for making a reservation with us. We look forward to seeing you on ${date} at ${time}.`
     };
     transporter.sendMail(mailOptions2, (error, info) => {
         if(error){

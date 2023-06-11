@@ -5,9 +5,7 @@ import { useRouter } from 'next/router';
 const booking = () => {
   const router = useRouter();
   useEffect(() => {
-    // check if url contains "Contactus" hash
     if (router.asPath.includes('#Contactus')) {
-      // scroll to the Contactus section
       document.getElementById('Contactus').scrollIntoView({
         behavior: 'smooth',
       });
@@ -27,12 +25,12 @@ const booking = () => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 
-    if(name === "reservationType"){
-      const urlParams = new URLSearchParams(window.location.search);
-      const reservationType = urlParams.get('type');
-      setFormData((prevFormData) => ({ ...prevFormData, reservationType }));
-      console.log(reservationType);
-    }
+    // if(name === "reservationType"){
+    //   const urlParams = new URLSearchParams(window.location.search);
+    //   const reservationType = urlParams.get('type');
+    //   setFormData((prevFormData) => ({ ...prevFormData, reservationType }));
+    //   console.log(reservationType);
+    // }
   };
 
   const handleSubmit = async (e) => {
@@ -58,6 +56,7 @@ const booking = () => {
           specialRequest: '',
           reservationType: '',
       });
+      alert('Your reservation has been submitted successfully');
     }else{
       console.log('something went wrong', response.statusText);
     }
@@ -93,20 +92,6 @@ const booking = () => {
             <option value="Booth">Booth Reservation</option>
           </select>
           </div>
-           {/* <div className="flex flex-col mb-4">
-          <label htmlFor="reservationType" className="text-white font-bold mb-2">
-            Reservation Type
-          </label>
-          <input
-            type="text"
-            id="reservationType"
-            name="reservationType"
-            value={formData.reservationType}
-            onChange={handleChange}
-            className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
-            readOnly
-          />
-        </div> */}
         <div className="flex flex-col mb-4">
           <label htmlFor="name" className="text-white font-bold mb-2">
             Name

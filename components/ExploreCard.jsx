@@ -5,12 +5,12 @@ import styles from '../styles';
 import Link from "next/link";
 import { fadeIn } from '../utils/motion';
 const ExploreCard = ({id,imgUrl,title,day,url,index,active,handleClick}) => (
-  <motion.div 
+  <motion.div
   variants={fadeIn('right','spring',index*0.5,0.75)}
   className={`relative ${active===id ? 'lg:flex-[3.5] flex-[10]'
 :'lg:flex-[0.5] flex-[2]'} flex items-center justify-center min-w-[170px] 
 h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer`}
-  onClick={()=>handleClick(id)}
+  onClick={()=>handleClick(id)} id="ourNights"
 >
   <img
   src={imgUrl}
@@ -23,7 +23,7 @@ h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer`}
       {title}
     </h3>
   ):(
-    <div className="absolute bottom-0 p-8
+    <div id="ourNights" className="absolute bottom-0 p-8
     justify-start w-full flex-col bg-[rgba(0,0,0,0.5)] 
     rounded-b-[24px]">
       <Link href={`/reservation/${url}`}>

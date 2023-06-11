@@ -10,12 +10,6 @@ import { imageVariant } from '../utils/motion';
 import { socials } from '../constants';
 
 const Hero = () => {
-  const [openBooking, setOpenBooking] = useState(false);
-
-  const handleReservationClick = () => {
-    setOpenBooking(true);
-  };
-
   const handleScrollToAbout = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
@@ -42,10 +36,12 @@ const Hero = () => {
         className={`${styles.innerWidth} mx-auto flex flex-col`}
       >
        <motion.div variants={slideIn('left', 'tween', 0.2, 1)} className="flex flex-col gap-4">
-       <div className="flex items-center gap-2">
+       <a href="https://goo.gl/maps/A6f372rpyHWAVSNeA">
+       <div className="flex items-center gap-2" title="Our Location">
           {locationDetails.icon}
           <h4 className="text-white text-[18px] font-bold">{locationDetails.details}</h4>
         </div>
+        </a>
           {socials.map((social, index) => (
             <Link href={social.link} key={index} title={social.name}>
               <img
@@ -75,14 +71,14 @@ const Hero = () => {
             alt="hero"
             className="w-full sm:h-[500px] h-[350px] object-cover rounded-tl-[140px] z-10 relative"
           />
-
+          <Link href="/reservation?type=Reservation">
           <div className="w-full flex justify-end sm:-mt-[70px] -mt-[50px] pr-[40px] relative z-10">
             <div className="flex flex-col items-center gap-2">
               <div className="flex flex-row items-center gap-2">
                 <h1 className="text-white font-bold text-[18px]">Make a Booth Reservation</h1>
                 <div
                   className="bg-secondary-green rounded-full w-[50px] h-[50px] flex items-center justify-center"
-                  onClick={handleReservationClick}
+                  // onClick={handleReservationClick}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -91,6 +87,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
+          </Link>
         </motion.div>
       </motion.div>
 
@@ -102,8 +99,6 @@ const Hero = () => {
           </svg>
         </a>
       </motion.div>
-
-      {openBooking && <Reservations />}
     </section>
   );
 };

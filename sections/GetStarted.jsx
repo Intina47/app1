@@ -1,9 +1,9 @@
 'use client';
 import {motion} from 'framer-motion';
 import styles from '../styles';
-import { staggerContainer, fadeIn, planetVariants } from '../utils/motion';
-import { StartSteps, TitleText, TypingText } from '../components';
-import { startingFeatures } from '../constants';
+import { staggerContainer, fadeIn} from '../utils/motion';
+import { TitleText, TypingText } from '../components';
+import Link from "next/link";
 
 const GetStarted = () => (
   <section className={`${styles.paddings} relative z-10`}>
@@ -31,9 +31,11 @@ const GetStarted = () => (
       <motion.div variants={fadeIn('up', 'tween', 0,.2,1)}
       className="mt-[50px] flex justify-center">
         {/* make the button backgound color green */}
+        <Link href="/reservation?type=Guestlist">
         <button className="bg-secondary-green rounded-[50px] px-[30px] py-[10px] font-bold text-primary-black">
           Join the Guest List
         </button>
+        </Link>
         </motion.div>
       </motion.div>
       <motion.div planetvariants={'left'} 

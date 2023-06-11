@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion';
 import styles from '../styles';
+import Link from "next/link";
 import { fadeIn } from '../utils/motion';
-const ExploreCard = ({id,imgUrl,title,day,index,active,handleClick}) => (
+const ExploreCard = ({id,imgUrl,title,day,url,index,active,handleClick}) => (
   <motion.div 
   variants={fadeIn('right','spring',index*0.5,0.75)}
   className={`relative ${active===id ? 'lg:flex-[3.5] flex-[10]'
@@ -25,6 +26,7 @@ h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer`}
     <div className="absolute bottom-0 p-8
     justify-start w-full flex-col bg-[rgba(0,0,0,0.5)] 
     rounded-b-[24px]">
+      <Link href={`/reservation/${url}`}>
       <div className={`${styles.flexCenter} w-[60px] h-[60px] rounded-[24px]
       glassmorphism mb-[16px]`}>
         <img 
@@ -33,8 +35,9 @@ h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer`}
         className="w-1/2 h-1/2 object-contain"
         />
       </div>
+      </Link>
       <p className="font-normal text-[16px] leading-[20px] text-white uppercase">
-        MAKE A RESERVATION
+        MAKE A BOOTH RESERVATION
       </p>
       <h2 className="mt-[24px] font-semibold sm:text-[32px] text-[24px] text-white">
         {title}

@@ -1,8 +1,7 @@
 'use client';
-import { useState } from "react";
-
-import {navlink,navlinks, menuIcon,closeIcon} from '../constants';
-
+import React, { useState } from "react";
+import Link from "next/link";
+import { navlink, navlinks, menuIcon, closeIcon } from "../constants";
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
@@ -10,22 +9,34 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar sticky">
-      <img src="/afro1.png" alt="AFO BEATS" className="w-[124px] h-[32px] object-contain" />
-
+      <img src="/afrobeats-logo2.png" alt="AFO BEATS" className="w-[140px] h-[50px] object-contain" />
       <ul className="list-none sm:flex hidden justify-end items-center flex-1 text-white">
-        {navlinks.map((nav, index) => (
-          <li
-            key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] ${
-              active === nav.title ? "text-white" : "text-dimred"
-            } ${index === navlinks.length - 1 ? "mr-10" : "mr-10"}`}
-            onClick={() => setActive(nav.title)}
-          >
-            <a href={`#${nav.id}`}>{nav.title}</a>
-          </li>
-        ))}
-      </ul>
+      {
+  navlinks.map((nav, index) => (
+    <li
+      key={nav.id}
+      className={`font-poppins font-normal cursor-pointer text-[16px] ${
+        active === nav.title ? "text-white" : "text-dimred"
+      } ${index === navlinks.length - 1 ? "mr-10" : "mr-10"}`}
+      onClick={nav.onClick ? nav.onClick : () => setActive(nav.title)}
+    >
+      {nav.onClick ? (
+        <a href="/reservation?type=Guestlist#contact-section">{nav.title}</a>
+      ) : (
+        <Link href={nav.url}>{nav.title}</Link>
+      )}
+    </li>
+  ))
+}
 
+        <li>
+        <Link href={navlink[1].url}>
+            <div className="bg-secondary-green rounded-md py-2 px-4 mx-4 text-black font-bold cursor-pointer">
+              {navlink[1].title}
+            </div>
+          </Link>
+        </li>
+      </ul>
       <div className="sm:hidden flex flex-1 justify-end items-center cursor-pointer">
         <img
           src={toggle ? closeIcon.Url : menuIcon.Url}
@@ -33,7 +44,6 @@ const Navbar = () => {
           className="w-[28px] h-[28px] object-contain text-white mr-10"
           onClick={() => setToggle(!toggle)}
         />
-
         <div
           className={`${
             !toggle ? "hidden" : "flex"
@@ -48,7 +58,9 @@ const Navbar = () => {
                 } ${index === navlink.length - 1 ? "mb-0" : "mb-4"}`}
                 onClick={() => setActive(nav.title)}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                <Link href={nav.url}>
+                  {nav.title}
+                </Link>
               </li>
             ))}
           </ul>
@@ -59,6 +71,10 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+
 
 
 

@@ -3,25 +3,34 @@ export const exploreMore = [
     id: 'event-1',
     imgUrl: '/tnt.png',
     title: 'TNT Tuedays',
-    day: 'Tuesday',
+    day: 'From 8:00 PM, Tuesday',
+    time: '8:00 PM',
+    url: "?type=TNTTuedaysReservation",
   },
   {
     id: 'event-2',
     imgUrl: '/event2.png',
     title: 'THIRSTY Thursdays',
-    day: 'Thursday',
+    day: 'From 8:00 PM,Thursday',
+    time: '8:00 PM',
+    url: "?type=ThirstyThursdaysReservation",
   },
   {
     id: 'event-3',
     imgUrl: '/afro2.png',
     title: 'Urban Sound',
-    day: 'Friday',
+    day: 'From 8:00 PM,Friday',
+    time: '8:00 PM',
+    url: "?type=UrbanSoundReservation",
   },
   {
     id: 'event-4',
     imgUrl: '/good.png',
     title: 'Good Vibes',
-    day: 'Saturday',
+    day: 'From 8:00 PM,Saturday',
+    time: '8:00 PM',
+    url: "?type=GoodVibesReservation",
+
   }
 ];
 
@@ -47,34 +56,19 @@ export const newFeatures = [
 ];
 
 export const insights = [
-  {
-    imgUrl: '/planet-06.png',
-    title: 'The launch of the Metaverse makes Elon musk ketar-ketir',
-    subtitle:
-        'Magna etiam tempor orci eu lobortis elementum nibh tellus molestie. Diam maecenas sed enim ut sem viverra alique.',
-  },
-  {
-    imgUrl: '/planet-07.png',
-    title: '7 tips to easily master the madness of the Metaverse',
-    subtitle:
-        'Vitae congue eu consequat ac felis donec. Et magnis dis parturient montes nascetur ridiculus mus. Convallis tellus id interdum',
-  },
-  {
-    imgUrl: '/planet-08.png',
-    title: 'With one platform you can explore the whole world virtually',
-    subtitle:
-        'Quam quisque id diam vel quam elementum. Viverra nam libero justo laoreet sit amet cursus sit. Mauris in aliquam sem',
-  },
+  
 ];
 
 export const socials = [
   {
     name: 'instagram',
     url: '/instagram.svg',
+    link: 'https://www.instagram.com/afrobeatsdundee/',
   },
   {
     name: 'facebook',
     url: '/facebook.svg',
+    link: 'https://www.facebook.com/afrobreatsdundee',
   },
 ];
 
@@ -92,29 +86,31 @@ export const arrowIcon = {
 };
 export const navlinks = [
   {
-    id:"home",
-    title: 'Home',
+    id: "home",
+    title: "Home",
+    url: "/",
   },
   {
-    id:"about",
-    title: 'About',
-  },
-  {
-    id:"gallery",
-    title: 'Gallery',
-  },
-  {
-    id:"reservation",
-    title: 'Reservation',
+    id: "Contact us",
+    title: "Contact us",
+    onClick: () => {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
   },
 ];
+
 export const navlink = [
   {
-    id:"guest",
-    title: 'Guest List',
+    id: "guest",
+    title: "Reservation",
+    url: "/reservation?type=Reservation",
   },
   {
-    id:"reservation",
-    title: 'Reservation',
+    id: "reservation",
+    title: "Join Guest List",
+    url: "/reservation?type=Guestlist",
   },
 ];

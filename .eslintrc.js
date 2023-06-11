@@ -18,7 +18,8 @@ module.exports = {
     'react',
   ],
   rules: {
-    'react/no-unescaped-entities': 0,
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off",
     'eslintreact/no-danger': 0,
     'react/jsx-max-props-per-line': 0,
     'react/jsx-first-prop-new-line': 0,
@@ -95,5 +96,10 @@ module.exports = {
         ],
       },
     ],
+    'object-curly-spacing': 0,
+    'comma-spacing': 0,
+    'space-before-blocks': 0,
+    indent: 0,
+    'spaced-comment': 0,
   },
 };

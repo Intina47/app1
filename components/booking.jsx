@@ -1,7 +1,10 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { bookingVariants } from '../utils/motion';
 import { useRouter } from 'next/router';
+
 const booking = () => {
   const router = useRouter();
   useEffect(() => {

@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
-import { config } from 'dotenv';
+import dotenv from 'dotenv';
 
-config();
+dotenv.config();
 
 export default function handler(req, res) {
   // feedback endpoint
@@ -29,7 +29,7 @@ export default function handler(req, res) {
       console.log(error);
       res.status(500).json({ error: 'Error sending feedback email' });
     } else {
-      console.log('Email sent: ' + info.response);
+      console.log('Email sent:', info.response);
       res.status(200).json({ message: 'Feedback sent successfully' });
     }
   });

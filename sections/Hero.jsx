@@ -1,12 +1,10 @@
 'use client';
-// test
+
 import {motion} from 'framer-motion';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import styles from '../styles';
 import { slideIn, staggerContainer, textVariant,fadeIn } from '../utils/motion';
-import Reservations from '../pages/reservation';
-import { imageVariant } from '../utils/motion';
 import { socials } from '../constants';
 
 const Hero = () => {
@@ -59,7 +57,6 @@ const Hero = () => {
           <motion.img
             src="/afrobeats-logo2.png"
             alt="AFRO BEATS"
-            variants={imageVariant}
             className="w-[200px] h-auto object-contain"
           />
         </div>

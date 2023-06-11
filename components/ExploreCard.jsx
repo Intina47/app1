@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import styles from '../styles';
 import Link from "next/link";
 import { fadeIn } from '../utils/motion';
+
 const ExploreCard = ({id,imgUrl,title,day,url,index,active,handleClick}) => (
   <motion.div
   variants={fadeIn('right','spring',index*0.5,0.75)}

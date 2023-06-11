@@ -1,41 +1,41 @@
 'use client';
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { navlink, navlinks, menuIcon, closeIcon } from "../constants";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { navlink, navlinks, menuIcon, closeIcon } from '../constants';
 
 const Navbar = () => {
-  const [active, setActive] = useState("Home");
+  const [active, setActive] = useState('Home');
   const [toggle, setToggle] = useState(false);
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar sticky">
       <img src="/afrobeats-logo2.png" alt="AFO BEATS" className="w-[140px] h-[50px] object-contain" />
       <ul className="list-none sm:flex hidden justify-end items-center flex-1 text-white">
-      {
+        {
   navlinks.map((nav, index) => (
     <li
       key={nav.id}
       className={`font-poppins font-normal cursor-pointer text-[16px] ${
-        active === nav.title ? "text-white" : "text-dimred"
-      } ${index === navlinks.length - 1 ? "mr-10" : "mr-10"}`}
+        active === nav.title ? 'text-white' : 'text-dimred'
+      } ${index === navlinks.length - 1 ? 'mr-10' : 'mr-10'}`}
       onClick={nav.onClick ? nav.onClick : () => setActive(nav.title)}
     >
       {nav.onClick ? (
-  <a
-    href={nav.id === "contact-section" ? "/reservation?type=Guestlist#contact-section" : "/#ourNights"}
-    onClick={(e) => {
+        <a
+          href={nav.id === 'contact-section' ? '/reservation?type=Guestlist#contact-section' : '/#ourNights'}
+          onClick={(e) => {
       e.preventDefault();
       const section = document.getElementById(nav.id);
       if (section) {
         window.scrollTo({
           top: section.offsetTop,
-          behavior: "smooth",
+          behavior: 'smooth',
         });
       }
     }}
-  >
-    {nav.title}
-  </a>
+        >
+          {nav.title}
+        </a>
 ) : (
   <Link href={nav.url}>{nav.title}</Link>
 )}
@@ -44,7 +44,7 @@ const Navbar = () => {
   ))
 }
         <li>
-        <Link href={navlink[1].url}>
+          <Link href={navlink[1].url}>
             <div className="bg-secondary-green rounded-md py-2 px-4 mx-4 text-black font-bold cursor-pointer">
               {navlink[1].title}
             </div>
@@ -60,7 +60,7 @@ const Navbar = () => {
         />
         <div
           className={`${
-            !toggle ? "hidden" : "flex"
+            !toggle ? 'hidden' : 'flex'
           } p-6 bg-white absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
         >
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
@@ -68,8 +68,8 @@ const Navbar = () => {
               <li
                 key={nav.id}
                 className={`font-poppins font-medium cursor-pointer text-[16px]${
-                  active === nav.title ? "text-white" : "text-dimWhite"
-                } ${index === navlink.length - 1 ? "mb-0" : "mb-4"}`}
+                  active === nav.title ? 'text-white' : 'text-dimWhite'
+                } ${index === navlink.length - 1 ? 'mb-0' : 'mb-4'}`}
                 onClick={() => setActive(nav.title)}
               >
                 <Link href={nav.url}>
@@ -85,34 +85,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // const Navbar = () => {
 //   const [toggle, setToggle] = useState(false);
@@ -137,10 +109,10 @@ export default Navbar;
 //             initial: { scale: 1 },
 //             whileHover: { scale: 1.1 }
 //           }}
-//           className={`cursor-pointer font-poppins font-normal text-[-16px] 
+//           className={`cursor-pointer font-poppins font-normal text-[-16px]
 //             ${index === navlinks.length - 1 ? 'mr-0' : 'mr-10'} text-white`}>
-//           <a href={`#${nav.id}`}>{nav.title}</a> 
-//         </motion.li>        
+//           <a href={`#${nav.id}`}>{nav.title}</a>
+//         </motion.li>
 //         ))}
 //       </ul>
 //       <div className="sm:hidden flex flex-1 justify-end items-center">
@@ -161,13 +133,13 @@ export default Navbar;
 //           }}
 //           initial="initial"
 //           whileHover="whileHover"
-//           className={`font-poppins font-normal cursor-pointer text-[-16px] 
+//           className={`font-poppins font-normal cursor-pointer text-[-16px]
 //             ${index === navlinks.length - 1 ? 'mr-0' : 'mb-4'} text-white`}
 //         >
 //           <a href={`#${nav.id}`}>
 //             {nav.title}
 //             </a>
-//         </motion.li>        
+//         </motion.li>
 //         ))}
 //       </ul>
 //       </div>

@@ -18,7 +18,7 @@ export default function handler(req, res){
     });
 
     const mailOptions = {
-        from: '',
+        from: process.env.COMPANY_EMAIL,
         to: process.env.COMPANY_EMAIL,
         subject: 'New Reservation',
         text: `

@@ -7,7 +7,7 @@ import { bookingVariants } from '../utils/motion';
 
 const booking = () => {
   const [placeholder, setPlaceholder] = useState('');
-  const [maxGuests, setMaxGuests] = useState(999);
+  // const [maxGuests, setMaxGuests] = useState(999);
   const router = useRouter();
   useEffect(() => {
     if (router.asPath.includes('#Contactus')) {
@@ -30,18 +30,16 @@ const booking = () => {
     const { name, value } = e.target;
     if (name === 'reservationType' && value === 'GuestList') {
       setPlaceholder('You can add up to 3 people on the guestlist');
-      setMaxGuests(3);
+      // setMaxGuests(5);
     } else if (name === 'reservationType' && value === 'Booth') {
       setPlaceholder('');
-      setMaxGuests(30);
+      // setMaxGuests(300);
     }
     if (name === 'guests' && Number(value) > 30) {
       setPlaceholder('Reduce the number of Guest Please!');
-      return;
     }
     if (name === 'guests' && Number(value) < 1){
-      setPlaceholder('You must add at least 1 Guest');
-      return;
+      setPlaceholder('You can add up to 3 people on the guestlist');
     }
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
@@ -218,8 +216,8 @@ const booking = () => {
               onChange={handleChange}
               className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
               required
-              max={maxGuests}
               min={1}
+              max={10}
               placeholder={placeholder}
             />
           </div>

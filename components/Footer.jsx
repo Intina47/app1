@@ -108,7 +108,7 @@ const Footer = () => {
                 <span className="text-white text-[18px] font-bold">Tel:</span>
               </p>
               <a href="tel:+447944 444 444" title="Give Us A Call">
-                <span className="text-white text-[18px] font-bold">07748727273 |</span>
+                <span className="text-white text-[18px] font-bold">01382 782663 |</span>
               </a>
             </div>
             {/* social media icons */}

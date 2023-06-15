@@ -2,6 +2,7 @@
 
 import {motion} from 'framer-motion';
 import Link from 'next/link';
+// import { useEffect, useState } from 'react';
 import styles from '../styles';
 import { slideIn, staggerContainer,fadeIn } from '../utils/motion';
 import { socials } from '../constants';
@@ -23,6 +24,24 @@ const Hero = () => {
     details: '3 Session Street, DD1 5DN, Dundee',
   };
 
+  // // store open days and times
+  // const [openDays, setOpenDays] = useState([]);
+  // const [openTimes, setOpenTimes] = useState([]);
+  // // get restaurant opening hours for the current day of week
+  // useEffect(() => {
+  //   const days = ['Tuesday','Thursday','Friday', 'Saturday'];
+  //   const today = new Date();
+  //   const dayOfWeek = days[today.getDay()];
+  //   const openHours = {
+  //     Tuesday: ['20:00', '02:30'],
+  //     Thursday: ['10:00', '02:30'],
+  //     Friday: ['20:00', '02:30'],
+  //     Saturday: ['20:00', '02:30'],
+  //   };
+  //   setOpenDays(days);
+  //   setOpenTimes(openHours[dayOfWeek]);
+  // }, []);
+
   return (
     <section className={`${styles.yPaddings} sm:pl-16 pl-6`} id="hero">
       <motion.div
@@ -33,6 +52,10 @@ const Hero = () => {
         className={`${styles.innerWidth} mx-auto flex flex-col`}
       >
         <motion.div variants={slideIn('left', 'tween', 0.2, 1)} className="flex flex-col gap-4">
+          {/* BAR . NIGHTCLUB . PRIVATE FUNCTIONS . */}
+          <div className="flex flex-col gap-2">
+            <h1 className="hero_description text-[18px] font-thin">BAR . NIGHTCLUB . PRIVATE FUNCTIONS</h1>
+          </div>
           <a href="https://goo.gl/maps/A6f372rpyHWAVSNeA">
             <div className="flex items-center gap-2 " title="Our Location">
               {locationDetails.icon}
@@ -76,7 +99,7 @@ const Hero = () => {
             <div className="w-full flex justify-end sm:-mt-[70px] -mt-[50px] pr-[40px] relative z-10">
               <div className="flex flex-col items-center gap-2">
                 <div className="flex flex-row items-center gap-2">
-                  <h1 className="text-white font-bold text-[18px]">Make a Booth Reservation</h1>
+                  <h1 className="text-white font-bold text-[18px] loc_underline-on-hover">Make a Booth Reservation</h1>
                   <div className="bg-secondary-green rounded-full w-[50px] h-[50px] flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

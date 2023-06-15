@@ -117,8 +117,10 @@
   width: 100%;
 }
 
-
-
+/* hero */
+.hero_description{
+  color: #f0d58b;
+}
 .gradient-03 {
   position: absolute;
   width: 404px;

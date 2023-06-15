@@ -119,12 +119,12 @@ export const navlink = [
     url: '/',
   },
   {
-    id: 'reservation',
+    id: 'guestlist',
     title: 'Join Guest List',
     url: '/reservation?type=Guestlist',
   },
   {
-    id: 'guest',
+    id: 'reservation',
     title: 'Make a Booth Reservation',
     url: '/reservation?type=Reservation',
   },

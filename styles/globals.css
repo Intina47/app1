@@ -52,18 +52,72 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .bg-secondary-green {
-  background-color: yellow;
-  border-color: greenyellow;
+  background-color: #f0d58b;
+  border-color: rgb(248, 21, 13);
 }
+.bg-secondary-drawer{
+  background-color: #f0d58b;
+  border-color: rgb(248, 21, 13);
+}
+/* .border-primary-green{
+  border-bottom: 2px solid yellow!important ;
+
+} */
 /* hover */
 .bg-secondary-green:hover {
-  background-color: #f5f5f5;
+  background-color: #f4e64b;
   color: #000;
 }
 #reservation{
   background-color: #f5f5f5;
   color: #000;
 }
+
+.underline-on-hover {
+  position: relative;
+}
+
+.underline-on-hover::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #f4e64b; /* Set your desired underline color */
+  background-image: linear-gradient(to right, yellow, rgb(31, 248, 27), yellow);
+  transition: width 0.3s ease-in-out;
+}
+
+.underline-on-hover:hover::before {
+  width: 100%;
+}
+
+.underline-on-hover:hover {
+  transform: scale(1.1);
+}
+/* location */
+.loc_underline-on-hover {
+  position: relative;
+}
+
+.loc_underline-on-hover::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #f4e64b; /* Set your desired underline color */
+  background-image: linear-gradient(to right, yellow, rgb(31, 248, 27), yellow);
+  transition: width 0.3s ease-in-out;
+}
+
+.loc_underline-on-hover:hover::before {
+  width: 100%;
+}
+
+
 
 .gradient-03 {
   position: absolute;

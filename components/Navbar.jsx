@@ -22,7 +22,7 @@ const Navbar = () => {
       key={nav.id}
       className={`font-poppins font-normal cursor-pointer text-[16px] ${
         active === nav.title ? 'text-white' : 'text-dimred'
-      } ${index === navlinks.length - 1 ? 'mr-10' : 'mr-10'}`}
+      } ${index === navlinks.length - 1 ? 'mr-10' : 'mr-10'} underline-on-hover`}
       onClick={nav.onClick ? nav.onClick : () => setActive(nav.title)}
     >
       {nav.onClick ? (
@@ -72,6 +72,7 @@ const Navbar = () => {
         toggle={toggle}
         closeIcon={closeIcon}
         menuIcon={menuIcon}
+        navlinks={navlinks}
         navlink={navlink}
         active={active}
         setActive={setActive}

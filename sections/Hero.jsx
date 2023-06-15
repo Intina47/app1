@@ -34,9 +34,9 @@ const Hero = () => {
       >
         <motion.div variants={slideIn('left', 'tween', 0.2, 1)} className="flex flex-col gap-4">
           <a href="https://goo.gl/maps/A6f372rpyHWAVSNeA">
-            <div className="flex items-center gap-2" title="Our Location">
+            <div className="flex items-center gap-2 " title="Our Location">
               {locationDetails.icon}
-              <h4 className="text-white text-[18px] font-bold">{locationDetails.details}</h4>
+              <h4 className="text-white text-[18px] font-bold loc_underline-on-hover">{locationDetails.details}</h4>
             </div>
           </a>
           {socials.map((social, index) => (
@@ -51,7 +51,7 @@ const Hero = () => {
           ))}
         </motion.div>
 
-        {/* company name */}
+        {/* name */}
         <div className="flex justify-center items-center flex-col relative z-10">
           <motion.img
             src="/afrobeats-logo2.png"

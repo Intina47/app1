@@ -8,7 +8,19 @@ import Drawer from './Drawer';
 const Navbar = () => {
   const [active, setActive] = useState('Home');
   const [toggle, setToggle] = useState(false);
-
+  const handleOurNightsClick = (e) => {
+    e.preventDefault();
+    const queryParams = new URLSearchParams(window.location.search);
+    const reservationType = queryParams.get('type');
+    if (reservationType === 'Guestlist') {
+      window.location.href = '/#ourNights'; // Redirect to the home page
+    } else {
+      const ourNightsSection = document.getElementById('ourNights');
+      if (ourNightsSection) {
+        ourNightsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
   const toggleDrawer = () => {
     setToggle(!toggle);
   };
@@ -28,16 +40,7 @@ const Navbar = () => {
       {nav.onClick ? (
         <a
           href={nav.id === 'contact-section' ? '/reservation?type=Guestlist#contact-section' : '/#ourNights'}
-          onClick={(e) => {
-      e.preventDefault();
-      const section = document.getElementById(nav.id);
-      if (section) {
-        window.scrollTo({
-          top: section.offsetTop,
-          behavior: 'smooth',
-        });
-      }
-    }}
+          onClick={handleOurNightsClick}
         >
           {nav.title}
         </a>

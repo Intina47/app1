@@ -6,6 +6,8 @@ import { useRouter } from 'next/router';
 import { bookingVariants } from '../utils/motion';
 
 const booking = () => {
+  const [placeholder, setPlaceholder] = useState('');
+  const [maxGuests, setMaxGuests] = useState(999);
   const router = useRouter();
   useEffect(() => {
     if (router.asPath.includes('#Contactus')) {
@@ -26,14 +28,22 @@ const booking = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === 'reservationType' && value === 'GuestList') {
+      setPlaceholder('You can add up to 3 people on the guestlist');
+      setMaxGuests(3);
+    } else if (name === 'reservationType' && value === 'Booth') {
+      setPlaceholder('');
+      setMaxGuests(30);
+    }
+    if (name === 'guests' && Number(value) > 30) {
+      setPlaceholder('Reduce the number of Guest Please!');
+      return;
+    }
+    if (name === 'guests' && Number(value) < 1){
+      setPlaceholder('You must add at least 1 Guest');
+      return;
+    }
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-
-    // if(name === "reservationType"){
-    //   const urlParams = new URLSearchParams(window.location.search);
-    //   const reservationType = urlParams.get('type');
-    //   setFormData((prevFormData) => ({ ...prevFormData, reservationType }));
-    //   console.log(reservationType);
-    // }
   };
 
   const handleSubmit = async (e) => {
@@ -46,7 +56,7 @@ const booking = () => {
         },
         body: JSON.stringify(formData),
       });
-      if (response.ok){
+      if (response.status === 200){
         const data = await response.json();
         console.log(data);
         // reset the form
@@ -60,14 +70,58 @@ const booking = () => {
           reservationType: '',
       });
       alert('Your reservation has been submitted successfully');
+    } else if (response.status === 442) {
+      alert('Please ensure you fill all the fields');
+      throw new Error(`${response}`);
     } else {
-      console.log('something went wrong', response.statusText);
+      alert('Something Went Wrong Please try again or Email us directly at\nafrobeatsdundee@gmail.com');
+      throw new Error(`Something Went Wrong ${response}`);
     }
   } catch (error){
     console.log('Error:', error);
   }
 };
 
+  //bookings are only available on tuesdays, fridays and saturdays
+  // const getMinDate = () => {
+  //   const today = new Date();
+  //   const day = today.getDay();
+  //   const date = today.getDate();
+  //   const month = today.getMonth() + 1;
+  //   const year = today.getFullYear();
+  //   const minDate = `${year}-${month < 10 ? `0${month}` : month}-${date < 10 ? `0${date}` : date}`;
+  //   if (day === 2 || day === 5 || day === 6){
+  //     return minDate;
+  //   } if (day === 0){
+  //     return `${year}-${month < 10 ? `0${month}` : month}-${date + 2 < 10 ? `0${date + 2}` : date + 2}`;
+  //   } if (day === 1){
+  //     return `${year}-${month < 10 ? `0${month}` : month}-${date + 1 < 10 ? `0${date + 1}` : date + 1}`;
+  //   } if (day === 3){
+  //     return `${year}-${month < 10 ? `0${month}` : month}-${date + 3 < 10 ? `0${date + 3}` : date + 3}`;
+  //   } if (day === 4){
+  //     return `${year}-${month < 10 ? `0${month}` : month}-${date + 2 < 10 ? `0${date + 2}` : date + 2}`;
+  //   }
+  // };
+
+  // const getMaxDate = () => {
+  //   const today = new Date();
+  //   const day = today.getDay();
+  //   const date = today.getDate();
+  //   const month = today.getMonth() + 1;
+  //   const year = today.getFullYear();
+  //   const maxDate = `${year + 1}-${month < 10 ? `0${month}` : month}-${date < 10 ? `0${date}` : date}`;
+  //   if (day === 2 || day === 5 || day === 6){
+  //     return maxDate;
+  //   } if (day === 0){
+  //     return `${year}-${month < 10 ? `0${month}` : month}-${date + 2 < 10 ? `0${date + 2}` : date + 2}`;
+  //   } if (day === 1){
+  //     return `${year}-${month < 10 ? `0${month}` : month}-${date + 2 < 10 ? `0${date + 1}` : date + 1}`;
+  //   } if (day === 3){
+  //     return `${year}-${month < 10 ? `0${month}` : month}-${date + 2 < 10 ? `0${date + 3}` : date + 3}`;
+  //   } if (day === 4){
+  //     return `${year}-${month < 10 ? `0${month}` : month}-${date + 2 < 10 ? `0${date + 7}` : date + 2}`;
+  //   }
+  // };
   return (
     <motion.div
       variants={bookingVariants}
@@ -149,6 +203,7 @@ const booking = () => {
               onChange={handleChange}
               className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
               required
+              placeholder="OPEN 20:00-2:30"
             />
           </div>
           <div className="flex flex-col mb-4">
@@ -163,6 +218,9 @@ const booking = () => {
               onChange={handleChange}
               className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
               required
+              max={maxGuests}
+              min={1}
+              placeholder={placeholder}
             />
           </div>
           <div className="flex flex-col mb-4">

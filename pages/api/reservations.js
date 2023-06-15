@@ -6,7 +6,11 @@ config();
 
 export default function handler(req, res){
     const {name, email, date, time,guests,specialRequest,reservationType} = req.body;
-    console.log(name, email, date, time,guests, specialRequest,reservationType);
+    // make sure all data has been given by the user
+    if (!name || !email || !date || !time || !guests || !reservationType){
+        console.log('Error Please Ensure you fill all the fields');
+        return res.status(422).json({error: 'Invalid input'});
+    }
 
     //send email to company
     const transporter = nodemailer.createTransport({
@@ -34,26 +38,28 @@ export default function handler(req, res){
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error){
-            console.log(error);
+            console.log(`Error sending reservation email: ${error}`);
+            res.status(500).json({error: 'Error sending reservation email'});
         } else {
             console.log(`Email sent: ${info.response}`);
+            res.status(200).json({message: 'Reservation sent successfully'});
         }
     });
+    // TODO send confirmation email as well?
+    // const mailOptions2 = {
+    //     from: process.env.COMPANY_EMAIL,
+    //     to: email,
+    //     subject: `${reservationType} Reservation Confirmation`,
+    //     text: `Dear ${name},\nThank you for making a reservation with us. We look forward to seeing you on ${date} at ${time}.`,
+    // };
 
-    const mailOptions2 = {
-        from: process.env.COMPANY_EMAIL,
-        to: email,
-        subject: `${reservationType} Reservation Confirmation`,
-        text: `Dear ${name},\nThank you for making a reservation with us. We look forward to seeing you on ${date} at ${time}.`,
-    };
+    // transporter.sendMail(mailOptions2, (error, info) => {
+    //     if (error){
+    //         console.log(error);
+    //     } else {
+    //         console.log(`Email sent: ${info.response}`);
+    //     }
+    // });
 
-    transporter.sendMail(mailOptions2, (error, info) => {
-        if (error){
-            console.log(error);
-        } else {
-            console.log(`Email sent: ${info.response}`);
-        }
-    });
-
-    res.status(200).json({message: 'success'});
+    // res.status(200).json({message: 'success'});
 }

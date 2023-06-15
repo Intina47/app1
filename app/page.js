@@ -5,7 +5,7 @@ import { Footer, Navbar } from '../components';
 import { About, Explore, GetStarted, Hero } from '../sections';
 
 const Page = () => (
-  <div className="bg-primary-black overflow-auto">
+  <div className="bg-primary-black overflow-hidden">
     <div className="relative z-10">
       <Navbar />
     </div>

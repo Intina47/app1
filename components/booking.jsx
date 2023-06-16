@@ -128,7 +128,16 @@ const booking = () => {
       className="bg-primary-black p-8 rounded-lg"
     >
       <div className="max-w-[400px] mx-auto sm:w-full">
-        <h1 className="text-white text-center font-bold text-[24px] mb-8">AFRO BEATS DUNDEE</h1>
+        <div className="alert alert-success">
+          <h1 className="text-white text-center font-bold text-[24px] mb-0">AFRO BEATS DUNDEE</h1>
+          {/* open days */}
+          <h2 className="hero_description text-center font-bold text-[18px] mb-0">OPEN DAYS</h2>
+          <h3 className="text-white text-center font-bold text-[18px] mb-0">TUESDAY, FRIDAY & SATURDAY</h3>
+          {/* open hours */}
+          <h2 className="hero_description text-center font-bold text-[18px] mb-0">OPEN HOURS</h2>
+          <h3 className="text-white text-center font-bold text-[18px] mb-7">20:00 - 2:30</h3>
+        </div>
+
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col mb-4">
             <label htmlFor="reservationType" className="text-white font-bold mb-2">

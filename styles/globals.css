@@ -128,8 +128,8 @@
   left: 20%;
   top: 5%;
 
-  background: rgba(149, 66, 232, 0.35);
-  filter: blur(175px);
+  background: linear-gradient(45deg, #f0d58b, rgba(111, 246, 87, 0.35));
+  filter: blur(195px);
   transform: rotate(-114.2deg);
 }
 

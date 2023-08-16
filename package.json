@@ -13,6 +13,7 @@
     "dotenv": "^16.1.4",
     "eslint-config-next": "13.0.3",
     "framer-motion": "^10.12.16",
+    "libphonenumber-js": "^1.10.41",
     "mongodb": "^5.7.0",
     "next": "13.0.3",
     "next-connect": "^1.0.0",

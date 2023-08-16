@@ -5,9 +5,9 @@ import { config } from 'dotenv';
 config();
 
 export default function handler(req, res){
-    const {name, email, date, time,guests,specialRequest,reservationType} = req.body;
+    const {name, email,phonenumber, date, time,guests,specialRequest,reservationType} = req.body;
     // make sure all data has been given by the user
-    if (!name || !email || !date || !time || !guests || !reservationType){
+    if (!name || !email || !phonenumber || !date || !time || !guests || !reservationType){
         console.log('Error Please Ensure you fill all the fields');
         return res.status(422).json({error: 'Invalid input'});
     }
@@ -29,6 +29,7 @@ export default function handler(req, res){
         RESERVATION TYPE: ${reservationType}
         Name: ${name}
         Email: ${email}
+        Phone Number: ${phonenumber}
         Date: ${date}
         Time: ${time}
         Guests: ${guests}

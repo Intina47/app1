@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+// import parsePhoneNumber from 'libphonenumber-js';
 import { bookingVariants } from '../utils/motion';
 
 const booking = () => {
@@ -19,6 +20,7 @@ const booking = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phonenumber: '',
     date: '',
     time: '',
     guests: '',
@@ -28,6 +30,15 @@ const booking = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // if (name === 'phonenumber') {
+    //   // Validate phone number
+    //   const isValidNumber = parsePhoneNumber(value, 'UK'); // Replace 'US' with the appropriate country code
+
+    //   if (!isValidNumber) {
+    //     setnumPlaceholder('Please enter a valid phone number');
+    //     return; // Exit early if the number is not valid
+    //   }
+    // }
     if (name === 'reservationType' && value === 'GuestList') {
       setPlaceholder('You can add up to 3 people on the guestlist');
       // setMaxGuests(5);
@@ -61,6 +72,7 @@ const booking = () => {
         setFormData({
           name: '',
           email: '',
+          phonenumber: '',
           date: '',
           time: '',
           guests: '',
@@ -168,6 +180,7 @@ const booking = () => {
               onChange={handleChange}
               className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
               required
+              placeholder="Enter your full Name"
             />
           </div>
           <div className="flex flex-col mb-4">
@@ -182,6 +195,23 @@ const booking = () => {
               onChange={handleChange}
               className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
               required
+              placeholder="Enter your Email"
+            />
+          </div>
+          {/* phone numner */}
+          <div className="flex flex-col mb-4">
+            <label htmlFor="phone_number" className="text-white font-bold mb-2">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              id="phonenumber"
+              name="phonenumber"
+              value={formData.phonenumber}
+              onChange={handleChange}
+              className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+              required
+              placeholder="07xxxxxxxxx"
             />
           </div>
           <div className="flex flex-col mb-4">
@@ -240,6 +270,7 @@ const booking = () => {
               value={formData.specialRequest}
               onChange={handleChange}
               className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+              placeholder="Enter any special request"
             />
 
           </div>

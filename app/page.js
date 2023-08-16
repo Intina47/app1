@@ -5,7 +5,7 @@ import { Footer, Navbar } from '../components';
 import { About, Explore, GetStarted, Hero } from '../sections';
 
 const Page = () => (
-  <div className="bg-primary-black overflow-hidden bg-black">
+  <div className="bg-black overflow-hidden">
     <div className="relative z-10 position-sticky">
       <Navbar />
     </div>

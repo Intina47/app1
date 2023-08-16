@@ -12,7 +12,7 @@ const Navbar = () => {
     setToggle(!toggle);
   };
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar sticky bg-black">
+    <nav className="w-full flex py-6 justify-between items-center navbar sticky bg-primary-black-[100]">
       <a href="/">
         <img src="/afrobeats-logo2.png" alt="AFRO BEATS" className="w-[140px] h-[50px] object-contain" />
       </a>

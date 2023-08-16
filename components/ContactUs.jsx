@@ -1,3 +1,4 @@
+/* eslint-disable no-promise-executor-return */
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { contactUsVariants } from '../utils/motion'; // You can define your motion variants

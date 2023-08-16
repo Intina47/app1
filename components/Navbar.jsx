@@ -8,19 +8,6 @@ import Drawer from './Drawer';
 const Navbar = () => {
   const [active, setActive] = useState('Home');
   const [toggle, setToggle] = useState(false);
-  const handleOurNightsClick = (e) => {
-    e.preventDefault();
-    const queryParams = new URLSearchParams(window.location.search);
-    const reservationType = queryParams.get('type');
-    if (reservationType === 'Guestlist') {
-      window.location.href = '/#ourNights'; // Redirect to the home page
-    } else {
-      const ourNightsSection = document.getElementById('ourNights');
-      if (ourNightsSection) {
-        ourNightsSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
   const toggleDrawer = () => {
     setToggle(!toggle);
   };

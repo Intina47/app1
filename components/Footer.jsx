@@ -1,3 +1,5 @@
+/* eslint-disable no-promise-executor-return */
+
 'use client';
 
 import {motion} from 'framer-motion';

@@ -1,3 +1,5 @@
+/* eslint-disable no-promise-executor-return */
+
 'use client';
 
 import { motion } from 'framer-motion';
@@ -7,6 +9,8 @@ import { useRouter } from 'next/router';
 import { bookingVariants } from '../utils/motion';
 
 const booking = () => {
+  const [sending, setSending] = useState(false);
+  const [booked, setbooked] = useState(false);
   const [placeholder, setPlaceholder] = useState('');
   // const [maxGuests, setMaxGuests] = useState(999);
   const router = useRouter();
@@ -58,6 +62,18 @@ const booking = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setSending(true); // Show loading state
+      setbooked(false);
+
+      // Simulate an asynchronous operation (e.g., subscribing)
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      setSending(false); // Hide loading state
+      setbooked(true); // Show subscribed state
+
+      // Reset subscribed state after a few seconds
+      setTimeout(() => setbooked(false), 5000);
+
       const response = await fetch('/api/reservations', {
         method: 'POST',
         headers: {
@@ -274,22 +290,32 @@ const booking = () => {
             />
 
           </div>
-
           <button
             type="submit"
-            className="bg-secondary-green flex items-center justify-center text-primary-black px-5 py-2 rounded-full"
+            className="bg-secondary-green flex justify-center items-center gap-2 text-primary-black px-5 py-2 rounded-full"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-              />
-
-            </svg>
-            <span className="font-bold text-[18px]">BOOK NOW</span>
+            {sending ? (
+              <>
+                <svg xmlns="http://www.w3.org/2000/svg" className="animate-spin h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                <span className="font-bold text-[18px]">Booking...</span>
+              </>
+          ) : booked ? (
+            <>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span className="font-bold text-[18px]">Booked!</span>
+            </>
+          ) : (
+            <>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+              <span className="font-bold text-[18px]">Book Now</span>
+            </>
+          )}
           </button>
         </form>
       </div>

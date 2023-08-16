@@ -1,9 +1,7 @@
-import React from "react";
+import React from 'react';
 
-const Booth = () => {
-    return (
-        <div>Book a Booth</div>
-    )
-}
+const Booth = () => (
+  <div>Book a Booth</div>
+    );
 
-export default Booth
+export default Booth;

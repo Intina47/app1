@@ -118,6 +118,14 @@
 }
 
 /* hero */
+@keyframes carouselSlide {
+  0% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
 .hero_description{
   color: #f0d58b;
 }

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { navlink, navlinks, menuIcon, closeIcon } from '../constants';
+import { navlink,boldnavlinks,boldnavlink, navlinks, menuIcon, closeIcon } from '../constants';
 import Drawer from './Drawer';
 
 const Navbar = () => {
@@ -25,36 +25,32 @@ const Navbar = () => {
     setToggle(!toggle);
   };
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar sticky">
-      <img src="/afrobeats-logo2.png" alt="AFO BEATS" className="w-[140px] h-[50px] object-contain" />
+    <nav className="w-full flex py-6 justify-between items-center navbar sticky bg-black">
+      <a href="/">
+        <img src="/afrobeats-logo2.png" alt="AFRO BEATS" className="w-[140px] h-[50px] object-contain" />
+      </a>
       <ul className="list-none sm:flex hidden justify-end items-center flex-1 text-white">
-        {
-  navlinks.map((nav, index) => (
-    <li
-      key={nav.id}
-      className={`font-poppins font-normal cursor-pointer text-[16px] ${
-        active === nav.title ? 'text-white' : 'text-dimred'
-      } ${index === navlinks.length - 1 ? 'mr-10' : 'mr-10'} underline-on-hover`}
-      onClick={nav.onClick ? nav.onClick : () => setActive(nav.title)}
-    >
-      {nav.onClick ? (
-        <a
-          href={nav.id === 'contact-section' ? '/reservation?type=Guestlist#contact-section' : '/#ourNights'}
-          onClick={handleOurNightsClick}
-        >
-          {nav.title}
-        </a>
-) : (
-  <Link href={nav.url}>{nav.title}</Link>
-)}
+        {navlinks.map((nav, index) => (
+          <li
+            key={nav.id}
+            className={`font-poppins font-normal cursor-pointer text-[16px] ${active === nav.title ? 'text-white' : 'text-dimred'} ${index === navlinks.length - 1 ? 'mr-10' : 'mr-10'} underline-on-hover`}
+            onClick={nav.onClick ? nav.onClick : () => setActive(nav.title)}
+          >
+            <Link href={nav.url}>{nav.title}</Link>
+          </li>
+))}
 
-    </li>
-  ))
-}
         <li>
-          <Link href={navlink[1].url}>
+          <Link href={boldnavlinks[0].url}>
             <div className="bg-secondary-green rounded-md py-2 px-4 mx-4 text-black font-bold cursor-pointer">
-              {navlink[1].title}
+              {boldnavlinks[0].title}
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link href={boldnavlinks[1].url}>
+            <div className="bg-secondary-green rounded-md py-2 px-4 mx-4 text-black font-bold cursor-pointer">
+              {boldnavlinks[1].title}
             </div>
           </Link>
         </li>
@@ -75,7 +71,7 @@ const Navbar = () => {
         toggle={toggle}
         closeIcon={closeIcon}
         menuIcon={menuIcon}
-        navlinks={navlinks}
+        boldnavlink={boldnavlink}
         navlink={navlink}
         active={active}
         setActive={setActive}

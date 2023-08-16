@@ -9,13 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "crypto": "^1.0.1",
     "dotenv": "^16.1.4",
     "eslint-config-next": "13.0.3",
     "framer-motion": "^10.12.16",
+    "mongodb": "^5.7.0",
     "next": "13.0.3",
+    "next-connect": "^1.0.0",
     "nodemailer": "^6.9.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "xss": "^1.0.14"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

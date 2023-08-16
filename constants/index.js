@@ -8,14 +8,6 @@ export const exploreMore = [
     url: '?type=TNTTuedaysReservation',
   },
   {
-    id: 'event-2',
-    imgUrl: '/event2.png',
-    title: 'THIRSTY Thursdays',
-    day: 'From 8:00 PM,Thursday',
-    time: '8:00 PM',
-    url: '?type=ThirstyThursdaysReservation',
-  },
-  {
     id: 'event-3',
     imgUrl: '/afro2.png',
     title: 'Urban Sound',
@@ -31,6 +23,28 @@ export const exploreMore = [
     time: '8:00 PM',
     url: '?type=GoodVibesReservation',
 
+  },
+];
+
+// FAQ questions
+export const faqs = [
+  {
+    question: 'How can I make a reservation?',
+    answer: 'You can make a reservation by filling out the booking form on this page.',
+  },
+  {
+    question: 'What are your operating hours?',
+    answer: 'We are open on Tuesdays, Fridays, and Saturdays from 8:00 PM to 2:30 AM.',
+  },
+  {
+    id: 'faq-2',
+    question: 'What is the age restriction?',
+    answer: '18+',
+  },
+  {
+    id: 'faq-3',
+    question: 'What is the entry fee?',
+    answer: 'Free before 10PM and then 7 pounds afterwards',
   },
 ];
 
@@ -84,6 +98,8 @@ export const arrowIcon = {
   name: 'arrow',
   Url: '/arrow.svg',
 };
+
+//desktop navbar
 export const navlinks = [
   {
     id: 'home',
@@ -93,31 +109,25 @@ export const navlinks = [
   {
     id: 'contact-section',
     title: 'Contact us',
-    onClick: () => {
-    const contactSection = document.getElementById('contact-section');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    url: '/contact-us',
   },
-  },
+  // {
+  //   id: 'ourNights',
+  //   title: 'ourNights',
+  //   onClick: () => {
+  //     const ourNightsSection = document.getElementById('ourNights');
+  //     if (ourNightsSection) {
+  //       ourNightsSection.scrollIntoView({ behavior: 'smooth' });
+  //     }
+  //   },
+  // },
   {
-    id: 'ourNights',
-    title: 'ourNights',
-    onClick: () => {
-      const ourNightsSection = document.getElementById('ourNights');
-      if (ourNightsSection) {
-        ourNightsSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    },
+    id: 'PrivateHire',
+    title: 'Private Hire',
+    url: '/reservation?type=Reservation',
   },
 ];
-
-export const navlink = [
-  {
-    id: 'home',
-    title: 'Home',
-    url: '/',
-  },
+export const boldnavlinks = [
   {
     id: 'guestlist',
     title: 'Join Guest List',
@@ -125,12 +135,48 @@ export const navlink = [
   },
   {
     id: 'reservation',
-    title: 'Make a Booth Reservation',
+    title: 'Book a booth',
     url: '/reservation?type=Reservation',
   },
+];
+
+// drawer
+export const navlink = [
   {
-    id: 'ourNights',
-    title: 'ourNights',
-    url: '#ourNights',
+    id: 'home',
+    title: 'Home',
+    url: '/',
+  },
+  {
+    id: 'contact-section',
+    title: 'Contact us',
+    url: '/contact-us',
+  },
+  // {
+  //   id: 'ourNights',
+  //   title: 'ourNights',
+  //   onClick: () => {
+  //     const ourNightsSection = document.getElementById('ourNights');
+  //     if (ourNightsSection) {
+  //       ourNightsSection.scrollIntoView({ behavior: 'smooth' });
+  //     }
+  //   },
+  // },
+  {
+    id: 'guestlist',
+    title: 'Join Guest List',
+    url: '/reservation?type=Guestlist',
+  },
+  {
+    id: 'reservation',
+    title: 'Book a booth',
+    url: '/reservation?type=Reservation',
+  },
+];
+export const boldnavlink = [
+  {
+    id: 'PrivateHire',
+    title: 'Private Hire',
+    url: '/reservation?type=Reservation',
   },
 ];

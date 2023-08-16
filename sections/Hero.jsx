@@ -3,11 +3,15 @@
 import {motion} from 'framer-motion';
 import Link from 'next/link';
 // import { useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import styles from '../styles';
 import { slideIn, staggerContainer,fadeIn } from '../utils/motion';
 import { socials } from '../constants';
+import '../styles/styles.css';
+import Card from '../components/promo_card';
 
 const Hero = () => {
+  const flag = 0; // Set the value of the flag to 0 or 1
   const handleScrollToAbout = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
@@ -24,26 +28,27 @@ const Hero = () => {
     details: '3 Session Street, DD1 5DN, Dundee',
   };
 
-  // // store open days and times
-  // const [openDays, setOpenDays] = useState([]);
-  // const [openTimes, setOpenTimes] = useState([]);
-  // // get restaurant opening hours for the current day of week
-  // useEffect(() => {
-  //   const days = ['Tuesday','Thursday','Friday', 'Saturday'];
-  //   const today = new Date();
-  //   const dayOfWeek = days[today.getDay()];
-  //   const openHours = {
-  //     Tuesday: ['20:00', '02:30'],
-  //     Thursday: ['10:00', '02:30'],
-  //     Friday: ['20:00', '02:30'],
-  //     Saturday: ['20:00', '02:30'],
-  //   };
-  //   setOpenDays(days);
-  //   setOpenTimes(openHours[dayOfWeek]);
-  // }, []);
+  const imagePaths = [
+    '/resbh1.png',
+    '/resbh2.png',
+  ];
+  const imageRef = useRef(null);
 
   return (
-    <section className={`${styles.yPaddings} sm:pl-16 pl-6`} id="hero">
+    <section
+      className={`${styles.yPaddings} sm:pl-16 pl-6 bg-black ${styles.heroSection}`}
+      id="hero"
+      ref={imageRef}
+    >
+      {imagePaths.map((path, index) => (
+        <div
+          key={index}
+          className="carouselImage relative"
+          style={{ backgroundImage: `url(${path})` }}
+        >
+          <div className="absolute inset-0 bg-black bg-opacity-50" />
+        </div>
+    ))}
       <motion.div
         variants={staggerContainer}
         initial="hidden"
@@ -54,7 +59,7 @@ const Hero = () => {
         <motion.div variants={slideIn('left', 'tween', 0.2, 1)} className="flex flex-col gap-4">
           {/* BAR . NIGHTCLUB . PRIVATE FUNCTIONS . */}
           <div className="flex flex-col gap-2">
-            <h1 className="hero_description text-[18px] font-thin">BAR . NIGHTCLUB . PRIVATE FUNCTIONS</h1>
+            <h1 className="hero_description text-[18px] font-thin p-2 rounded">BAR . NIGHTCLUB . PRIVATE FUNCTIONS</h1>
           </div>
           <a href="https://goo.gl/maps/A6f372rpyHWAVSNeA">
             <div className="flex items-center gap-2 " title="Our Location">
@@ -83,46 +88,72 @@ const Hero = () => {
           />
         </div>
 
-        <motion.div variants={slideIn('right', 'tween', 0.2, 1)} className="relative w-full md:-mt-[20px] -mt-[12px]">
-          <div className="absolute w-full h-[300px]  rounded-tl-[140px] z-[0] -top-[30px]" />
-          <video
-            src="/hero_Vid.mp4"
-            alt="hero"
-            className="w-full sm:h-[500px] h-[340px] object-cover rounded-tl-[40px] rounded-bl-[40px] z-10 relative"
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{ filter: 'blur(0px)', animationDuration: '5s' }} // Apply CSS styles for blur and animation duration
-          />
-          <Link href="/reservation?type=Reservation">
-            <div className="w-full flex justify-end sm:-mt-[70px] -mt-[50px] pr-[40px] relative z-10">
-              <div className="flex flex-col items-center gap-2">
-                <div className="flex flex-row items-center gap-2">
-                  <h1 className="text-white font-bold text-[18px] loc_underline-on-hover">Make a Booth Reservation</h1>
-                  <div className="bg-secondary-green rounded-full w-[50px] h-[50px] flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+        {flag === 0 ? (
+          // Render the cards here
+          <div className="flex flex-col z-10">
+            <h2 className="text-left text-lg text-white font-bold mb-2 bg-black bg-opacity-50 rounded-tl-[20px] rounded-tr-[20px] p-2 mb-0">Our Hottest Deals & Upcoming Events</h2>
+            <div className="flex overflow-x-scroll">
+              {/* Add your Card components here */}
+              <Card
+                image="/promotion-image-8.jpg"
+                title="BBC radio 1"
+                description="Short description of promotion 1."
+                buttonText="Don't Miss Out, Reserve Now"
+              />
+              <Card
+                image="/promotion-image-2.jpeg"
+                title="Promotion Title 2"
+                description="Short description of promotion 2."
+                buttonText="Don't Miss Out, Reserve Now"
+              />
+              <Card
+                image="/promotion-image-3.jpeg"
+                title="Promotion Title 1"
+                description="Short description of promotion 1."
+                buttonText="Don't Miss Out, Reserve Now"
+              />
+              <Card
+                image="/promotion-image-4.jpeg"
+                title="Promotion Title 2"
+                description="Short description of promotion 2."
+                buttonText="Don't Miss Out, Reserve Now"
+              />
+            </div>
+          </div>
+
+        ) : (
+          // Render the video here
+          <motion.div variants={slideIn('right', 'tween', 0.2, 1)} className="relative w-full md:-mt-[20px] -mt-[12px]">
+            <div className="absolute w-full h-[300px] rounded-tl-[140px] z-[0] -top-[30px]" />
+            <video
+              src="/hero_Vid.mp4"
+              alt="hero"
+              className="w-full sm:h-[500px] h-[340px] object-cover rounded-tl-[40px] rounded-bl-[40px] z-10 relative"
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{ filter: 'blur(0px)', animationDuration: '5s' }} // Apply CSS styles for blur and animation duration
+            />
+            <Link href="/reservation?type=Reservation">
+              <div className="w-full flex justify-end sm:-mt-[70px] -mt-[50px] pr-[40px] relative z-10">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="flex flex-row items-center gap-2">
+                    <h1 className="text-white font-bold text-[18px] loc_underline-on-hover">Make a Booth Reservation</h1>
+                    <div className="bg-secondary-green rounded-full w-[50px] h-[50px] flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        </motion.div>
-
-      </motion.div>
-
-      {/* arrow down */}
-      <motion.div variants={fadeIn(0.2, 1)} className="flex justify-center items-center mt-[50px]">
-        <a href="#about" onClick={handleScrollToAbout}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 animate-bounce text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </a>
+            </Link>
+          </motion.div>
+        )}
       </motion.div>
     </section>
-  );
+);
 };
 
 export default Hero;

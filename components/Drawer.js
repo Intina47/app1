@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Drawer = ({ toggle, navlinks,navlink, active, setActive }) => {
+const Drawer = ({ toggle, boldnavlink,navlink, active, setActive }) => {
   const handleOurNightsClick = (e) => {
     e.preventDefault();
     const queryParams = new URLSearchParams(window.location.search);
@@ -25,32 +25,23 @@ const Drawer = ({ toggle, navlinks,navlink, active, setActive }) => {
       {/* Drawer content */}
       <ul className="list-none flex justify-end mb-4 items-start flex-1 flex-col">
         {
-  navlinks.map((nav, index) => (
+  navlink.map((nav, index) => (
     <li
       key={nav.id}
       className={`font-poppins font-normal cursor-pointer text-[16px] ${
         active === nav.title ? 'text-white' : 'text-dimred'
-      } ${index === navlinks.length - 1 ? 'mb-8' : 'mb-4'} underline-on-hover`}
+      } ${index === navlink.length - 1 ? 'mb-8' : 'mb-4'} underline-on-hover`}
       onClick={nav.onClick ? nav.onClick : () => setActive(nav.title)}
     >
-      {nav.onClick ? (
-        <a
-          href={nav.id === 'contact-section' ? '/reservation?type=Guestlist#contact-section' : '/#ourNights'}
-          onClick={handleOurNightsClick}
-        >
-          {nav.title}
-        </a>
-) : (
-  <Link href={nav.url}>{nav.title}</Link>
-)}
+      <Link href={nav.url}>{nav.title}</Link>
 
     </li>
   ))
 }
         <li>
-          <Link href={navlink[1].url}>
-            <div className="bg-black rounded-md py-3 px-4 mx-4 mb-4 pl-6 -mt-4px text-white font-bold cursor-pointer">
-              {navlink[1].title}
+          <Link href={boldnavlink[0].url}>
+            <div className="bg-black rounded-full py-3 px-4 mx-0 mb-4 pl-6 -mt-4px text-white font-bold cursor-pointer w-full">
+              {boldnavlink[0].title}
             </div>
           </Link>
         </li>

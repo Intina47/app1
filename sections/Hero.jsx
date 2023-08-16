@@ -5,19 +5,13 @@ import Link from 'next/link';
 // import { useEffect, useState } from 'react';
 import React, { useRef } from 'react';
 import styles from '../styles';
-import { slideIn, staggerContainer,fadeIn } from '../utils/motion';
+import { slideIn, staggerContainer } from '../utils/motion';
 import { socials } from '../constants';
 import '../styles/styles.css';
 import Card from '../components/promo_card';
 
 const Hero = () => {
   const flag = 0; // Set the value of the flag to 0 or 1
-  const handleScrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
   const locationDetails = {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-yellow" viewBox="0 0 20 20" fill="yellow">
@@ -97,25 +91,25 @@ const Hero = () => {
               <Card
                 image="/promotion-image-8.jpg"
                 title="BBC radio 1"
-                description="Short description of promotion 1."
+                description="Kenny Allstar (BBC Radio 1) Live at Afrobeats"
                 buttonText="Don't Miss Out, Reserve Now"
               />
               <Card
-                image="/promotion-image-2.jpeg"
-                title="Promotion Title 2"
-                description="Short description of promotion 2."
+                image="/promotion-image-5.jpeg"
+                title="Promotion Title"
+                description="Short descrition of this promotion eg Date and more"
                 buttonText="Don't Miss Out, Reserve Now"
               />
               <Card
                 image="/promotion-image-3.jpeg"
                 title="Promotion Title 1"
-                description="Short description of promotion 1."
+                description="Short descrition of this promotion eg Date and more"
                 buttonText="Don't Miss Out, Reserve Now"
               />
               <Card
                 image="/promotion-image-4.jpeg"
                 title="Promotion Title 2"
-                description="Short description of promotion 2."
+                description="Short descrition of this promotion eg Date and more"
                 buttonText="Don't Miss Out, Reserve Now"
               />
             </div>

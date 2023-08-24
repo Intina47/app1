@@ -1,5 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { useRef, useEffect } from 'react';
+import { menu,closeblackIcon } from '../constants';
 import '../styles/styles.css';
 
 const OurMenuPopup = ({ onClose }) => {
@@ -20,15 +21,13 @@ const OurMenuPopup = ({ onClose }) => {
   }, [onClose]);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div ref={popupRef} className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full overflow-y-auto">
-        <h2 className="text-xl font-semibold mb-4">Our Menu</h2>
-        {/* Menu image */}
-        <img src="/cocktail_menu.png" alt="Menu" className="w-full h-auto mb-4" />
-        <button className="close-button" onClick={onClose}>
-          Close
-        </button>
-      </div>
+    <div ref={popupRef} className="bg-white bg-opacity-30 backdrop-blur-md p-6 rounded-lg shadow-lg w-full overflow-y-hidden mx-4 md:mx-auto md:max-w-md">
+      <h2 className="text-xl font-semibold mb-4">Our Menu</h2>
+      <img src={menu[0].url} alt="Menu" className="w-full h-auto mb-4 rounded-lg" />
+      <button className="close-button bg-secondary-green rounded-full p-1 flex items-center space-x-2 p-2 flex items-center" onClick={onClose}>
+        <img src={closeblackIcon.Url} alt="close" className="w-6 h-6 object-contain text-black" />
+        <span className="text-black">Close</span>
+      </button>
     </div>
   );
 };

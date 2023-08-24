@@ -45,15 +45,15 @@ const Page = () => {
       <Footer />
       {/* Floating button when clicked show the menu */}
       <div className="floating-button">
-        <button className="menu-float-button" onClick={togglePopup}>
+        <button className="menu-float-button" onClick={(event) => togglePopup(event)}>
           <img src={chevron.Url} alt={chevron.name} className="menu-icon" />
           <span className="menu-icon">OUR MENU</span>
         </button>
       </div>
       {/* Only show the popup if the showPopup state is true */}
       {showPopup && (
-        <div className="popup-overlay">
-          <OurMenuPopup onClose={togglePopup} />
+        <div className="popup-overlay ">
+          <OurMenuPopup onClose={(event) => togglePopup(event)} />
         </div>
       )}
     </div>

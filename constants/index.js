@@ -53,6 +53,22 @@ export const promotions = [
   },
 ];
 
+// menu
+export const menu = [
+  {
+    id: 'menu-1',
+    title: 'Cocktails',
+    description: 'Cocktails',
+    url: '/cocktail_menu.png',
+  },
+  {
+    id: 'menu-2',
+    title: 'Bottle Menu',
+    description: 'Bottle Menu',
+    url: '/cocktail_menu.png',
+  },
+];
+
 // FAQ questions
 export const faqs = [
   {
@@ -120,6 +136,10 @@ export const menuIcon = {
 export const closeIcon = {
   name: 'close',
   Url: '/close.svg',
+};
+export const closeblackIcon = {
+  name: 'close',
+  Url: '/closeblack.svg',
 };
 export const arrowIcon = {
   name: 'arrow',

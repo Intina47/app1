@@ -2,11 +2,10 @@
 
 import {motion} from 'framer-motion';
 import Link from 'next/link';
-// import { useEffect, useState } from 'react';
 import React, { useRef } from 'react';
 import styles from '../styles';
 import { slideIn, staggerContainer } from '../utils/motion';
-import { socials } from '../constants';
+import { socials,promotions } from '../constants';
 import '../styles/styles.css';
 import Card from '../components/promo_card';
 
@@ -88,30 +87,15 @@ const Hero = () => {
             <h2 className="text-left text-lg text-white font-bold mb-2 bg-black bg-opacity-50 rounded-tl-[20px] rounded-tr-[20px] p-2 mb-0">Our Hottest Deals & Upcoming Events</h2>
             <div className="flex overflow-x-scroll">
               {/* Add your Card components here */}
-              <Card
-                image="/promotion-image-8.jpg"
-                title="BBC radio 1"
-                description="Kenny Allstar (BBC Radio 1) Live at Afrobeats"
-                buttonText="Don't Miss Out, Reserve Now"
-              />
-              <Card
-                image="/promotion-image-5.jpeg"
-                title="Promotion Title"
-                description="Short descrition of this promotion eg Date and more"
-                buttonText="Don't Miss Out, Reserve Now"
-              />
-              <Card
-                image="/promotion-image-3.jpeg"
-                title="Promotion Title 1"
-                description="Short descrition of this promotion eg Date and more"
-                buttonText="Don't Miss Out, Reserve Now"
-              />
-              <Card
-                image="/promotion-image-4.jpeg"
-                title="Promotion Title 2"
-                description="Short descrition of this promotion eg Date and more"
-                buttonText="Don't Miss Out, Reserve Now"
-              />
+              {promotions.map((promo, index) => (
+                <Card
+                  key={index}
+                  title={promo.title}
+                  description={promo.description}
+                  image={promo.image}
+                  link={promo.link}
+                />
+              ))}
             </div>
           </div>
 

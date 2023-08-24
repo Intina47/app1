@@ -26,6 +26,33 @@ export const exploreMore = [
   },
 ];
 
+export const promotions = [
+{
+  image: '/promotion-image-8.jpg',
+  title: 'BBC radio 1',
+  description: 'Kenny Allstar (BBC Radio 1) Live at Afrobeats',
+  buttonText: "Don't Miss Out, Reserve Now",
+},
+{
+  image: '/bottle_service.jpg',
+  title: '🪩BOTTLE SERVICE🪩',
+  description: 'available every weekend.join us Saturday night for the best vibes in dundee🎧',
+  buttonText: "Don't Miss Out, Reserve No",
+},
+{
+  image: '/event1.jpg',
+  title: 'Ian Van Dahl Live Set',
+  description: 'Ian Van Dahl is back to AfroBeats Dundee this September for a Live Set',
+  buttonText: "Don't Miss Out, Reserve No",
+},
+{
+  image: '/event2.jpg',
+  title: 'PFriday Night Party',
+  description: 'Grab your mates, secure your tickets and come down the Basement for a special night of dancing and arm raising.',
+  buttonText: "Don't Miss Out, Reserve No",
+  },
+];
+
 // FAQ questions
 export const faqs = [
   {

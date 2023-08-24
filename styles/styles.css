@@ -43,3 +43,18 @@
   .carouselImage:nth-child(6) {
     left: calc(500% + 100px);
   }
+
+  /* POP UP MENU */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black color */
+    z-index: 1000; /* Make sure the overlay is on top of other elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

@@ -9,7 +9,7 @@ module.exports = {
   mode: 'jit',
   theme: {
     fontFamily: {
-      'afrobeats': ['afrobeats', 'serif']
+      afrobeats: ['afrobeats', 'serif'],
     },
     extend: {
       colors: {

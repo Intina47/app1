@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React, { useRef, useEffect } from 'react';
 import '../styles/styles.css';
 

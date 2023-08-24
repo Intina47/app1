@@ -1,22 +1,29 @@
+/* eslint-disable react/button-has-type */
+
 'use client';
 
-import React, {useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Footer, Navbar } from '../components';
 import { About, Explore, GetStarted, Hero } from '../sections';
-import OurMenuPopup from '../components/menuPopup'; // Import the popup component
+import OurMenuPopup from '../components/menuPopup';
+import '../styles/styles.css';
+import { chevron } from '../constants';
 
 const Page = () => {
- const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = (event) => {
+    event.stopPropagation();
+    setShowPopup(!showPopup);
+  };
+
   useEffect(() => {
     const hasVisitedBefore = localStorage.getItem('hasVisited');
-    if (hasVisitedBefore) {
+    if (!hasVisitedBefore) {
       setShowPopup(true);
       localStorage.setItem('hasVisited', 'true');
     }
   }, []);
-  const togglePopup = () => {
-    setShowPopup(!showPopup);
-  };
 
   return (
     <div className="bg-black overflow-hidden">
@@ -24,7 +31,7 @@ const Page = () => {
         <Navbar />
       </div>
       <div className="relative z-0">
-        <Hero togglePopup={togglePopup} />
+        <Hero />
       </div>
       <div className="relative z-0">
         <About />
@@ -36,9 +43,19 @@ const Page = () => {
         <div className="gradient-04 z-0" />
       </div>
       <Footer />
-      <div className="popup-overlay" style={{ display: showPopup ? 'block' : 'none' }}>
-        <OurMenuPopup onClose={togglePopup} />
+      {/* Floating button when clicked show the menu */}
+      <div className="floating-button">
+        <button className="menu-float-button" onClick={togglePopup}>
+          <img src={chevron.Url} alt={chevron.name} className="menu-icon" />
+          <span className="menu-icon">OUR MENU</span>
+        </button>
       </div>
+      {/* Only show the popup if the showPopup state is true */}
+      {showPopup && (
+        <div className="popup-overlay">
+          <OurMenuPopup onClose={togglePopup} />
+        </div>
+      )}
     </div>
   );
 };

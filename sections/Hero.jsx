@@ -90,10 +90,11 @@ const Hero = () => {
               {promotions.map((promo, index) => (
                 <Card
                   key={index}
+                  image={promo.image}
                   title={promo.title}
                   description={promo.description}
-                  image={promo.image}
                   link={promo.link}
+                  buttonText={promo.buttonText}
                 />
               ))}
             </div>

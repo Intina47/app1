@@ -288,7 +288,6 @@ const booking = () => {
               className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
               placeholder="Enter any special request"
             />
-
           </div>
           <button
             type="submit"

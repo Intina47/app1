@@ -48,7 +48,7 @@ export const promotions = [
 {
   image: '/event2.jpg',
   title: 'PFriday Night Party',
-  description: 'Grab your mates, secure your tickets and come down the Basement for a special night of dancing and arm raising.',
+  description: 'Grab your mates, secure your tickets and come down the Basement...',
   buttonText: 'Don\'t Miss Out, Reserve Now',
   },
 ];

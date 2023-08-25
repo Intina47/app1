@@ -1,3 +1,4 @@
+// our Nights section
 export const exploreMore = [
   {
     id: 'event-1',
@@ -25,7 +26,7 @@ export const exploreMore = [
 
   },
 ];
-
+// promotions section hero section
 export const promotions = [
 {
   image: '/promotion-image-8.jpg',
@@ -53,7 +54,7 @@ export const promotions = [
   },
 ];
 
-// menu
+// Our menu pop Up
 export const menu = [
   {
     id: 'menu-1',
@@ -72,8 +73,16 @@ export const menu = [
 // FAQ questions
 export const faqs = [
   {
+    question: 'Do you Do private events',
+    answer: 'yes, give us a call on 01382 782663 or just fill in the form on this website',
+  },
+  {
     question: 'How can I make a reservation?',
-    answer: 'You can make a reservation by filling out the booking form on this page.',
+    answer: 'You can make a reservation by filling out the booking form on this page or even better give us a call on 01382 782663.',
+  },
+  {
+    question: 'How many people can i add to guest list',
+    answer: '2',
   },
   {
     question: 'What are your operating hours?',
@@ -84,36 +93,6 @@ export const faqs = [
     question: 'What is the age restriction?',
     answer: '18+',
   },
-  {
-    id: 'faq-3',
-    question: 'What is the entry fee?',
-    answer: 'Free before 10PM and then 7 pounds afterwards',
-  },
-];
-
-export const startingFeatures = [
-  'Find a world that suits you and you want to enter',
-  'Enter the world by reading basmalah to be safe',
-  'No need to beat around the bush, just stay on the gas and have fun',
-];
-
-export const newFeatures = [
-  {
-    imgUrl: '/vrpano.svg',
-    title: 'A new world',
-    subtitle:
-        'we have the latest update with new world for you to try never mind',
-  },
-  {
-    imgUrl: '/headset.svg',
-    title: 'More realistic',
-    subtitle:
-        'In the latest update, your eyes are narrow, making the world more realistic than ever',
-  },
-];
-
-export const insights = [
-
 ];
 
 export const socials = [

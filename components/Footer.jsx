@@ -192,7 +192,8 @@ const Footer = () => {
             </div>
           </div>
           <p className="font-normal text-[14px] text-white opacity-50">
-            © 2023 Afro beats. All rights reserved.
+            © 2023 Afro beats. All rights reserved. | privacy policy
+            <br />
             <span className="flex items-center gap-1">
               | Dev:
               <Link href="https://github.com/Intina47" target="_blank">

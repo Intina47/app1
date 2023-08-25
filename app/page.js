@@ -8,6 +8,7 @@ import { About, Explore, GetStarted, Hero } from '../sections';
 import OurMenuPopup from '../components/menuPopup';
 import '../styles/styles.css';
 import { chevron } from '../constants';
+import Gallery from '../components/gallery';
 
 const Page = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -41,6 +42,10 @@ const Page = () => {
       <div className="relative">
         <GetStarted />
         <div className="gradient-04 z-0" />
+      </div>
+      <div className="relative">
+        <Gallery />
+        <div className="gradient-05 z-0" />
       </div>
       <Footer />
       {/* Floating button when clicked show the menu */}

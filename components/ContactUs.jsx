@@ -39,7 +39,14 @@ const ContactUs = () => {
       setPlaceholder('Please enter your message');
       return;
     }
+
     try {
+      // Show loading state
+    setSending(true);
+    setSent(false);
+    // Simulate an asynchronous operation (e.g., sending message)
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
       const response = await fetch('/api/feedbackapi', {
         method: 'POST',
         headers: {
@@ -48,19 +55,12 @@ const ContactUs = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-    // Show loading state
-    setSending(true);
-    setSent(false);
-
-    // Simulate an asynchronous operation (e.g., sending message)
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
     // Show sent state
     setSending(false);
     setSent(true);
-
     // Reset sent state after a few seconds
     setTimeout(() => setSent(false), 5000);
+
         const data = await response.json();
         console.log(data);
         // reset the form
@@ -70,6 +70,8 @@ const ContactUs = () => {
           message: '',
         });
       } else {
+        setSending(false);
+        alert('Something Went Wrong Please try again or Email us directly at\nafrobeatsdundee@gmail.com');
         console.log('something went wrong', response.statusText);
       }
     } catch (error) {

@@ -82,7 +82,7 @@ export const faqs = [
   },
   {
     question: 'How many people can i add to guest list',
-    answer: '2',
+    answer: 'We\'re thrilled to have you considering our event. To make sure we prepare everything perfectly for you and your guests, could you kindly let us know the number of people you\'re planning to add to the guest list? Your special occasion matters to us, and we\'re here to create an unforgettable experience for you and your party.',
   },
   {
     question: 'What are your operating hours?',
@@ -105,6 +105,11 @@ export const socials = [
     name: 'facebook',
     url: '/facebook.svg',
     link: 'https://www.facebook.com/afrobreatsdundee',
+  },
+  {
+    name: 'snapchat',
+    url: '/snapchat.svg',
+    link: 'https://www.snapchat.com/add/afrobeatsdundee',
   },
 ];
 

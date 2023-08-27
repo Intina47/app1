@@ -25,14 +25,14 @@ const Navbar = () => {
       <ul className="list-none sm:flex hidden justify-end items-center flex-1 text-white">
         <li>
           <Link href={boldnavlinks[0].url}>
-            <div className="bg-secondary-green rounded-md py-2 px-4 mx-4 text-black font-bold cursor-pointer">
+            <div className="bg-gradient-to-r rounded-md py-2 px-4 mx-4 text-black font-bold cursor-pointer font-bold text-xl transform hover:scale-105 transition duration-300 relative overflow-hidden">
               {boldnavlinks[0].title}
             </div>
           </Link>
         </li>
         <li>
           <Link href={boldnavlinks[1].url}>
-            <div className="bg-secondary-green rounded-md py-2 px-4 mx-4 text-black font-bold cursor-pointer">
+            <div className="bg-gradient-to-r rounded-md py-2 px-4 mx-4 text-black font-bold cursor-pointer font-bold text-xl transform hover:scale-105 transition duration-300 relative overflow-hidden">
               {boldnavlinks[1].title}
             </div>
           </Link>
@@ -42,7 +42,7 @@ const Navbar = () => {
           <img
             src={menuIcon.Url}
             alt="menu"
-            className="w-[28px] h-[28px] object-contain text-white mr-10 z-40 cursor-pointer"
+            className="w-[28px] h-[28px] object-contain text-white mr-10 z-40 cursor-pointer font-bold text-xl transform hover:scale-105 transition duration-300 relative overflow-hidden"
             onClick={toggleDrawer}
             style={{ fill: 'white' }}
           />

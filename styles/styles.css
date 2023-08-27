@@ -1,5 +1,6 @@
 :root {
   --menu-bg-color: #ffffff; /* Default color */
+  --gradient-colors: yellow, rgb(31, 248, 27), yellow;
 }
 @keyframes slide {
     0% {
@@ -55,7 +56,7 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black color */
-    z-index: 1000; /* Make sure the overlay is on top of other elements */
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,8 +65,8 @@
   /* Floating Button */
 .floating-button {
   position: fixed;
-  bottom: 20px; /* Adjust the distance from the bottom as needed */
-  right: 20px; /* Adjust the distance from the right as needed */
+  bottom: 20px;
+  right: 20px;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
 }
@@ -104,8 +105,7 @@
   max-height: 90%;
   object-fit: contain;
 }
-/* Add these styles to your existing CSS */
-/* Add these styles to your existing CSS */
+
 .close-icon {
   position: absolute;
   top: -20px;
@@ -123,6 +123,21 @@
 .close-icon svg {
   fill: white;
 }
+/* footer */
 
+.bg-gradient-to-r {
+  animation: colorChange 5s infinite alternate;
+}
 
+.bg-gradient-to-radial {
+  animation: gradientExpand 1s forwards;
+}
 
+@keyframes colorChange {
+  0%, 100% {
+    background: linear-gradient(to right, var(--gradient-colors));
+  }
+  50% {
+    background: linear-gradient(to right, yellow, rgb(31, 248, 27), yellow);
+  }
+}

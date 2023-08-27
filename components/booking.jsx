@@ -37,7 +37,7 @@ const booking = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === 'reservationType' && value === 'GuestList') {
-      setPlaceholder('You can add up to 3 people on the guestlist');
+      setPlaceholder('– no limits here! 😉');
       // setMaxGuests(5);
     } else if (name === 'reservationType' && value === 'Booth') {
       setPlaceholder('');
@@ -134,8 +134,10 @@ const booking = () => {
                   required
                 >
                   <option value="">Select Reservation Type</option>
-                  <option value="GuestList">Guest List</option>
-                  <option value="Booth">Booth Reservation</option>
+                  <option value="Private Event">Private Event</option>
+                  <option value="Guest List">Guest List</option>
+                  <option value="Booth Reservation">Booth Reservation</option>
+                  <option value="VIP Reservation">VIP Reservation</option>
                 </select>
               </div>
               <div className="flex flex-col mb-4">
@@ -196,6 +198,8 @@ const booking = () => {
                   onChange={handleChange}
                   className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
                   required
+                  // min is the current date
+                  min={new Date().toISOString().split('T')[0]}
                 />
               </div>
               <div className="flex flex-col mb-4">
@@ -226,7 +230,6 @@ const booking = () => {
                   className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
                   required
                   min={1}
-                  max={10}
                   placeholder={placeholder}
                 />
               </div>

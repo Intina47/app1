@@ -8,7 +8,7 @@ import { About, Explore, GetStarted, Hero } from '../sections';
 import OurMenuPopup from '../components/menuPopup';
 import '../styles/styles.css';
 import { chevron } from '../constants';
-import Gallery from '../components/gallery';
+import Map from '../components/map';
 
 const Page = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -44,7 +44,7 @@ const Page = () => {
         <div className="gradient-04 z-0" />
       </div>
       <div className="relative">
-        <Gallery />
+        <Map />
         <div className="gradient-05 z-0" />
       </div>
       <Footer />

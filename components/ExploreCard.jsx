@@ -1,3 +1,5 @@
+// explore our Event
+
 'use client';
 
 import { motion } from 'framer-motion';

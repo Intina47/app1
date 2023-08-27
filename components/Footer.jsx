@@ -8,6 +8,7 @@ import { useState } from 'react';
 import styles from '../styles';
 import { footerVariants} from '../utils/motion';
 import { socials } from '../constants';
+import '../styles/styles.css';
 
 const Footer = () => {
   const [Nameplaceholder, setnamePlaceholder] = useState('Enter your full name');
@@ -44,11 +45,11 @@ const Footer = () => {
       // Simulate an asynchronous operation (e.g., subscribing)
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      setSending(false); // Hide loading state
-      setSubscribed(true); // Show subscribed state
+      // setSending(false); // Hide loading state
+      // setSubscribed(true); // Show subscribed state
 
       // Reset subscribed state after a few seconds
-      setTimeout(() => setSubscribed(false), 5000);
+      // setTimeout(() => setSubscribed(false), 5000);
 
       const response = await fetch('/api/mailingList', {
         method: 'POST',
@@ -60,6 +61,10 @@ const Footer = () => {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
+
+        setSending(false);
+        setSubscribed(true);
+        setTimeout(() => setSubscribed(false), 5000);
         // reset the form
         setFormData({
           name: '',
@@ -67,6 +72,8 @@ const Footer = () => {
           dob: '',
         });
       } else {
+        setSending(false);
+        alert('sorry something went wrong if the problem persist please email us on afrobeatdundee@gmail.com');
         console.log('something went wrong', response.statusText);
       }
     } catch (error) {
@@ -82,8 +89,8 @@ const Footer = () => {
     >
       <div className="footer-gradient" />
       <div className={`${styles.innerWidth} mx-auto flex flex-col gap-8`}>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4" id="contact-section">
-          <h2 className="text-white text-center font-bold text-[24px]">Subscribe to Our Newsletter</h2>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-6 rounded-lg bg-gray-900">
+          <h2 className="text-white text-center font-bold text-3xl">Be Our VIP: Get Exclusive Updates & Offers</h2>
           <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
             <div className="flex-grow w-full">
               <label htmlFor="name" className="text-white text-[18px] font-bold">
@@ -127,13 +134,14 @@ const Footer = () => {
                 onChange={handleChange}
                 className="flex bg-transparent border-2 border-primary-green rounded-lg text-white text-[18px] font-bold p-3 md:p-5 w-full md:w-auto"
                 required
-                // min="09/30/1975"
+                // min is the 18 years old
+                min="1900-01-01"
               />
             </div>
           </div>
           <button
             type="submit"
-            className="bg-secondary-green flex justify-center items-center gap-2 text-primary-black px-5 py-2 rounded-full"
+            className="bg-gradient-to-r from-primary-green via-secondary-yellow to-primary-red flex justify-center items-center gap-2 text-primary-black px-5 py-3 rounded-full font-bold text-xl transform hover:scale-105 transition duration-300 relative overflow-hidden"
           >
             {sending ? (
               <>
@@ -157,6 +165,7 @@ const Footer = () => {
               <span className="font-bold text-[18px]">Get Exclusive Deals</span>
             </>
           )}
+            <div className="absolute inset-0 transition-all transform -scale-0 bg-gradient-to-radial from-secondary-yellow via-primary-red to-primary-green opacity-0 group-hover:opacity-100" />
           </button>
         </form>
       </div>

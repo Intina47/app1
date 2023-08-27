@@ -31,8 +31,8 @@ const Map = () => (
       <h3 className="text-white text-xl font-bold mb-2">Contact Information</h3>
       <p className="text-gray-400">
         <span className="font-semibold">Address:</span> 3 Session Street, DD1 5DN, Dundee<br />
-        <span className="font-semibold">Tel:</span> <a href="tel:+447944 444 444" className="text-primary-green">01382 782663</a><br />
-        <span className="font-semibold">Email:</span> <a href="mailto:info@nightclub.com" className="text-primary-green">afrobeatsdundee@gmail.com</a>
+        <span className="font-semibold">Tel:</span> <a href="tel:01382 782663" className="text-primary-green">01382 782663</a><br />
+        <span className="font-semibold">Email:</span> <a href="mailto:afrobeatsdundee@gmail.com" className="text-primary-green">afrobeatsdundee@gmail.com</a>
       </p>
 
       <div className="mt-4">

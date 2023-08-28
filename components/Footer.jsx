@@ -173,7 +173,7 @@ const Footer = () => {
       <div className="flex flex-col">
         <div className="mb-[50px] h-[2px] bg-white opacity-10" />
         <div className="flex items-center justify-between flex-wrap gap-4">
-          <div className="flex gap-4">
+          <div className="flex flex-col gap-4 md:flex-row md:gap-8">
             {/* tel */}
             <div className="flex items-center gap-2">
               <p>
@@ -201,7 +201,7 @@ const Footer = () => {
             </div>
           </div>
           <p className="font-normal text-[14px] text-white opacity-50">
-            © 2023 Afro beats. All rights reserved. | privacy policy
+            © 2023 Afro beats. All rights reserved.
             <br />
             <span className="flex items-center gap-1">
               | Dev:

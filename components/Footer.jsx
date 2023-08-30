@@ -9,12 +9,14 @@ import styles from '../styles';
 import { footerVariants} from '../utils/motion';
 import { socials } from '../constants';
 import '../styles/styles.css';
+import { calculateAge, isUserOldEnough } from '../utils/dateUtils';
 
 const Footer = () => {
   const [Nameplaceholder, setnamePlaceholder] = useState('Enter your full name');
   const [Emailplaceholder, setemailPlaceholder] = useState('Enter your email');
   const [sending, setSending] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
+  const [isUnder18, setIsUnder18] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,11 +25,19 @@ const Footer = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === 'dob') {
+      const age = calculateAge(value);
+      setIsUnder18(age < 18);
+    }
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!isUserOldEnough(formData.dob)) {
+      alert('Sorry! You must be 18 years old or older to submit this form.');
+      return;
+    }
     // check if message is empty
     if (formData.name.trim() === '') {
       setnamePlaceholder('Please enter your name');
@@ -71,10 +81,15 @@ const Footer = () => {
           email: '',
           dob: '',
         });
+      } else if (response.status === 400) {
+        setSending(false);
+        const errorData = await response.json();
+        if (errorData.error === 'Invalid-email-format'){
+          alert('Sorry! You entered an invalid Email');
+        }
       } else {
         setSending(false);
-        alert('sorry something went wrong if the problem persist please email us on afrobeatdundee@gmail.com');
-        console.log('something went wrong', response.statusText);
+        alert('Something Went Wrong Please try again or Email us directly at\nafrobeatsdundee@gmail.com');
       }
     } catch (error) {
       console.log('Error:', error);
@@ -132,11 +147,16 @@ const Footer = () => {
                 name="dob"
                 value={formData.dob}
                 onChange={handleChange}
-                className="flex bg-transparent border-2 border-primary-green rounded-lg text-white text-[18px] font-bold p-3 md:p-5 w-full md:w-auto"
+                // className="flex bg-transparent border-2 border-primary-green rounded-lg text-white text-[18px] font-bold p-3 md:p-5 w-full md:w-auto"
+                onBlur={handleChange} // Add onBlur event handler
+                className={`bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2 p-3 md:p-5 w-full md:w-auto${
+            isUnder18 ? 'border-red-500' : '' // Apply red border if under 18
+          }`}
                 required
-                // min is the 18 years old
-                min="1900-01-01"
               />
+              {isUnder18 && (
+              <p className="text-red-500">You must be 18 years old or older</p>
+        )}
             </div>
           </div>
           <button

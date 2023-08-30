@@ -8,7 +8,7 @@ import { ExploreCard, TitleText, TypingText} from '../components';
 import { exploreMore } from '../constants';
 
 const Explore = () => {
-  const [active, setActive] = useState('event-4');
+  const [active, setActive] = useState('event-2');
   return (
     <section className={`${styles.paddings}`}
       id="explore"

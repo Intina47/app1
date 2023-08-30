@@ -9,7 +9,7 @@ export const exploreMore = [
     url: '?type=TNTTuedaysReservation',
   },
   {
-    id: 'event-3',
+    id: 'event-2',
     imgUrl: '/afro2.png',
     title: 'Urban Sound',
     day: 'From 8:00 PM,Friday',
@@ -17,13 +17,12 @@ export const exploreMore = [
     url: '?type=UrbanSoundReservation',
   },
   {
-    id: 'event-4',
+    id: 'event-3',
     imgUrl: '/good.png',
     title: 'Good Vibes',
     day: 'From 8:00 PM,Saturday',
     time: '8:00 PM',
     url: '?type=GoodVibesReservation',
-
   },
 ];
 // promotions section hero section
@@ -31,25 +30,25 @@ export const promotions = [
 {
   image: '/promotion-image-8.jpg',
   title: 'BBC radio 1',
-  description: 'Kenny Allstar (BBC Radio 1) Live at Afrobeats',
+  // description: 'Kenny Allstar (BBC Radio 1) Live at Afrobeats',
   buttonText: 'Don\'t Miss Out, Reserve Now',
 },
 {
   image: '/bottle_service.jpg',
   title: '🪩BOTTLE SERVICE🪩',
-  description: 'available every weekend.join us Saturday night for the best vibes in dundee🎧',
+  // description: 'available every weekend.join us Saturday night for the best vibes in dundee🎧',
   buttonText: 'Don\'t Miss Out, Reserve Now',
 },
 {
   image: '/event1.jpg',
   title: 'Ian Van Dahl Live Set',
-  description: 'Ian Van Dahl is back to AfroBeats Dundee this September for a Live Set',
+  // description: 'Ian Van Dahl is back to AfroBeats Dundee this September for a Live Set',
   buttonText: 'Don\'t Miss Out, Reserve Now',
 },
 {
   image: '/event2.jpg',
   title: 'PFriday Night Party',
-  description: 'Grab your mates, secure your tickets and come down the Basement...',
+  // description: 'Grab your mates, secure your tickets and come down the Basement...',
   buttonText: 'Don\'t Miss Out, Reserve Now',
   },
 ];

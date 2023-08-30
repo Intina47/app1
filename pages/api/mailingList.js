@@ -1,4 +1,4 @@
-import { validationResult } from 'express-validator';
+// import { validationResult } from 'express-validator';
 import { connectToDatabase } from '../../utils/database';
 import { createHandler } from '../../utils/handler';
 
@@ -7,10 +7,10 @@ const handler = createHandler();
 handler.post(async (req, res) => {
   try {
     const { name, email, dob } = req.body;
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ error: errors.array() });
-      }
+    // const errors = validationResult(req);
+    // if (!errors.isEmpty()) {
+    //     return res.status(400).json({ error: errors.array() });
+    //   }
     if (!name || !email || !dob) {
       return res.status(400).json({ error: 'Please fill all the fields' });
     }

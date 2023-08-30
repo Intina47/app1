@@ -4,23 +4,22 @@ import '../styles/styles.css';
 const Map = () => (
   <div className="flex flex-col md:flex-row gap-4">
     {/* Map Section */}
-    <div className="w-full md:w-2/3 xl:w-3/5">
+    <div className="w-full md:w-3/3 xl:w-3/5">
       {/* Embed the map here */}
       <iframe
-        title="Map of Nightclub Location"
+        title="Afro Beats Location"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2204.423865844446!2d-2.9827748232256854!3d56.46045853726449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48865d655352dea7%3A0xef6a8ade94cc6167!2sAfro%20Beats!5e0!3m2!1sen!2suk!4v1693377386956!5m2!1sen!2suk"
         width="100%"
-        height="400"
-        frameBorder="0"
-        scrolling="no"
-        marginHeight="0"
-        marginWidth="0"
-        src="https://www.openstreetmap.org/export/embed.html?bbox=-2.9717%2C56.4577%2C-2.9659%2C56.4605&amp;layer=mapnik&amp;marker=56.4591%2C-2.9688&zoom=19"
-        style={{ border: '1px solid black' }}
+        height="450"
+        allowfullscreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
       />
+
     </div>
 
     {/* Opening Times and Contact Info */}
-    <div className="w-full md:w-1/3 xl:w-2/5 bg-gray-900 p-4 rounded-lg flex flex-col justify-between">
+    <div className="w-full md:w-2/5 xl:w-2/5 bg-gray-900 p-4 rounded-lg flex flex-col justify-between">
       <h3 className="text-white text-xl font-bold mb-2">Opening Times</h3>
       <p className="text-gray-400 mb-4">
         Tuesday: 22:00 PM - 2:30 AM<br />

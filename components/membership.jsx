@@ -100,11 +100,11 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
         variants={membershipFormVariants}
         initial="hidden"
         animate="show"
-        className="bg-primary-black p-8 rounded-lg md:w-[50%] md:mr-0"
+        className="bg-primary-black p-8 rounded-lg max-w-md w-full md:w-[100%] md:mr-0"
       >
 
         <form onSubmit={handleSubmit}>
-          <div className="flex flex-col mb-4">
+          <div className="flex flex-col mb-4 w-full">
             <label htmlFor="name" className="text-white font-bold mb-2">
               First Name
             </label>

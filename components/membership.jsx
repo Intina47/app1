@@ -105,7 +105,7 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
 
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col mb-4 w-full">
-            <label htmlFor="name" className="text-white font-bold mb-2">
+            <label htmlFor="firstName" className="text-white font-bold mb-2">
               First Name
             </label>
             <input
@@ -117,6 +117,7 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
               className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
               required
               placeholder="Enter your first Name"
+              autoComplete="on"
             />
           </div>
           <div className="flex flex-col mb-4">
@@ -132,6 +133,7 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
               className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
               required
               placeholder="Enter your last Name"
+              autoComplete="on"
             />
           </div>
           <div className="flex flex-col mb-4">
@@ -147,6 +149,7 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
               className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
               required
               placeholder="Enter your Email"
+              autoComplete="on"
             />
           </div>
           <div className="flex flex-col mb-4">
@@ -184,6 +187,7 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
           isUnder18 ? 'border-red-500' : '' // Apply red border if under 18
         }`}
               required
+              autoComplete="on"
             />
             {isUnder18 && (
             <p className="text-red-500">You must be 18 years old or older</p>

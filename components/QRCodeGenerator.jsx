@@ -2,7 +2,7 @@ import React from 'react';
 import QRCode from 'qrcode.react';
 
 const QRCodeGenerator = () => {
-  const link = 'http://localhost:3000/membership';
+  const link = 'https://afrobeatsdundee.vercel.app/membership';
 
   return (
     <div className="flex justify-center items-center h-screen">

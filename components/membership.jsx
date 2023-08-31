@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { membershipFormVariants } from '../utils/motion';
 import { calculateAge, isUserOldEnough } from '../utils/dateUtils';
+import { shareIcon } from '../constants';
 
 const MembershipForm = () => {
   const [sending, setSending] = useState(false);
@@ -225,17 +226,18 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
               className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
             />
           </div>
-          <button
-            type="submit"
-            className="bg-secondary-green flex justify-center items-center gap-2 text-primary-black px-5 py-2 rounded-full"
-          >
-            {sending ? (
-              <>
-                <svg xmlns="http://www.w3.org/2000/svg" className="animate-spin h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-                <span className="font-bold text-[18px]">Processing...</span>
-              </>
+          <div className="flex justify-between mt-4">
+            <button
+              type="submit"
+              className="bg-secondary-green flex justify-center items-center gap-2 text-primary-black px-5 py-2 rounded-full"
+            >
+              {sending ? (
+                <>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="animate-spin h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                  <span className="font-bold text-[18px]">Processing...</span>
+                </>
                 ) : booked ? (
                   <>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -251,7 +253,19 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
                     <span className="font-bold text-[18px]">Register</span>
                   </>
                 )}
-          </button>
+            </button>
+            <div className="flex justify-end mt-2">
+              <a href="/membership-qrcode" target="_blank" title="share with a friend" rel="noreferrer">
+                <img src={shareIcon.Url} alt="Share" className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
+          {/* Privacy Message */}
+          {formData.firstName && formData.lastName && formData.email && formData.comfirmemail && formData.dob && formData.isStudent && (
+          <p className="mt-4 text-gray-500 text-sm">
+            By submitting this form, you agree that we may use your information for marketing purposes and store it securely as outlined in our privacy policy.
+          </p>
+      )}
         </form>
 
       </motion.div>

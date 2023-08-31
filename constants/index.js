@@ -132,6 +132,10 @@ export const chevron = {
   name: 'arrow_up',
   Url: '/chevron.svg',
 };
+export const shareIcon = {
+  name: 'share',
+  Url: '/share.svg',
+};
 
 //desktop navbar
 export const navlinks = [
@@ -145,16 +149,6 @@ export const navlinks = [
     title: 'Contact us',
     url: '/contact-us',
   },
-  // {
-  //   id: 'ourNights',
-  //   title: 'ourNights',
-  //   onClick: () => {
-  //     const ourNightsSection = document.getElementById('ourNights');
-  //     if (ourNightsSection) {
-  //       ourNightsSection.scrollIntoView({ behavior: 'smooth' });
-  //     }
-  //   },
-  // },
   {
     id: 'PrivateHire',
     title: 'Private Hire',
@@ -186,16 +180,6 @@ export const navlink = [
     title: 'Contact us',
     url: '/contact-us',
   },
-  // {
-  //   id: 'ourNights',
-  //   title: 'ourNights',
-  //   onClick: () => {
-  //     const ourNightsSection = document.getElementById('ourNights');
-  //     if (ourNightsSection) {
-  //       ourNightsSection.scrollIntoView({ behavior: 'smooth' });
-  //     }
-  //   },
-  // },
   {
     id: 'guestlist',
     title: 'Join Guest List',
@@ -205,6 +189,11 @@ export const navlink = [
     id: 'reservation',
     title: 'Book a booth',
     url: '/reservation?type=Reservation',
+  },
+  {
+    id: 'membership',
+    title: 'membership',
+    url: '/membership',
   },
 ];
 export const boldnavlink = [

@@ -29,7 +29,7 @@ const QRCodeGenerator = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen overflow-x-auto">
+    <div className="flex justify-center items-center overflow-x-auto mt-4">
       <div className="text-center">
         <h1 className="text-xl font-bold mb-4">
           Scan QR Code to Access Membership Page

@@ -1,10 +1,10 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable react/button-has-type */
 // pages/event/[eventId].js
 import Link from 'next/link';
 
 // This is a placeholder for fetching event data.
 const getEventDataById = async (eventId) =>
-  // Replace with your data fetching logic to get event details by ID.
-  // For example, you can fetch event data from an API or database.
    ({
     id: eventId,
     title: 'Sample Event',

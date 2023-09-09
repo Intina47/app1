@@ -3,7 +3,7 @@ import { connectToDatabase } from './database';
 
 const generateQRCodeLink = async () => {
     const uuid = uuidv4();
-    const qrCodeLink = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${uuid}`;
+    const qrCodeLink = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${uuid}`;
     return qrCodeLink;
     };
 

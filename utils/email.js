@@ -12,16 +12,24 @@ const transporter = nodemailer.createTransport({
 });
 
 export const sendMagicLinkEmail = async (toEmail, linkPromise) => {
-    console.log('TO: ', toEmail);
     const link = await linkPromise;
-    console.log('LINK: ', link);
     const html = `
-    <div>
-      <h1>Generate your Entry Pass</h1>
-      <p>Click the Link below to generate your pass</p>
-      <p><a href="${link}">Generate Pass</a></p>
+    <div style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; padding: 20px;">
+      <h1 style="color: #333;">Generate your Entry Pass</h1>
+      <p style="color: #666;">Click the button below to generate your pass</p>
+      <p style="text-align: center;">
+        <a href="${link}" style="display: inline-block; padding: 10px 20px; background-color: #f0d58b; color: #000; text-decoration: none; border-radius: 30px; transition: background-color 0.3s, transform 0.3s;">
+          Generate Pass
+        </a>
+      </p>
+      <style>
+        a:hover {
+          background-color: #f4e64b; /* Change color on hover */
+          transform: scale(1.05); /* Add a scale effect on hover */
+        }
+      </style>
     </div>
-`;
+  `;
 
     const mailOptions = {
         from: process.env.EMAIL_FROM,

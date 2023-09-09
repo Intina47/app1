@@ -19,7 +19,7 @@ const PromoCard = ({ image, title, buttonText, first, last}) => {
             </div>
             <div className="p-4 bg-white">
               <Link href={navlink[2].url}>
-                <div className="bg-gradient-to-r text-black text-sm px-4 py-2 rounded-full mt-4 transform hover:scale-105 transition duration-300">
+                <div className="bg-gradient-to-r text-black text-bold font-extrabold  px-4 py-2 rounded-full mt-4 transform hover:scale-105 transition duration-300">
                   {buttonText}
                 </div>
               </Link>

@@ -46,21 +46,4 @@ export default function handler(req, res){
             res.status(200).json({message: 'Reservation sent successfully'});
         }
     });
-    // TODO send confirmation email as well?
-    // const mailOptions2 = {
-    //     from: process.env.COMPANY_EMAIL,
-    //     to: email,
-    //     subject: `${reservationType} Reservation Confirmation`,
-    //     text: `Dear ${name},\nThank you for making a reservation with us. We look forward to seeing you on ${date} at ${time}.`,
-    // };
-
-    // transporter.sendMail(mailOptions2, (error, info) => {
-    //     if (error){
-    //         console.log(error);
-    //     } else {
-    //         console.log(`Email sent: ${info.response}`);
-    //     }
-    // });
-
-    // res.status(200).json({message: 'success'});
 }

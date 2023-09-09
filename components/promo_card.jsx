@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { navlink } from '../constants';
 
-const PromoCard = ({ image, title, buttonText, first, last}) => {
+const PromoCard = ({ image, title, description, buttonText, first, last}) => {
     let borderRadiusClass = 'rounded-bl-[20px] rounded-br-[20px]';
     if (first) {
         borderRadiusClass += ' rounded-tl-[20px]';

@@ -40,6 +40,63 @@ const MembershipForm = () => {
     }
   };
 
+  const simulateAsyncOperation = () => new Promise((resolve) => setTimeout(resolve, 2000));
+
+  const submitMembershipForm = async () => {
+    const response = await fetch('/api/membership', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+    return response;
+  };
+
+  const resetFormData = () => {
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      comfirmemail: '',
+      dob: '',
+      isStudent: '',
+    });
+  };
+
+  const sendMagicLink = async () => {
+    const emailResponse = await fetch('/api/magicLink', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+    return emailResponse;
+  };
+
+  const handleEmailError = (emailResponse) => {
+    if (emailResponse.status === 400) {
+      alert('Something Went Wrong Please try again or Email us directly at\nafrobeatsdundee@gmail.com');
+      throw new Error(`[handleEmailError] Something Went Wrong ${emailResponse}`);
+  }
+  };
+
+  const handleMembershipError = (errorData) => {
+    setSending(false);
+    if (errorData.error === 'Emails-no-match') {
+      alert('Sorry your emails do not match');
+    } else if (errorData.error === 'graduation-year') {
+      alert('Please enter your graduation year');
+    }
+  };
+
+  const handleServerError = (response) => {
+    setSending(false);
+    alert('Something Went Wrong Please try again or Email us directly at\nafrobeatsdundee@gmail.com');
+    throw new Error(`[handleServerError] Something Went Wrong ${response}`);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isUserOldEnough(formData.dob)) {
@@ -51,47 +108,36 @@ const MembershipForm = () => {
       setbooked(false);
 
       // Simulate an asynchronous operation (e.g., subscribing)
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await simulateAsyncOperation();
 
-      const response = await fetch('/api/membership', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.status === 200){
+      const response = await submitMembershipForm();
+      if (response.status === 200) {
         const data = await response.json();
         console.log(data);
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          comfirmemail: '',
-          dob: '',
-          isStudent: '',
-      });
-      setSending(false); // Hide loading state
-      setbooked(true); // Show subscribed state
-      setTimeout(() => setbooked(false), 5000);
-      alert('Thanks, We sent a magic Link to your Email');
-    } else if (response.status === 400) {
-      const errorData = await response.json();
-      setSending(false);
-      if (errorData.error === 'Emails-no-match') {
-        alert('Sorry your emails do not match');
-      } else if (errorData.error === 'graduation-year'){
-        alert('Please enter your graduation year');
+        resetFormData();
+        // call magicLink api
+        const emailResponse = await sendMagicLink();
+        if (emailResponse.status === 200) {
+          const emailData = await emailResponse.json();
+          console.log(emailData);
+        } else {
+          handleEmailError(emailResponse);
+        }
+        setSending(false); // Hide loading state
+        setbooked(true); // Show subscribed state
+        setTimeout(() => setbooked(false), 5000);
+        alert('Thanks, We sent a magic Link to your Email');
+      } else if (response.status === 400) {
+        const errorData = await response.json();
+        handleMembershipError(errorData);
+      } else {
+        handleServerError(response);
       }
-    } else {
-      setSending(false);
-      alert('Something Went Wrong Please try again or Email us directly at\nafrobeatsdundee@gmail.com');
-      throw new Error(`Something Went Wrong ${response}`);
+    } catch (error) {
+      console.log('Error:', error);
     }
-  } catch (error){
-    console.log('Error:', error);
-  }
-};
+  };
+
 // make sure email match
 const doEmailsMatch = () => formData.email === formData.comfirmemail;
 

@@ -82,11 +82,10 @@ const Hero = () => {
         </div>
 
         {flag === 0 ? (
-          // Render the cards here
+          // Rendering the promo cards here
           <div className="flex flex-col z-10">
             <h2 className="text-left text-lg text-white font-bold mb-2 bg-black bg-opacity-50 rounded-tl-[20px] rounded-tr-[20px] p-2 mb-0">Our Hottest Deals & Upcoming Events</h2>
             <div className="flex overflow-x-scroll gap-2">
-              {/* Add your Card components here */}
               {promotions.map((promo, index) => (
                 <Card
                   key={index}

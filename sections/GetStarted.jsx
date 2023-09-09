@@ -26,7 +26,7 @@ const GetStarted = () => (
       text-[20px] text-center text-secondary-white"
         >
           Ready to dance the night away?
-          Come join the party at our night club! With free entry for all, you can experience the best music,
+          Come join the party at our night club! With free entry for all before 10PM, you can experience the best music,
           drinks, and entertainment around. Whether you want to let loose on the dance floor, enjoy a cocktail with
           friends, or simply soak in the vibrant atmosphere, our night club has everything you need for a memorable night out.
           So why wait? Join the Guest List now to be a part of the action!

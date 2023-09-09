@@ -12,7 +12,7 @@ const PromoCard = ({ image, title, description, buttonText, first, last}) => {
       }
         return (
           <div className={`w-[300px] overflow-hidden shadow-lg mx-2 ${borderRadiusClass} min-w-[19rem]`}>
-            <img src={image} alt={title} className="w-full h-[200px] object-cover" />
+            <img src={image} alt={title} className="w-full h-[300px] object-cover" />
             <div className="p-4 bg-white">
               <h2 className="text-lg font-bold">{title}</h2>
               <p className="text-sm text-gray-600 mt-1">{description}</p>
@@ -23,7 +23,7 @@ const PromoCard = ({ image, title, description, buttonText, first, last}) => {
               </Link>
             </div>
           </div>
-        );
+  );
     };
 
     export default PromoCard;

@@ -26,7 +26,7 @@ const About = () => (
       >
         <span className="font-extrabold text-white">Welcome to Afro Beats</span>, where the rhythms of the islands meet the energy of the city!
         Step into a vibrant atmosphere where the music is loud, the drinks are flowing,
-        and the dance floor is always packed.We're <span className="font-extrabold text-white">open every day</span> except Monday,Wednesday and Sunday
+        and the dance floor is always packed.We're <span className="font-extrabold text-white">open</span> every <span className="font-extrabold text-white">Tuesday, Friday & Saturday </span>
         with <span className="font-extrabold text-white">drinks deals</span> that will keep you coming back for more.
         Come experience the warmth and spirit of the islands at our Afro-Caribbean night club!
       </motion.p>

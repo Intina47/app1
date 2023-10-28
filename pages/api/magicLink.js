@@ -6,6 +6,7 @@ export default async (req, res) => {
         try {
             const qrCodeLink = generateQRCodeLink();
             // get user's email
+
             const { email } = req.body;
             // send email with link
             await sendMagicLinkEmail(email, qrCodeLink);

@@ -3,6 +3,8 @@
 import {motion} from 'framer-motion';
 import Link from 'next/link';
 import React, { useRef } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import styles from '../styles';
 import { slideIn, staggerContainer } from '../utils/motion';
 import { socials,promotions } from '../constants';
@@ -87,7 +89,7 @@ const Hero = () => {
             <h2 className="text-left text-lg text-white font-bold mb-2 bg-black bg-opacity-50 rounded-tl-[20px] rounded-tr-[20px] p-2 mb-0">Our Hottest Deals & Upcoming Events</h2>
             <div className="flex overflow-x-scroll gap-2">
               {promotions.map((promo, index) => (
-                <Card
+                <><LazyLoadImage /><Card
                   key={index}
                   image={promo.image}
                   title={promo.title}
@@ -95,6 +97,7 @@ const Hero = () => {
                   link={promo.link}
                   buttonText={promo.buttonText}
                 />
+                </>
               ))}
             </div>
           </div>

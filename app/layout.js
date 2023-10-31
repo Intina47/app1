@@ -29,6 +29,7 @@ const RootLayout = ({ children }) => (
       <meta property="og:description" content="Welcome to Afrobeats Dundee Basement Night Club in Dundee, Scotland. We offer the best nightlife experience with top DJs and live music." />
       <meta property="og:url" content="https://afrobeatsdundee.co.uk/" />
       <meta property="og:site_name" content="Afrobeats Dundee Basement Night Club" />
+      <meta name="google-site-verification" content="RnKKePD0sQjxnouuLaqu_nNvyo5K7JZt6U3btvdqi2Y" />
       {/* Schema Markup */}
       <script type="application/ld+json">
         '@context': 'https://schema.org',

@@ -1,9 +1,11 @@
+import { v4 as uuidv4 } from 'uuid';
 import { connectToDatabase } from './database';
 
 const generateQRCodeLink = async () => {
-    const qrCodeLink = 'https://afrobeatsdundee.co.uk/entry-qrCode';
+    const uuid = uuidv4();
+    const qrCodeLink = `https://afrobeatsdundee.co.uk/entry-qrCode/${uuid}`;
     return qrCodeLink;
-    };
+};
 
 const createQrcode = async (req, res) => {
     try {
@@ -11,6 +13,7 @@ const createQrcode = async (req, res) => {
         const { email } = req.body;
         const existingUser = await db.collection('members').findOne({ email });
         if (existingUser) {
+        console.log(`${email} User found`);
         const qrCodeLink = await generateQRCodeLink();
         await db.collection('members').updateOne({ email }, { $set: { qrCodeLink } });
         return res.status(200).json({ message: 'QRCode generated successfully' });

@@ -1,4 +1,5 @@
 import { validationResult } from 'express-validator';
+import { v4 as uuidv4 } from 'uuid';
 import { connectToDatabase } from '../../utils/database';
 import { createHandler } from '../../utils/handler';
 
@@ -52,6 +53,7 @@ handler.post(async (req, res) => {
             isStudent,
             graduationYear,
             timestamp: new Date(),
+            uuid: uuidv4(),
         };
         await collection.insertOne(member);
         console.log(`New Member Added ${JSON.stringify(member)}`);

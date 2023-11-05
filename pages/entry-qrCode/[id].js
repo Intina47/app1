@@ -1,6 +1,6 @@
 import React from 'react';
-import QRCodeGenerator from '../components/EntryQrCodeGenerator';
-import '../styles/globals.css';
+import QRCodeGenerator from '../../components/EntryQrCodeGenerator';
+import '../../styles/globals.css';
 
 const entryqrcode = () => (
   <div>

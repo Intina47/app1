@@ -3,7 +3,7 @@ import QRCode from 'qrcode.react';
 import { socials } from '../constants';
 
 const QRCodeGenerator = () => {
-  const link = 'https://afrobeatsdundee.vercel.app/membership';
+  const link = 'https://afrobeatsdundee.co.uk/membership';
   const [copied, setCopied] = useState(false);
   const copyToClipboard = (str) => {
     const el = document.createElement('textarea');
@@ -16,7 +16,8 @@ const QRCodeGenerator = () => {
         ? document.getSelection().getRangeAt(0)
         : false;
     el.select();
-    document.execCommand('copy');
+    // document.execCommand('copy');
+    navigator.clipboard.writeText(el.value);
     document.body.removeChild(el);
     if (selected) {
       document.getSelection().removeAllRanges();

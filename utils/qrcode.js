@@ -1,9 +1,7 @@
-import { v4 as uuidv4 } from 'uuid';
 import { connectToDatabase } from './database';
 
 const generateQRCodeLink = async () => {
-    const uuid = uuidv4();
-    const qrCodeLink = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${uuid}`;
+    const qrCodeLink = 'https://afrobeatsdundee.co.uk/membership-qrcode';
     return qrCodeLink;
     };
 

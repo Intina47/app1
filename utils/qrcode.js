@@ -1,7 +1,7 @@
 import { connectToDatabase } from './database';
 
 const generateQRCodeLink = async () => {
-    const qrCodeLink = 'https://afrobeatsdundee.co.uk/membership-qrcode';
+    const qrCodeLink = 'https://afrobeatsdundee.co.uk/entry-qrCode';
     return qrCodeLink;
     };
 

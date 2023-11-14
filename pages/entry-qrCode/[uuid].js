@@ -1,23 +1,18 @@
-//path: /api/entry-qrCode/[id].js
 import React from 'react';
 import { useRouter } from 'next/router';
+import { FaSpinner } from 'react-icons/fa';
 import QRCodeGenerator from '../../components/EntryQrCodeGenerator';
 import '../../styles/globals.css';
 
 const isValidUUID = (uuid) => {
   const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-  if (!uuidRegex.test(uuid)) {
-    console.log('Invalid UUID');
-  } else {
-    console.log('Valid UUID');
-  }
   return uuidRegex.test(uuid);
 };
 
 const entryqrcode = () => {
   const router = useRouter();
   const { uuid } = router.query;
-  const [isValid, setIsValidUUID] = React.useState(false);
+  const [isValid, setIsValidUUID] = React.useState(null);
 
   React.useEffect(() => {
     const checkUUIDValidity = async () => {
@@ -29,6 +24,16 @@ const entryqrcode = () => {
     };
     checkUUIDValidity();
   }, [uuid]);
+
+  if (isValid === null) {
+    // Loading state, show a loading spinner
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <FaSpinner className="animate-spin text-4xl text-primary" />
+        <p className="text-sm font-thin text-primary">Just a moment, our QR Code detective is on the case!</p>
+      </div>
+    );
+  }
 
   if (!isValid) {
     return (
@@ -48,8 +53,8 @@ const entryqrcode = () => {
             type="button"
             className="text-green-500 bg-black-500 border-2 border-primary hover:bg-primary-dark px-6 py-3 rounded-full transition duration-300 focus:outline-none"
             onClick={() => {
-      window.location.href = 'https://afrobeatsdundee.co.uk/membership';
-    }}
+              window.location.href = 'https://afrobeatsdundee.co.uk/membership';
+            }}
           >
             signing up for membership
           </button>
@@ -58,10 +63,10 @@ const entryqrcode = () => {
     );
   }
 
-return (
-  <div>
-    <QRCodeGenerator uuid={uuid} />
-  </div>
+  return (
+    <div>
+      <QRCodeGenerator uuid={uuid} />
+    </div>
   );
 };
 

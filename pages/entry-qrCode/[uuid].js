@@ -17,9 +17,24 @@ const entryqrcode = () => {
   React.useEffect(() => {
     const checkUUIDValidity = async () => {
       if (isValidUUID(uuid)) {
+        try {
         const res = await fetch(`/api/checkUUIDValidity?uuid=${uuid}`);
+
+        if (!res.ok) {
+          // Handle the case where the server responded with an error (status other than 2xx)
+          console.log('Server returned an error:', res.status);
+          setIsValidUUID(false);
+          return;
+        }
+
         const data = await res.json();
+        // log data for testing
+        console.log('Validity', data.isValid);
         setIsValidUUID(data.isValid);
+        } catch (error) {
+          console.log(error);
+          setIsValidUUID(false);
+        }
       }
     };
     checkUUIDValidity();

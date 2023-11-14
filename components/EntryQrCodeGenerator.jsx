@@ -1,3 +1,4 @@
+//path: /components/EntryQrCodeGenerator.jsx
 import React, { useState, useEffect } from 'react';
 import QRCode from 'qrcode.react';
 import format from 'date-fns/format';
@@ -43,18 +44,19 @@ const QRCodeGenerator = ({ uuid }) => {
         };
 
         useEffect(() => {
-            const storedTimestamp = localStorage.getItem('qrCodeTimestamp');
-            const initialTime = 24 * 24 * 24 * 60 * 60; // 24 hours in milliseconds
+          const storedTimestamp = localStorage.getItem('qrCodeTimestamp');
 
-            if (storedTimestamp) {
-              const timeDifference = Date.now() - storedTimestamp;
-              const remainingTime = Math.max(0, initialTime - timeDifference);
-              setCountdownTime(remainingTime);
-            } else {
-              setCountdownTime(initialTime);
-              localStorage.setItem('qrCodeTimestamp', Date.now() - initialTime);
-            }
-          }, []);
+          if (storedTimestamp) {
+            const timeDifference = Date.now() - storedTimestamp;
+            const initialTime = 24 * 24 * 24 * 60 * 60 - timeDifference; // 24 hours in milliseconds
+            const remainingTime = Math.max(0, initialTime);
+            setCountdownTime(remainingTime);
+          } else {
+            const initialTime = 24 * 24 * 24 * 60 * 60; // 24 hours in milliseconds
+            setCountdownTime(initialTime);
+            localStorage.setItem('qrCodeTimestamp', Date.now());
+          }
+        }, []);
 
         useEffect(() => {
                 localStorage.setItem('qrCodeTimestamp', Date.now());

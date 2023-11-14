@@ -1,10 +1,13 @@
-import { sendMagicLinkEmail } from '../../utils/email';
-import { generateQRCodeLink } from '../../utils/qrcode.js';
+//path: /api/magicLink
+import { sendMagicLinkEmail } from '../../../utils/email.js';
+import { generateQRCodeLink } from '../../../utils/qrcode.js';
 
 export default async (req, res) => {
     if (req.method === 'POST') {
         try {
-            const qrCodeLink = generateQRCodeLink();
+            // Get UUID from the request body
+            const { uuid } = req.body;
+            const qrCodeLink = generateQRCodeLink(uuid);
             // get user's email
             const { email } = req.body;
             // send email with link

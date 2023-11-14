@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-closing-tag-location */
 /* eslint-disable no-promise-executor-return */
+//path: components/membership.jsx
 
 'use client';
 
@@ -51,6 +52,7 @@ const MembershipForm = () => {
       body: JSON.stringify(formData),
     });
     return response;
+    // once we get a response,that the data has been added to the database successfully, we can then call the sendMagicLink function with the uuid from the response
   };
 
   const resetFormData = () => {
@@ -64,14 +66,15 @@ const MembershipForm = () => {
     });
   };
 
-  const sendMagicLink = async () => {
-    const emailResponse = await fetch('/api/magicLink', {
+  const sendMagicLink = async (uuid) => {
+    const emailResponse = await fetch(`/api/magicLink/${uuid}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({ uuid, ...formData }),
     });
+    console.log('User ID', uuid);
     return emailResponse;
   };
 
@@ -114,9 +117,12 @@ const MembershipForm = () => {
       if (response.status === 200) {
         const data = await response.json();
         console.log(data);
+        // Extract the UUID from the server response
+        const { uuid } = data;
         resetFormData();
         // call magicLink api
-        const emailResponse = await sendMagicLink();
+        const emailResponse = await sendMagicLink(uuid);
+
         if (emailResponse.status === 200) {
           const emailData = await emailResponse.json();
           console.log(emailData);

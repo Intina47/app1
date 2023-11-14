@@ -1,8 +1,8 @@
-import { v4 as uuidv4 } from 'uuid';
+// Path: pages/api/magicLink.js
 import { connectToDatabase } from './database';
 
-const generateQRCodeLink = async () => {
-    const uuid = uuidv4();
+const generateQRCodeLink = async (uuid) => {
+    // const qrCodeLink = `https://afrobeatsdundee.co.uk/entry-qrCode/?uuid=${uuid}`;
     const qrCodeLink = `https://afrobeatsdundee.co.uk/entry-qrCode/${uuid}`;
     return qrCodeLink;
 };
@@ -12,9 +12,10 @@ const createQrcode = async (req, res) => {
         const { db } = await connectToDatabase();
         const { email } = req.body;
         const existingUser = await db.collection('members').findOne({ email });
-        if (existingUser) {
+        if (!existingUser) {
         console.log(`${email} User found`);
-        const qrCodeLink = await generateQRCodeLink();
+        const {uuid} = existingUser;
+        const qrCodeLink = await generateQRCodeLink(uuid);
         await db.collection('members').updateOne({ email }, { $set: { qrCodeLink } });
         return res.status(200).json({ message: 'QRCode generated successfully' });
         }
@@ -25,4 +26,3 @@ const createQrcode = async (req, res) => {
     }
     };
 export { createQrcode, generateQRCodeLink };
-// Path: pages/api/magicLink.js

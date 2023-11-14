@@ -38,7 +38,7 @@ const QRCodeGenerator = () => {
         <div className="mx-auto">
           <QRCode
             value={link}
-            size={350}
+            size={400}
             bgColor="#ffffff"
             fgColor="#000000"
             level="L"

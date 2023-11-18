@@ -29,21 +29,21 @@ export const exploreMore = [
 export const promotions = [
 {
   eventId: '103',
-  image: '/sep23/nigeriaIP1.JPG',
+  image: '/nov18/xcape.JPG',
   // title: 'BBC radio 1',
   // description: 'Kenny Allstar (BBC Radio 1) Live at Afrobeats',
   buttonText: 'Don\'t Miss Out, Reserve Now',
 },
 {
   eventId: '104',
-  image: '/sep23/lastSaturday.JPG',
+  image: '/nov18/ke-endependence.JPG',
   // title: '🪩BOTTLE SERVICE🪩',
   // description: 'available every weekend.join us Saturday night for the best vibes in dundee🎧',
   buttonText: 'Don\'t Miss Out, Reserve Now',
 },
 {
   eventId: '105',
-  image: '/sep23/studentDiscount.JPG',
+  image: '/sep23/lastSaturday.JPG',
   // title: 'Ian Van Dahl Live Set',
   // description: 'Ian Van Dahl is back to AfroBeats Dundee this September for a Live Set',
   buttonText: 'Don\'t Miss Out, Reserve Now',

@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/styles.css';
 
 const Map = () => (
-  <div className="flex flex-col md:flex-row gap-4">
+  <div className="flex flex-col md:flex-row gap-4">p=
     {/* Map Section */}
     <div className="w-full md:w-3/3 xl:w-3/5">
       {/* Embed the map here */}
@@ -15,9 +15,7 @@ const Map = () => (
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       />
-
     </div>
-
     {/* Opening Times and Contact Info */}
     <div className="w-full md:w-2/5 xl:w-2/5 bg-gray-900 p-4 rounded-lg flex flex-col justify-between">
       <h3 className="text-white text-xl font-bold mb-2">Opening Times</h3>
@@ -26,14 +24,12 @@ const Map = () => (
         Friday: 20:00 PM - 2:30 AM<br />
         Saturday: 20:00 PM - 2:30 AM<br />
       </p>
-
       <h3 className="text-white text-xl font-bold mb-2">Contact Information</h3>
       <p className="text-gray-400">
         <span className="font-semibold">Address:</span> 3 Session Street, DD1 5DN, Dundee<br />
         <span className="font-semibold">Tel:</span> <a href="tel:01382 782663" className="text-primary-green">01382 782663</a><br />
         <span className="font-semibold">Email:</span> <a href="mailto:afrobeatsdundee@gmail.com" className="text-primary-green">afrobeatsdundee@gmail.com</a>
       </p>
-
       <div className="mt-4">
         <p className="text-white text-lg mb-2">Elevate Your Event with Us!</p>
         <p className="text-gray-400 mb-4">
@@ -46,7 +42,6 @@ const Map = () => (
           Feel free to reach out to us via phone or email for inquiries and to learn more about our exceptional event offerings.
         </p>
       </div>
-
     </div>
   </div>
   );

@@ -1,25 +1,21 @@
 //path: /components/EntryQrCodeGenerator.jsx
 import React, { useState, useEffect } from 'react';
 import QRCode from 'qrcode.react';
-import format from 'date-fns/format';
 import { socials } from '../constants';
+import Countdown from 'react-countdown'
 
-// time format hh:mm:ss:ms
-const timeFormat = 'HH:mm:ss';
 
-// count down timer
-const countDown = (time) => {
-        const timeLeft = format(time, timeFormat);
-        return timeLeft;
-};
 
 const QRCodeGenerator = ({ uuid }) => {
         // just a variable to hold the uuid to remove the warning for now
         console.log(uuid, 'Generated QR Code');
-        const link = 'https://afrobeatsdundee.co.uk/membership';
+        const link = 'https://localhost:3000/membership';
         const [copied, setCopied] = useState(false);
-        const [countdownTime, setCountdownTime] = useState(0);
-
+        const [countdownTime, setCountdownTime] = useState(() => {
+          // Retrieve the remaining time from localStorage or set a default value
+          const storedTime = localStorage.getItem('countdownTime');
+          return storedTime ? Math.max(0, parseInt(storedTime, 10) - Date.now()) : 1000 * 60 * 24 * 60;
+        });
         const copyToClipboard = (str) => {
                 const el = document.createElement('textarea');
                 el.value = str;
@@ -44,31 +40,22 @@ const QRCodeGenerator = ({ uuid }) => {
         };
 
         useEffect(() => {
-          const storedTimestamp = localStorage.getItem('qrCodeTimestamp');
+          const intervalId = setInterval(() => {
+            setCountdownTime((prevTime) => {
+              if (prevTime > 0) {
+                const newTime = prevTime - 1000;
+                localStorage.setItem('countdownTime', newTime + Date.now());
+                return newTime;
+              }
+              clearInterval(intervalId);
+              return prevTime;
+            });
+          }, 1000);
 
-          if (storedTimestamp) {
-            const timeDifference = Date.now() - storedTimestamp;
-            const initialTime = 24 * 24 * 24 * 60 * 60 - timeDifference; // 24 hours in milliseconds
-            const remainingTime = Math.max(0, initialTime);
-            setCountdownTime(remainingTime);
-          } else {
-            const initialTime = 24 * 24 * 24 * 60 * 60; // 24 hours in milliseconds
-            setCountdownTime(initialTime);
-            localStorage.setItem('qrCodeTimestamp', Date.now());
-          }
+          return () => clearInterval(intervalId); // Cleanup interval on component unmount
+
         }, []);
-
-        useEffect(() => {
-                localStorage.setItem('qrCodeTimestamp', Date.now());
-        }, []);
-
-        useEffect(() => {
-                const intervalId = setInterval(() => {
-                        setCountdownTime((prevTime) => prevTime - 1000);
-                }, 1000);
-                return () => clearInterval(intervalId);
-        }, []);
-
+        
         return (
           <div className="flex justify-center items-center overflow-x-auto mt-4">
             <div className="text-center">
@@ -92,7 +79,7 @@ const QRCodeGenerator = ({ uuid }) => {
               </div>
               {/* count down timer */}
               <div className="bg-secondary-green flex justify-center items-center mt-4">
-                <p className="text-6xl font-extrabold m-4">{countDown(countdownTime)}</p>
+                <p className="text-6xl font-extrabold m-4"><Countdown date={Date.now()+countdownTime}/></p>
               </div>
               {/* share on */}
               <div className="flex justify-center items-center mt-4">

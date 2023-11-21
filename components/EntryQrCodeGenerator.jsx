@@ -9,7 +9,7 @@ import Countdown from 'react-countdown'
 const QRCodeGenerator = ({ uuid }) => {
         // just a variable to hold the uuid to remove the warning for now
         console.log(uuid, 'Generated QR Code');
-        const link = 'https://localhost:3000/membership';
+        const link = 'https://afrobeatsdundee.co.uk/membership';
         const [copied, setCopied] = useState(false);
         const [countdownTime, setCountdownTime] = useState(() => {
           // Retrieve the remaining time from localStorage or set a default value

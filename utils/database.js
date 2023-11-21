@@ -6,6 +6,7 @@ const client = new MongoClient(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
   maxPoolSize: 10,
 });
+
 //cache the reference to the database connection
 let cachedDb = null;
 export async function connectToDatabase() {

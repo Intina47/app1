@@ -1,10 +1,8 @@
 //path: /components/EntryQrCodeGenerator.jsx
 import React, { useState, useEffect } from 'react';
 import QRCode from 'qrcode.react';
+import Countdown from 'react-countdown';
 import { socials } from '../constants';
-import Countdown from 'react-countdown'
-
-
 
 const QRCodeGenerator = ({ uuid }) => {
         // just a variable to hold the uuid to remove the warning for now
@@ -53,9 +51,8 @@ const QRCodeGenerator = ({ uuid }) => {
           }, 1000);
 
           return () => clearInterval(intervalId); // Cleanup interval on component unmount
-
         }, []);
-        
+
         return (
           <div className="flex justify-center items-center overflow-x-auto mt-4">
             <div className="text-center">
@@ -79,7 +76,7 @@ const QRCodeGenerator = ({ uuid }) => {
               </div>
               {/* count down timer */}
               <div className="bg-secondary-green flex justify-center items-center mt-4">
-                <p className="text-6xl font-extrabold m-4"><Countdown date={Date.now()+countdownTime}/></p>
+                <p className="text-6xl font-extrabold m-4"><Countdown date={Date.now() + countdownTime} /></p>
               </div>
               {/* share on */}
               <div className="flex justify-center items-center mt-4">

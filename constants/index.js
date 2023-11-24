@@ -29,9 +29,7 @@ export const exploreMore = [
 export const promotions = [
 {
   eventId: '103',
-  image: '/nov18/xcape.JPG',
-  // title: 'BBC radio 1',
-  // description: 'Kenny Allstar (BBC Radio 1) Live at Afrobeats',
+  image: '/nov24/black_fri.jpg',
   buttonText: 'Don\'t Miss Out, Reserve Now',
 },
 {

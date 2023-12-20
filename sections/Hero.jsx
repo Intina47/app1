@@ -12,7 +12,7 @@ import '../styles/styles.css';
 import Card from '../components/promo_card';
 
 const Hero = () => {
-  const flag = 0; // Set the value of the flag to 0 or 1
+  const flag = 1; // Set the value of the flag to 0 or 1
   const locationDetails = {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-yellow" viewBox="0 0 20 20" fill="yellow">

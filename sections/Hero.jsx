@@ -2,7 +2,7 @@
 
 import {motion} from 'framer-motion';
 import Link from 'next/link';
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import styles from '../styles';
@@ -12,7 +12,17 @@ import '../styles/styles.css';
 import Card from '../components/promo_card';
 
 const Hero = () => {
-  const flag = 0; // Set the value of the flag to 0 or 1
+  // const flag = 1; // Set the value of the flag to 0 or 1
+  const [showVideo, setShowVideo] = useState(false);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowVideo((prevShowVideo) => !prevShowVideo);
+    }, 30000); // Change the content every 30 seconds (30000)
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
   const locationDetails = {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-yellow" viewBox="0 0 20 20" fill="yellow">
@@ -28,6 +38,29 @@ const Hero = () => {
     '/resbh2.png',
   ];
   const imageRef = useRef(null);
+  const videoRef = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          videoRef.current.play();
+        } else {
+          videoRef.current.pause();
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
 
   return (
     <section
@@ -83,20 +116,22 @@ const Hero = () => {
           />
         </div>
 
-        {flag === 0 ? (
+        {showVideo ? (
           // Rendering the promo cards here
           <div className="flex flex-col z-10">
             <h2 className="text-left text-lg text-white font-bold mb-2 bg-black bg-opacity-50 rounded-tl-[20px] rounded-tr-[20px] p-2 mb-0">Our Hottest Deals & Upcoming Events</h2>
             <div className="flex overflow-x-scroll gap-2">
               {promotions.map((promo, index) => (
-                <><LazyLoadImage /><Card
-                  key={index}
-                  image={promo.image}
-                  title={promo.title}
-                  description={promo.description}
-                  link={promo.link}
-                  buttonText={promo.buttonText}
-                />
+                <>
+                  <LazyLoadImage />
+                  <Card
+                    key={index}
+                    image={promo.image}
+                    title={promo.title}
+                    description={promo.description}
+                    link={promo.link}
+                    buttonText={promo.buttonText}
+                  />
                 </>
               ))}
             </div>
@@ -107,7 +142,8 @@ const Hero = () => {
           <motion.div variants={slideIn('right', 'tween', 0.2, 1)} className="relative w-full md:-mt-[20px] -mt-[12px]">
             <div className="absolute w-full h-[300px] rounded-tl-[140px] z-[0] -top-[30px]" />
             <video
-              src="/hero_Vid.mp4"
+              // ref={videoRef}
+              src="/dec/nyevid.MP4"
               alt="hero"
               className="w-full sm:h-[500px] h-[340px] object-cover rounded-tl-[40px] rounded-bl-[40px] z-10 relative"
               autoPlay

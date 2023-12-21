@@ -29,26 +29,26 @@ export const exploreMore = [
 export const promotions = [
 {
   eventId: '103',
-  image: '/nov24/black_fri.jpg',
+  image: '/dec/eve.JPG',
   buttonText: 'Don\'t Miss Out, Reserve Now',
 },
 {
   eventId: '104',
-  image: '/nov18/ke-endependence.JPG',
+  image: '/dec/xcape.JPG',
   // title: '🪩BOTTLE SERVICE🪩',
   // description: 'available every weekend.join us Saturday night for the best vibes in dundee🎧',
   buttonText: 'Don\'t Miss Out, Reserve Now',
 },
 {
   eventId: '105',
-  image: '/sep23/lastSaturday.JPG',
+  image: '/dec/nye.JPG',
   // title: 'Ian Van Dahl Live Set',
   // description: 'Ian Van Dahl is back to AfroBeats Dundee this September for a Live Set',
   buttonText: 'Don\'t Miss Out, Reserve Now',
 },
 {
   eventId: '106',
-  image: '/sep23/freshersEntry.JPG',
+  image: '/dec/festive.JPG',
   // title: 'PFriday Night Party',
   // description: 'Grab your mates, secure your tickets and come down the Basement...',
   buttonText: 'Don\'t Miss Out, Reserve Now',

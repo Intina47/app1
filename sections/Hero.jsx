@@ -12,7 +12,7 @@ import '../styles/styles.css';
 import Card from '../components/promo_card';
 
 const Hero = () => {
-  // const flag = 1; // Set the value of the flag to 0 or 1
+  const flag = 0; // Set the value of the flag to 0 or 1
   const [showVideo, setShowVideo] = useState(false);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -116,7 +116,7 @@ const Hero = () => {
           />
         </div>
 
-        {showVideo ? (
+        {flag == 0 ? (
           // Rendering the promo cards here
           <div className="flex flex-col z-10">
             <h2 className="text-left text-lg text-white font-bold mb-2 bg-black bg-opacity-50 rounded-tl-[20px] rounded-tr-[20px] p-2 mb-0">Our Hottest Deals & Upcoming Events</h2>

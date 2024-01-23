@@ -1,4 +1,6 @@
-# My Awesome Project
+
+# SPELLING WORKFLOW TEST
+nb::you might notice alot of errors on this readme, they are intentianal as am testing a github worklow am creating
 
 Welcome to the My Awesome Project repository! This is a super cool and innnovative project that aims to solve real-world problems using advanced technologys. We believe in open-soruce collaboration and welcom all contributors to join us on this exiciting journey.
 

@@ -2,7 +2,7 @@
 # SPELLING WORKFLOW TEST
 nb::you might notice alot of errors on this readme, they are intentianal as am testing a github worklow am creating
 
-Welcom o th My Awesome Project repository! This is a super cool and innnovative project that aims to solve real-wold problems using advanced technologys. We believe in open-soruce collaboration and welcom all contributors to join us on this exiciting journey.
+Welcom o th My Awesome Project repoitory! This is a super cool and innnovative project that aims to solve real-wold problems using advanced technologys. We believe in open-soruce collaboration and welcom all contributors to join us on this exiciting journey.
 
 ## Installattio
 

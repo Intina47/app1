@@ -30,14 +30,16 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Spelling and Typos Check
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           title: Spelling and Typos Check
           body: |
             This PR was created by [Spelling and Typos Check]
           branch: spelling-and-typos-check
-          base: main
+          # base: main
           branch-suffix: timestamp
-          delete-branch: false
-          reviewers: ${{ github.actor }}
+          delete-branch: true
+          reviewers: INtina47
           labels: spelling-and-typos-check
           draft: false
           add-paths: -A

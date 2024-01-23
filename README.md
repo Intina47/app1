@@ -16,5 +16,5 @@ We encourgae al developers to contribute to this project by fixing bugs, adding 
 
 If you encouner any issues or bugs, please open a new issue on our GitHub page. We appriciate your help in mking this project better!
 
-Hupy coding!
+Hapy coding!
 

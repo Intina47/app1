@@ -170,7 +170,7 @@ const booking = () => {
                   placeholder="Enter your Email"
                 />
               </div>
-              {/* phone numner */}
+              {/* phone number */}
               <div className="flex flex-col mb-4">
                 <label htmlFor="phone_number" className="text-white font-bold mb-2">
                   Phone Number

@@ -12,7 +12,7 @@ const GetStarted = () => (
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
-      viewport={{once: 'false', amout: 0.25}}
+      viewport={{once: 'false', amount: 0.25}}
       className={`${styles.innerWidth} mx-auto flex lg:flex-row flex-col gap-8`}
     >
       <motion.div
@@ -35,7 +35,7 @@ const GetStarted = () => (
         <motion.div variants={fadeIn('up', 'tween', 0,0.2,1)}
           className="mt-[50px] flex justify-center"
         >
-          {/* make the button backgound color green */}
+          {/* make the button background color green */}
           <Link href="/reservation?type=Guestlist">
             <button type="button" className="bg-secondary-green rounded-[50px] px-[30px] py-[10px] font-bold text-primary-black">
               Join the Guest List

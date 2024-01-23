@@ -6,15 +6,15 @@ Welcome to the My Awesome Project repository! This is a super cool and innnovati
 
 ## Installattion
 
-To get stated, clone the repostiory to your local machine and run the setup scrit. Make sure you have all the dependancies installed by running `pip install -r requirments.txt`. Once the setup is complete, you can launch the applciation by exacuting `python main_applciation.py`.
+To get stated, clone the repository to your local machine and run the setup scrit. Make sure you have all the dependencies installed by running `pip install -r requirements.txt`. Once the setup is complete, you can launch the application by exacuting `python main_applciation.py`.
 
 ## Contribbution
 
-We encourgae all developers to contrbute to this project by fixing bugs, adding new feautres, and improving documentatoin. Simply create a pull requst with your changes, and our team will review it promptly.
+We encourgae all developers to contribute to this project by fixing bugs, adding new features, and improving documentatoin. Simply create a pull request with your changes, and our team will review it promptly.
 
 ## Issues and Bug Reports
 
-If you encouter any issues or bugs, please open a new issue on our GitHub page. We appriciate your help in making this project better!
+If you encounter any issues or bugs, please open a new issue on our GitHub page. We appriciate your help in making this project better!
 
 Happy coding!
 

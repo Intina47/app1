@@ -36,7 +36,7 @@ jobs:
           branch: spelling-and-typos-check
           base: main
           branch-suffix: timestamp
-          # delete-branch: true
+          delete-branch: true
           reviewers: ${{ github.actor }}
           labels: spelling-and-typos-check
           draft: false

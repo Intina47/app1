@@ -22,15 +22,11 @@ export default function handler(req, res) {
     const cleanedEmail = xss(email);
     const cleanedMessage = xss(message);
 
-    // log
-    console.log('Name:', cleanedName);
-    console.log('Email:', cleanedEmail);
-    console.log('Message:', cleanedMessage);
-
-    if (name !== cleanedName || email !== cleanedEmail || message !== cleanedMessage) {
-      res.status(400).json({ error: 'Invalid input' });
+    if (cleanedName.includes('suspicious') || cleanedEmail.includes('suspicious') || cleanedMessage.includes('suspicious')) {
+      res.status(400).json({ error: 'Suspicious content detected' });
       return;
     }
+  
 
     // send email to company
     const transporter = nodemailer.createTransport({

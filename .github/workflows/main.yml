@@ -36,7 +36,7 @@ jobs:
           body: |
             This PR was created by [Spelling and Typos Check]
           branch: spelling-and-typos-check
-          base: main
+          # base: main
           branch-suffix: timestamp
           delete-branch: true
           reviewers: INtina47

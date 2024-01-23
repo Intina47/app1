@@ -40,10 +40,10 @@ jobs:
           reviewers: ${{ github.actor }}
           labels: spelling-and-typos-check
           draft: false
-          path: .
-          path-ignore: |
-            .github/workflows/spelling-and-typos-check.yml
-            .github/workflows/spelling-and-typos-check.yaml
+          add-paths: -A
+        env:
+          pythonLocation: /opt/hostedtoolcache/Python/3.8.18/x64
+          LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.18/x64/lib
 
 
 

@@ -6,7 +6,8 @@ import { socials } from '../constants';
 
 const QRCodeGenerator = ({ uuid }) => {
         // just a variable to hold the uuid to remove the warning for now
-        console.log(uuid, 'Generated QR Code');
+        const userid = uuid;
+        console.log('generated uuid %s ', userid);
         const link = 'https://afrobeatsdundee.co.uk/membership';
         const [copied, setCopied] = useState(false);
         const [countdownTime, setCountdownTime] = useState(() => {

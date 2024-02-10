@@ -1,18 +1,42 @@
-
 import nodemailer from 'nodemailer';
 import { config } from 'dotenv';
 
+const xss = require('xss');
+
 config();
 
-export default function handler(req, res){
-    const {name, email,phonenumber, date, time,guests,specialRequest,reservationType} = req.body;
-    // make sure all data has been given by the user
-    if (!name || !email || !phonenumber || !date || !time || !guests || !reservationType){
-        console.log('Error Please Ensure you fill all the fields');
-        return res.status(422).json({error: 'Invalid input'});
-    }
+// Function to sanitize inputs
+function sanitizeInputs(input) {
+    return xss(input);
+}
 
-    //send email to company
+// Function to validate inputs
+function validateInputs(inputs) {
+    return Object.values(inputs).every((input) => input && input === sanitizeInputs(input));
+}
+
+// Function to create mail options
+function createMailOptions(inputs) {
+    return {
+        from: process.env.COMPANY_EMAIL,
+        replyTo: inputs.email,
+        to: process.env.COMPANY_EMAIL,
+        subject: `Reservation request from ${inputs.name}`,
+        text: `
+        RESERVATION TYPE: ${inputs.reservationType}
+        Name: ${inputs.name}
+        Email: ${inputs.email}
+        Phone Number: ${inputs.phonenumber}
+        Date: ${inputs.date}
+        Time: ${inputs.time}
+        Guests: ${inputs.guests}
+        Special Request: ${inputs.specialRequest}
+        `,
+    };
+}
+
+// Function to send email
+function sendEmail(mailOptions, res) {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -20,22 +44,6 @@ export default function handler(req, res){
             pass: process.env.EMAIL_PASSWORD,
         },
     });
-
-    const mailOptions = {
-        from: process.env.COMPANY_EMAIL,
-        to: process.env.COMPANY_EMAIL,
-        subject: 'New Reservation',
-        text: `
-        RESERVATION TYPE: ${reservationType}
-        Name: ${name}
-        Email: ${email}
-        Phone Number: ${phonenumber}
-        Date: ${date}
-        Time: ${time}
-        Guests: ${guests}
-        Special Request: ${specialRequest}
-        `,
-    };
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error){
@@ -46,4 +54,18 @@ export default function handler(req, res){
             res.status(200).json({message: 'Reservation sent successfully'});
         }
     });
+}
+
+export default function handler(req, res){
+    const {name, email, phonenumber, date, time, guests, specialRequest, reservationType} = req.body;
+
+    const inputs = {name, email, phonenumber, date, time, guests, specialRequest, reservationType};
+
+    if (!validateInputs(inputs)) {
+        console.log('Error Please Ensure you fill all the fields');
+        return res.status(422).json({error: 'Invalid input'});
+    }
+
+    const mailOptions = createMailOptions(inputs);
+    sendEmail(mailOptions, res);
 }

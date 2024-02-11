@@ -4,8 +4,8 @@ import { generateCode } from '../../utils/codeGenerator.ts';
 import { sendEmail } from '../../utils/emailer.ts';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-    res.setHeader('Cache-Control', 'no-store');
     const { db } = await connectToDatabase();
+    res.setHeader('Cache-Control', 'no-store');
     const ip = req.headers['x-real-ip'] as string || req.socket.remoteAddress as string || req.headers['x-forwarded-for'] as string;
 
     // Check if a code is currently being generated for this IP

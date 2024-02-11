@@ -4,6 +4,7 @@ import { generateCode } from '../../utils/codeGenerator.ts';
 import { sendEmail } from '../../utils/emailer.ts';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+    res.setHeader('Cache-Control', 'no-store');
     const { db } = await connectToDatabase();
     const ip = req.headers['x-real-ip'] as string || req.socket.remoteAddress as string || req.headers['x-forwarded-for'] as string;
 

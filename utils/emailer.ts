@@ -37,5 +37,9 @@ export async function sendEmail(code: string) {
   };
 
   // Send the email
-  await transporter.sendMail(mailOptions);
+  try {
+    await transporter.sendMail(mailOptions);
+  } catch (error) {
+    throw new Error('Failed to send email');
+  }
 }

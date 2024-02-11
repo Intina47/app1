@@ -24,7 +24,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     // Generate a new code and send it
     const code = generateCode();
+    try {
     sendEmail(code);
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to send email' });
+        return;
+    }
 
     // Update the user document with the new code and set the codeGenerating flag to false
     const updatedUser = await db.collection('admin_user_x432fwfwdf42').findOneAndUpdate(

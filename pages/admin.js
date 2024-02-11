@@ -8,8 +8,10 @@ import '../styles/globals.css';
 const AdminPage = () => {
   const [code, setCode] = React.useState('');
   const [accessGranted, setAccessGranted] = React.useState(false);
+  const [loading, setLoading] = React.useState(false); // new state variable
 
   const generateCode = async () => {
+    setLoading(true); // disable the button
     try {
       const res = await axios.get('/api/sendAccessCode');
       if (res.status === 200) {
@@ -21,6 +23,8 @@ const AdminPage = () => {
     } catch (error) {
       toast.error('Something went wrong. Please try again.');
       console.error(error);
+    } finally {
+      setLoading(false); // enable the button
     }
   };
 
@@ -45,6 +49,7 @@ const AdminPage = () => {
               type="button"
               onClick={generateCode}
               className="text-white p-2 rounded-md hover:text-green-400"
+              disabled={loading}
             >
               Generate access code
             </button>

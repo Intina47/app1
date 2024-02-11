@@ -7,6 +7,7 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -16,7 +17,11 @@ module.exports = {
   },
   plugins: [
     'react',
+    '@typescript-eslint',
   ],
+  overrides: [
+    {
+      files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
   rules: {
     'react/no-unescaped-entities': 'off',
     '@next/next/no-page-custom-font': 'off',
@@ -102,4 +107,6 @@ module.exports = {
     indent: 0,
     'spaced-comment': 0,
   },
+},
+],
 };

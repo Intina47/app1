@@ -8,21 +8,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.setHeader('Cache-Control', 'no-store');
     const ip = req.headers['x-real-ip'] as string || req.socket.remoteAddress as string || req.headers['x-forwarded-for'] as string;
 
-    // Check if a code is currently being generated for this IP
-    const user = await db.collection('admin_user_x432fwfwdf42').findOne({ ip });
-
-    if (user && user.codeGenerating) {
-        res.status(409).json({ message: 'A code is currently being generated, please try again later' });
-        return;
-    }
-
-    // If no code is being generated, set the codeGenerating flag to true
-    await db.collection('admin_user_x432fwfwdf42').findOneAndUpdate(
-        { ip },
-        { $set: { codeGenerating: true } },
-        { upsert: true },
-    );
-
     // Generate a new code and send it
     const code = generateCode();
     try {

@@ -5,30 +5,38 @@ import { sendEmail } from '../../utils/emailer.ts';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const { db } = await connectToDatabase();
-    const code = generateCode();
     const ip = req.headers['x-real-ip'] as string || req.socket.remoteAddress as string || req.headers['x-forwarded-for'] as string;
 
-    // Check if a code has already been sent in the last hour
-    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
-    const recentUser = await db.collection('admin_user_x432fwfwdf42').findOne({ ip, timestamp: { $gte: oneHourAgo } });
+    // Check if a code is currently being generated for this IP
+    const user = await db.collection('admin_user_x432fwfwdf42').findOne({ ip });
 
-    if (recentUser) {
-        res.status(200).json({ message: 'A code has already been sent in the last hour' });
+    if (user && user.codeGenerating) {
+        res.status(409).json({ message: 'A code is currently being generated, please try again later' });
         return;
     }
 
-    // If no recent code was found, generate a new code and send it
-    const user = await db.collection('admin_user_x432fwfwdf42').findOneAndUpdate(
+    // If no code is being generated, set the codeGenerating flag to true
+    await db.collection('admin_user_x432fwfwdf42').findOneAndUpdate(
         { ip },
-        { $set: { code, timestamp: new Date() } },
-        { upsert: true, returnOriginal: false },
+        { $set: { codeGenerating: true } },
+        { upsert: true },
     );
 
-    if (!user.value) {
+    // Generate a new code and send it
+    const code = generateCode();
+    sendEmail(code);
+
+    // Update the user document with the new code and set the codeGenerating flag to false
+    const updatedUser = await db.collection('admin_user_x432fwfwdf42').findOneAndUpdate(
+        { ip },
+        { $set: { code, codeGenerating: false } },
+        { returnOriginal: false },
+    );
+
+    if (!updatedUser.value) {
         res.status(500).json({ message: 'Error saving user'});
         return;
     }
 
-    sendEmail(code);
     res.status(200).json({ messsage: 'Code sent'});
 };

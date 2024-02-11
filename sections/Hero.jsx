@@ -126,17 +126,16 @@ const Hero = () => {
         {flag === 0 ? (
           // Rendering the promo cards here
           <div className="flex flex-col z-10">
-            <h2 className="text-left text-lg text-white font-bold mb-2 bg-black bg-opacity-50 rounded-tl-[20px] rounded-tr-[20px] p-2">Our Hottest Deals & Upcoming Events</h2>
+            <h2 className="text-left text-lg text-white font-bold mb-0 bg-black bg-opacity-50 rounded-tl-[20px] rounded-tr-[20px] p-2">Our Hottest Deals & Upcoming Events</h2>
             <div className="flex overflow-x-scroll gap-2">
               {events.map((event, index) => (
-                <>
+                <div key={index} data-event-date={event.eventDate} className="w-[300px] overflow-hidden shadow-lg mx-2 rounded-bl-[20px] rounded-br-[20px] min-w-[19rem]">
                   <LazyLoadImage />
                   <Card
-                    key={index}
                     image={event.previewSource}
                     buttonText="Make a Reservation"
                   />
-                </>
+                </div>
               ))}
             </div>
           </div>

@@ -1,0 +1,10 @@
+{
+    "github": {
+        "ignoreOrg": false,
+        "ignoreRepo": false,
+        "autoAlias": true,
+        "ignore": [
+            "dev"
+        ]
+    }
+}

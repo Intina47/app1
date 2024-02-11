@@ -1,8 +1,9 @@
+const daisyui = require('daisyui');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './app/**/*.{html,js,jsx}',
-    './components/**/*.{html,js,jsx}',
+    './components/**/*.{html,js,jsx,ts,tsx}',
     './sections/**/*.{html,js,jsx}',
     './styles/**/*.{js,jsx}',
   ],
@@ -21,5 +22,18 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  // ...
+
+    plugins: [daisyui],
+  daisyui: {
+    styled: 'false',
+    themes: 'false',
+    rtl: 'false',
+    utils: 'false',
+    logs: 'false',
+    base: 'false',
+    components: {
+      progress: 'true',
+    },
+  },
 };

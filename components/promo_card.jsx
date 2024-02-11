@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
-import { ToastContainer } from 'react-toastify';
 import { navlink } from '../constants';
 
 const PromoCard = ({ image, title, buttonText, first, last}) => {
@@ -27,7 +26,6 @@ const PromoCard = ({ image, title, buttonText, first, last}) => {
       }
         return (
           <div className={`w-[300px] overflow-hidden shadow-lg mx-2 ${borderRadiusClass} min-w-[19rem]`}>
-            <ToastContainer className="z-50" />
             <div className="cursor-pointer" onClick={() => window.open(image, '_blank')}>
               {/* Image section */}
               <img src={image} alt={title} className="w-full h-[300px] object-cover" />

@@ -55,12 +55,6 @@ const Footer = () => {
       // Simulate an asynchronous operation (e.g., subscribing)
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      // setSending(false); // Hide loading state
-      // setSubscribed(true); // Show subscribed state
-
-      // Reset subscribed state after a few seconds
-      // setTimeout(() => setSubscribed(false), 5000);
-
       const response = await fetch('/api/mailingList', {
         method: 'POST',
         headers: {
@@ -148,9 +142,9 @@ const Footer = () => {
                 value={formData.dob}
                 onChange={handleChange}
                 // className="flex bg-transparent border-2 border-primary-green rounded-lg text-white text-[18px] font-bold p-3 md:p-5 w-full md:w-auto"
-                onBlur={handleChange} // Add onBlur event handler
+                onBlur={handleChange}
                 className={`bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2 p-3 md:p-5 w-full md:w-auto${
-            isUnder18 ? 'border-red-500' : '' // Apply red border if under 18
+            isUnder18 ? 'border-red-500' : ''
           }`}
                 required
               />

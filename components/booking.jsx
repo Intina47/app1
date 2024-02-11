@@ -101,7 +101,7 @@ const booking = () => {
 };
 
   return (
-    <><div className="alert alert-success">
+    <><div>
       <h1 className="text-white text-center font-bold text-[24px] mb-0">AFRO BEATS DUNDEE</h1>
       {/* open days */}
       <h2 className="hero_description text-center font-bold text-[18px] mb-0">OPEN DAYS</h2>

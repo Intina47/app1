@@ -14,7 +14,7 @@ const Drawer = ({ toggle, boldnavlink,navlink, active, setActive }) => (
     <li
       key={nav.id}
       className={`font-poppins font-normal cursor-pointer text-[16px] ${
-        active === nav.title ? 'text-white' : 'text-dimred'
+        active === nav.title ? 'text-white' : 'text-black'
       } ${index === navlink.length - 1 ? 'mb-8' : 'mb-4'} underline-on-hover`}
       onClick={nav.onClick ? nav.onClick : () => setActive(nav.title)}
     >

@@ -7,22 +7,29 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import styles from '../styles';
 import { slideIn, staggerContainer } from '../utils/motion';
-import { socials,promotions } from '../constants';
+import { socials } from '../constants';
 import '../styles/styles.css';
 import Card from '../components/promo_card';
 
 const Hero = () => {
   const flag = 0; // Set the value of the flag to 0 or 1
-  const [showVideo, setShowVideo] = useState(false);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setShowVideo((prevShowVideo) => !prevShowVideo);
-    }, 30000); // Change the content every 30 seconds (30000)
+  const [events, setEvents] = useState([]);
 
-    return () => {
-      clearInterval(interval);
-    };
+  useEffect(() => {
+    fetch('/api/events')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('data', data);
+        setEvents(data);
+      })
+      .catch((error) => console.error('Error:', error));
   }, []);
+
   const locationDetails = {
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-yellow" viewBox="0 0 20 20" fill="yellow">
@@ -116,23 +123,19 @@ const Hero = () => {
           />
         </div>
 
-        {flag == 0 ? (
+        {flag === 0 ? (
           // Rendering the promo cards here
           <div className="flex flex-col z-10">
-            <h2 className="text-left text-lg text-white font-bold mb-2 bg-black bg-opacity-50 rounded-tl-[20px] rounded-tr-[20px] p-2 mb-0">Our Hottest Deals & Upcoming Events</h2>
+            <h2 className="text-left text-lg text-white font-bold mb-0 bg-black bg-opacity-50 rounded-tl-[20px] rounded-tr-[20px] p-2">Our Hottest Deals & Upcoming Events</h2>
             <div className="flex overflow-x-scroll gap-2">
-              {promotions.map((promo, index) => (
-                <>
+              {events.map((event, index) => (
+                <div key={index} data-event-date={event.eventDate} className="w-[300px] overflow-hidden shadow-lg mx-2 rounded-bl-[20px] rounded-br-[20px] min-w-[19rem]">
                   <LazyLoadImage />
                   <Card
-                    key={index}
-                    image={promo.image}
-                    title={promo.title}
-                    description={promo.description}
-                    link={promo.link}
-                    buttonText={promo.buttonText}
+                    image={event.previewSource}
+                    buttonText="Make a Reservation"
                   />
-                </>
+                </div>
               ))}
             </div>
           </div>

@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Disallow: /admin
+Allow: /
+
+# Host
+Host: https://organic-carnival-4rvgwvwwvpwfj474-3000.app.github.dev/
+
+# Sitemaps
+Sitemap: https://organic-carnival-4rvgwvwwvpwfj474-3000.app.github.dev/sitemap.xml

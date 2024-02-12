@@ -98,17 +98,17 @@ export const faqs = [
 
 export const socials = [
   {
-    name: 'instagram',
+    name: ' @afrobeatsdundee',
     url: '/instagram.png',
     link: 'https://www.instagram.com/afrobeatsdundee/',
   },
   {
-    name: 'facebook',
+    name: '',
     url: '/facebook.png',
     link: 'https://www.facebook.com/afrobreatsdundee',
   },
   {
-    name: 'snapchat',
+    name: '',
     url: '/snapchat.png',
     link: 'https://www.snapchat.com/add/afrobeatsdundee',
   },

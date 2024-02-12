@@ -2,33 +2,21 @@
 
 import {motion} from 'framer-motion';
 import Link from 'next/link';
-import React, { useRef, useState, useEffect } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import React, { useRef, useEffect } from 'react';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import useFetchEvents from '../hooks/useFetchEvents';
 import styles from '../styles';
 import { slideIn, staggerContainer } from '../utils/motion';
 import { socials } from '../constants';
 import '../styles/styles.css';
 import Card from '../components/promo_card';
+import SocialLink from '../components/heroComponents/SocialLink';
+import CarouselImage from '../components/heroComponents/CarouselImage';
+import VideoPlayer from '../components/heroComponents/videoPlayer';
 
 const Hero = () => {
   const flag = 0; // Set the value of the flag to 0 or 1
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    fetch('/api/events')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log('data', data);
-        setEvents(data);
-      })
-      .catch((error) => console.error('Error:', error));
-  }, []);
+  const events = useFetchEvents();
 
   const locationDetails = {
     icon: (
@@ -76,13 +64,7 @@ const Hero = () => {
       ref={imageRef}
     >
       {imagePaths.map((path, index) => (
-        <div
-          key={index}
-          className="carouselImage relative"
-          style={{ backgroundImage: `url(${path})` }}
-        >
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
-        </div>
+        <CarouselImage key={index} imagePaths={path} />
     ))}
       <motion.div
         variants={staggerContainer}
@@ -103,14 +85,7 @@ const Hero = () => {
             </div>
           </a>
           {socials.map((social, index) => (
-            <Link href={social.link} key={index} title={social.name}>
-              <img
-                key={social.name}
-                src={social.url}
-                alt={social.name}
-                className="w-[24px] h-[24px] object-contain cursor-pointer font-bold text-xl transform hover:scale-105 transition duration-300 relative overflow-hidden"
-              />
-            </Link>
+            <SocialLink key={index} social={social} />
           ))}
         </motion.div>
 
@@ -130,10 +105,10 @@ const Hero = () => {
             <div className="flex overflow-x-scroll gap-2">
               {events.map((event, index) => (
                 <div key={index} data-event-date={event.eventDate} className="w-[300px] overflow-hidden shadow-lg mx-2 rounded-bl-[20px] rounded-br-[20px] min-w-[19rem]">
-                  <LazyLoadImage />
                   <Card
                     image={event.previewSource}
                     buttonText="Make a Reservation"
+                    ticketLink={event.ticketLink}
                   />
                 </div>
               ))}
@@ -144,17 +119,7 @@ const Hero = () => {
           // Render the video here
           <motion.div variants={slideIn('right', 'tween', 0.2, 1)} className="relative w-full md:-mt-[20px] -mt-[12px]">
             <div className="absolute w-full h-[300px] rounded-tl-[140px] z-[0] -top-[30px]" />
-            <video
-              // ref={videoRef}
-              src="/dec/nyevid.MP4"
-              alt="hero"
-              className="w-full sm:h-[500px] h-[340px] object-cover rounded-tl-[40px] rounded-bl-[40px] z-10 relative"
-              autoPlay
-              muted
-              loop
-              playsInline
-              style={{ filter: 'blur(0px)', animationDuration: '5s' }} // Apply CSS styles for blur and animation duration
-            />
+            <VideoPlayer src="/afrobeats.mp4" />
             <Link href="/reservation?type=Reservation">
               <div className="w-full flex justify-end sm:-mt-[70px] -mt-[50px] pr-[40px] relative z-10">
                 <div className="flex flex-col items-center gap-2">

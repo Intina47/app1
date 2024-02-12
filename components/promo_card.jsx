@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { navlink } from '../constants';
 
 const PromoCard = ({ image, title, buttonText, first, last}) => {
@@ -28,7 +29,11 @@ const PromoCard = ({ image, title, buttonText, first, last}) => {
           <div className={`w-[300px] overflow-hidden shadow-lg mx-2 ${borderRadiusClass} min-w-[19rem]`}>
             <div className="cursor-pointer" onClick={() => window.open(image, '_blank')}>
               {/* Image section */}
-              <img src={image} alt={title} className="w-full h-[300px] object-cover" />
+              <LazyLoadImage
+                src={image}
+                alt={title}
+                className="w-full h-[300px] object-cover"
+              />
             </div>
             <div className="p-4 bg-white flex justify-start space-x-4">
               <Link href={navlink[2].url}>

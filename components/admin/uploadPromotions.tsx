@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { app } from '../../utils/firebaseClientConfiguration.ts';
 
 const UploadPromotion = () => {
-    const [events, setEvents] = useState([{ previewSource: '', eventDate: '' }]);
+    const [events, setEvents] = useState([{ previewSource: '', eventDate: '', ticketLink: ''}]);
     const [uploadProgress, setUploadProgress] = useState(0);
     const [isUploading, setIsUploading] = useState(false);
 
@@ -40,7 +40,7 @@ const UploadPromotion = () => {
             if (!response.ok) {
                 throw new Error(`HTTP error ${response.status}`);
             }
-            setEvents([{ previewSource: '', eventDate: '' }]);
+            setEvents([{ previewSource: '', eventDate: '' , ticketLink: ''}]);
             toast.success('Events uploaded successfully!');
         } catch (error) {
             toast.error('Failed to upload events please try again');
@@ -53,7 +53,7 @@ const UploadPromotion = () => {
             toast.error('Please fill all the fields before adding another event');
             return;
         }
-        setEvents([...events, { previewSource: '', eventDate: '' }]);
+        setEvents([...events, { previewSource: '', eventDate: '', ticketLink: ''}]);
     };
 
     const previewFile = (file, index) => {
@@ -107,6 +107,11 @@ const UploadPromotion = () => {
         }
     };
 
+    const handleTicketLinkChange = (link: string, index: number) => {
+        const newEvents = [...events];
+        newEvents[index].ticketLink = link;
+        setEvents(newEvents);
+    };
         return (
           <>
             <ToastContainer className="z-50 text-sm" />
@@ -146,6 +151,9 @@ const UploadPromotion = () => {
                     </div>
                     <label htmlFor="eventDate" className="block mt-4 text-sm font-semibold">Event Date</label>
                     <input required type="date" value={event.eventDate} onChange={(e) => handleDateChange(e.target.value, index)} className="w-full p-2 mt-2 border rounded" />
+                    {/* tickets link field */}
+                    <label htmlFor="ticketsLink" className="block mt-4 text-sm font-semibold">Tickets Link</label>
+                    <input type="url" value={event.ticketLink} onChange={(e) => handleTicketLinkChange(e.target.value, index)} className="w-full p-2 mt-2 border rounded" placeholder="https://example.com" />
                   </div>
                     ))}
                 <div className="flex justify-center mt-4">

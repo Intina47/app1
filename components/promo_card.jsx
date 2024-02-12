@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { navlink } from '../constants';
 
-const PromoCard = ({ image, title, buttonText, first, last}) => {
+const PromoCard = ({ image, title, buttonText, first, last, ticketLink}) => {
   const handleShare = () => {
     console.log('share');
     if (navigator.share) {
@@ -27,13 +27,41 @@ const PromoCard = ({ image, title, buttonText, first, last}) => {
       }
         return (
           <div className={`w-[300px] overflow-hidden shadow-lg mx-2 ${borderRadiusClass} min-w-[19rem]`}>
-            <div className="cursor-pointer" onClick={() => window.open(image, '_blank')}>
+            <div className="relative cursor-pointer" onClick={() => window.open(image, '_blank')}>
               {/* Image section */}
               <LazyLoadImage
                 src={image}
                 alt={title}
                 className="w-full h-[300px] object-cover"
               />
+              {ticketLink && (
+              <div className="absolute top-0 right-0 ml-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-green-200 text-green-700 rounded-full opacity-75">
+                <a
+                  href={ticketLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center transform transition-transform duration-200 hover:scale-110"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="feather feather-arrow-right mr-2"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                  Get Ticket
+                </a>
+              </div>
+                      )}
             </div>
             <div className="p-4 bg-white flex justify-start space-x-4">
               <Link href={navlink[2].url}>

@@ -146,7 +146,7 @@ const UploadPromotion = () => {
                                         </>
                                         )
                                     )}
-                        <input  accept="image/png, image/jpeg, image/jpg" type="file" id={`dropzone-file-${index}`} className="hidden" onChange={(e) => handleFileChange(e, index)} />
+                        <input accept="image/png, image/jpeg, image/jpg" type="file" id={`dropzone-file-${index}`} className="hidden" onChange={(e) => handleFileChange(e, index)} />
                       </label>
                     </div>
                     <label htmlFor="eventDate" className="block mt-4 text-sm font-semibold">Event Date</label>

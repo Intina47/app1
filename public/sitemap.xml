@@ -1,43 +1,4 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
-<url>
-<loc>https://afrobeatsdundee.co.uk/</loc>
-<lastmod>2023-10-31T02:01:54+00:00</lastmod>
-<priority>1.00</priority>
-</url>
-<url>
-<loc>https://afrobeatsdundee.co.uk/reservation?type=Guestlist</loc>
-<lastmod>2023-10-31T02:01:54+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://afrobeatsdundee.co.uk/reservation?type=Reservation</loc>
-<lastmod>2023-10-31T02:01:54+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://afrobeatsdundee.co.uk/contact-us</loc>
-<lastmod>2023-10-31T02:01:54+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://afrobeatsdundee.co.uk/membership</loc>
-<lastmod>2023-10-31T02:01:54+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://afrobeatsdundee.co.uk/reservation?type=urbanFridaysReservation</loc>
-<lastmod>2023-10-31T02:01:54+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://afrobeatsdundee.co.uk/reservation?type=private-event</loc>
-<lastmod>2023-10-31T02:01:54+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://afrobeatsdundee.co.uk/membership-qrcode</loc>
-<lastmod>2023-10-31T02:01:54+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-</urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemap><loc>https://organic-carnival-4rvgwvwwvpwfj474-3000.app.github.dev/sitemap-0.xml</loc></sitemap>
+</sitemapindex>

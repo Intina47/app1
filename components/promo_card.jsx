@@ -27,11 +27,11 @@ const PromoCard = ({ image, title, buttonText, first, last, ticketLink}) => {
       }
         return (
           <div className={`w-[300px] overflow-hidden shadow-lg mx-2 ${borderRadiusClass} min-w-[19rem]`}>
-            <div className="relative cursor-pointer" onClick={() => window.open(image, '_blank')}>
+            <div data-event-name="MAGNITO (CANADA ft Olamide) LIVE PERFORMANCE" data-event-date="2024-02-24 Sat" className="relative cursor-pointer" onClick={() => window.open(image, '_blank')}>
               {/* Image section */}
               <LazyLoadImage
                 src={image}
-                alt={title}
+                alt = "MAGNITO (CANADA ft Olamide) LIVE PERFORMANCE on Sat 24th Feb 2024"
                 className="w-full h-[300px] object-cover"
               />
               {ticketLink && (

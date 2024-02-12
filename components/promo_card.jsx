@@ -31,7 +31,7 @@ const PromoCard = ({ image, title, buttonText, first, last, ticketLink}) => {
               {/* Image section */}
               <LazyLoadImage
                 src={image}
-                alt = "MAGNITO (CANADA ft Olamide) LIVE PERFORMANCE on Sat 24th Feb 2024"
+                alt="MAGNITO (CANADA ft Olamide) LIVE PERFORMANCE on Sat 24th Feb 2024"
                 className="w-full h-[300px] object-cover"
               />
               {ticketLink && (

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import styles from '../styles';
 import { fadeIn, staggerContainer } from '../utils/motion';
 import InstagramEmbed from './Insta/InstagramEmbed';
+
 const SponsorSection = () => (
   <section id="sponsor" className={`${styles.paddings} relative z-10`}>
     <div className="gradient-02 z-0" />
@@ -42,9 +43,9 @@ const SponsorSection = () => (
         >
           <span className="font-extrabold text-white">Meet Our Community</span>
           {/* instagram embeds with an x overlow to allow user to scroll throught all the post / embeds */}
-            <div className="flex flex-col autoflow-x-scroll">
-                <InstagramEmbed />
-            </div>
+          <div className="flex flex-col autoflow-x-scroll">
+            <InstagramEmbed />
+          </div>
         </motion.h3>
       </div>
     </motion.div>

@@ -12,7 +12,7 @@ const ContentCard = ({ img, title, desc }: ContentCardPropsType) => (
   <Card
     className="relative grid min-h-[30rem] items-end overflow-hidden rounded-xl"
     color="transparent"
-    placeholder={false}
+    placeholder="false"
   >
     <img
       src={img}
@@ -21,10 +21,10 @@ const ContentCard = ({ img, title, desc }: ContentCardPropsType) => (
     />
     <div className="absolute inset-0 bg-black/70" />
     <CardBody className="relative flex flex-col justify-end"
-      placeholder={false}
+      placeholder="false"
     >
       <Typography variant="h4" color="white"
-        placeholder={false}
+        placeholder="false"
       >
         {title}
       </Typography>
@@ -32,7 +32,7 @@ const ContentCard = ({ img, title, desc }: ContentCardPropsType) => (
         variant="paragraph"
         color="white"
         className="my-2 font-normal"
-        placeholder={false}
+        placeholder="false"
       >
         {desc}
       </Typography>
@@ -46,14 +46,14 @@ export const BlogPage = () => (
       variant="h2"
       color="blue-gray"
       className="!text-2xl !leading-snug lg:!text-3xl"
-      placeholder={false}
+      placeholder="false"
     >
       Good girl with bad habits
     </Typography>
     <Typography
       variant="lead"
       className="mt-2 max-w-lg !font-normal !text-gray-500"
-      placeholder={false}
+      placeholder="false"
     >
       Meet our favorite paradox: a good girl with a few mischievous quirks.
       She's the heart of the party, spreading joy with every laugh and dance

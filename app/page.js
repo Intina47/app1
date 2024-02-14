@@ -4,6 +4,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Footer, Navbar } from '../components';
+import SponsorSection from '../components/sponsors';
 import { About, Explore, GetStarted, Hero } from '../sections';
 import OurMenuPopup from '../components/menuPopup';
 import '../styles/styles.css';
@@ -36,6 +37,7 @@ const Page = () => {
       </div>
       <div className="relative z-0">
         <About />
+        <SponsorSection/>
         <div className="gradient-03 z-10" />
         <Explore />
       </div>

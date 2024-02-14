@@ -161,6 +161,13 @@
   );
 }
 
+.custom-sponsor-section {
+  /* your custom styles for SponsorSection */
+  /* For example: */
+  overflow-x: visible !important;
+  white-space: nowrap;
+}
+
 .feedback-gradient {
   position: absolute;
   width: 200px;

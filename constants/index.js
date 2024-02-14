@@ -194,8 +194,13 @@ export const navlink = [
   },
   {
     id: 'membership',
-    title: 'membership',
+    title: 'Membership',
     url: '/membership',
+  },
+  {
+    id: 'blog',
+    title: 'Our blog',
+    url: '/afrobeats-blog',
   },
 ];
 export const boldnavlink = [
@@ -203,5 +208,53 @@ export const boldnavlink = [
     id: 'PrivateHire',
     title: 'Private Hire',
     url: '/reservation?type=Reservation',
+  },
+];
+
+export const contents = [
+  {
+    img: '/blog/bjt.jpg',
+    title: 'Budget-Friendly Fun',
+    desc: "Maximize the fun without breaking the bank! Discover affordable spots and happy hour specials for a budget-friendly night out with friends. Psst... the basement might just be your wallet's new best friend!",
+  },
+  {
+    img: '/blog/bjt1.jpg',
+    title: 'Safety First',
+    desc: 'Stay safe while having a blast! Always keep an eye on your drink, travel in groups, and let someone know your plans for the night. Your safety is our priority!',
+  },
+  {
+    img: '/blog/bjt2.jpg',
+    title: "Dance Like Nobody's Watching",
+    desc: "Unleash your inner dancer! Whether you've got smooth moves or just want to have fun, the dance floor is the perfect place to let loose and make unforgettable memories.",
+  },
+  {
+    img: '/blog/bj3.jpg',
+    title: 'Late-Night Bites',
+    desc: "Refuel with tasty bites after a night of dancing. Trust me it'll all be worth it in the morning.",
+  },
+  {
+    img: '/blog/bjt5.jpg',
+    title: 'Memorable Moments',
+    desc: "Capture the night's magic! Take photos, create memories, and share the joy with friends. Every night out is a chance to make unforgettable moments.",
+  },
+  {
+    img: '/blog/bjt6.jpg',
+    title: 'The Morning After',
+    desc: "The night's over, but the fun doesn't have to be! Share your favorite moments, laugh about the night's adventures, and plan your next outing. The fun never stops!",
+  },
+  {
+    img: '/blog/bjt9.jpg',
+    title: 'The Perfect Night',
+    desc: "The perfect night is waiting for you! Whether you're celebrating a special occasion or just want to have fun, the basement's got the tips and tricks to make your night unforgettable.",
+  },
+  {
+    img: '/blog/bjt7.jpg',
+    title: 'Citywide Adventures',
+    desc: "Don't limit yourself to one spot. Embrace citywide adventures! From rooftop bars with stunning views (let me know when you find one) to hidden speakeasies tucked away in alleys, explore every corner of the city's vibrant nightlife. The best nights are the ones filled with surprises and new discoveries!",
+  },
+  {
+    img: '/blog/bjt8.jpg',
+    title: 'Your Comfort Matters',
+    desc: "Your comfort is our priority! If anything or anyone makes you uncomfortable during your night out, don't let it spoil the fun. Talk to one of our friendly staff members. We're here to ensure everyone has a good time. Your peace of mind is as important as the beats on the dance floor. Let's make your night unforgettable, for all the right reasons.",
   },
 ];

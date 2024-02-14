@@ -25,7 +25,7 @@ const BlogPage = () => (
     <h1 className="block text-blue-gray-900 text-2xl leading-snug lg:text-4xl font-sans font-semibold">
       Good girl with bad habits
     </h1>
-    <p className="max-w-lg font-normal text-gray-500 mt-2 font-xl">
+    <p className="max-w-lg font-normal text-gray-500 mt-2 leading-relaxed">
       Meet our favorite paradox: a good girl with a few mischievous quirks. She's
       the heart of the party, spreading joy with every laugh and dance move. Let us
       hear what she has to say about how to have a splendid night out. Remember to

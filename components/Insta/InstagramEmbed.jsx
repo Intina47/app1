@@ -25,13 +25,11 @@ const InstagramEmbed = () => {
     minWidth: '326px',
     padding: '0',
     width: '99.375%',
-    width: '-webkit-calc(100% - 2px)',
-    width: 'calc(100% - 2px)',
   };
 
   const containerStyle = {
-    display: 'flex', // Set display to flex to make children inline
-    overflowX: 'auto', // Enable horizontal scrolling
+    display: 'flex',
+    overflowX: 'auto',
     whiteSpace: 'nowrap',
     margin: 'auto',
     maxWidth: '100%',
@@ -43,19 +41,19 @@ const InstagramEmbed = () => {
   };
 
   return (
-    <div style={containerStyle} className='autoflow-x-auto ' data-post-name="Official Univeristy of Dundee African Caribbean Society" >
-      <div style={{ ...embedContainerStyle }} data-post-name="Official Univeristy of Dundee African Caribbean Society" >
-      <blockquote
+    <div style={containerStyle} className="autoflow-x-auto " data-post-name="Official Univeristy of Dundee African Caribbean Society">
+      <div style={{ ...embedContainerStyle }} data-post-name="Official Univeristy of Dundee African Caribbean Society">
+        <blockquote
           className="instagram-media"
           data-instgrm-permalink="https://www.instagram.com/p/Cxi5M3bMhbh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
           data-instgrm-version="14"
           style={blockquoteStyle}
         >
-          <a href="https://www.instagram.com/p/Cxi5M3bMhbh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" data-post-name="Official Univeristy of Dundee African Caribbean Society " >
-          <img src="https://www.example.com/your-image1.jpg" alt="Official University of Dundee African Caribbean Society" style={{ width: '100%' }} loading="lazy" />
+          <a href="https://www.instagram.com/p/Cxi5M3bMhbh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" data-post-name="Official Univeristy of Dundee African Caribbean Society " rel="noreferrer">
+            <img src="https://www.example.com/your-image1.jpg" alt="Official University of Dundee African Caribbean Society" style={{ width: '100%' }} loading="lazy" />
           </a>
           <p style={{ color: '#c9c8cd', fontFamily: 'Arial, sans-serif', fontSize: '14px', lineHeight: '17px', margin: '8px 0 0' }}>
-            <a href="https://www.instagram.com/p/Cxi5M3bMhbh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" style={{ color: '#c9c8cd', textDecoration: 'none' }} target="_blank">
+            <a href="https://www.instagram.com/p/Cxi5M3bMhbh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" style={{ color: '#c9c8cd', textDecoration: 'none' }} target="_blank" rel="noreferrer">
               A post shared by ACS Dundee (@acsdundee)
             </a>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `
@@ -79,10 +77,10 @@ const InstagramEmbed = () => {
           data-instgrm-version="14"
           style={blockquoteStyle}
         >
-          <a href="https://www.instagram.com/p/CxvmHifsAIB/?utm_source=ig_embed&utm_campaign=loading" target="_blank" data-post-name="Official Univeristy of Dundee African Caribbean Society" >
-          <img src="https://www.example.com/your-image1.jpg" alt="Official University of Dundee African Caribbean Society" style={{ width: '100%' }} loading="lazy" />
+          <a href="https://www.instagram.com/p/CxvmHifsAIB/?utm_source=ig_embed&utm_campaign=loading" target="_blank" data-post-name="Official Univeristy of Dundee African Caribbean Society" rel="noreferrer">
+            <img src="https://www.example.com/your-image1.jpg" alt="Official University of Dundee African Caribbean Society" style={{ width: '100%' }} loading="lazy" />
           </a>
-                    <script
+          <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: `
                 {
@@ -92,15 +90,14 @@ const InstagramEmbed = () => {
                 "description": "Official University of Dundee African Caribbean Society - ACS Dundee Student Society",
                 }
             ` }}
-            />
+          />
           <p style={{ color: '#c9c8cd', fontFamily: 'Arial, sans-serif', fontSize: '14px', lineHeight: '17px', margin: '8px 0 0' }}>
-            <a href="https://www.instagram.com/p/CxvmHifsAIB/?utm_source=ig_embed&utm_campaign=loading" style={{ color: '#c9c8cd', textDecoration: 'none' }} target="_blank">
+            <a href="https://www.instagram.com/p/CxvmHifsAIB/?utm_source=ig_embed&utm_campaign=loading" style={{ color: '#c9c8cd', textDecoration: 'none' }} target="_blank" rel="noreferrer">
               A post shared by ACS Dundee (@acsdundee)
             </a>
           </p>
         </blockquote>
 
-        
       </div>
       <div style={{ ...embedContainerStyle }}>
         <blockquote
@@ -109,11 +106,11 @@ const InstagramEmbed = () => {
           data-instgrm-version="14"
           style={blockquoteStyle}
         >
-          <a href="https://www.instagram.com/p/Cxi5M3bMhbh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" data-post-name="Official Univeristy of Dundee African Caribbean Society" >
-          <img src="https://www.example.com/your-image1.jpg" alt="Official University of Dundee African Caribbean Society" style={{ width: '100%' }} loading="lazy" />
+          <a href="https://www.instagram.com/p/Cxi5M3bMhbh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" data-post-name="Official Univeristy of Dundee African Caribbean Society" rel="noreferrer">
+            <img src="https://www.example.com/your-image1.jpg" alt="Official University of Dundee African Caribbean Society" style={{ width: '100%' }} loading="lazy" />
           </a>
           <p style={{ color: '#c9c8cd', fontFamily: 'Arial, sans-serif', fontSize: '14px', lineHeight: '17px', margin: '8px 0 0' }}>
-            <a href="https://www.instagram.com/p/Cxi5M3bMhbh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" style={{ color: '#c9c8cd', textDecoration: 'none' }} target="_blank">
+            <a href="https://www.instagram.com/p/Cxi5M3bMhbh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" style={{ color: '#c9c8cd', textDecoration: 'none' }} target="_blank" rel="noreferrer">
               A post shared by ACS Dundee (@acsdundee)
             </a>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `

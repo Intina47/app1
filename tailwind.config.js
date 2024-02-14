@@ -1,6 +1,8 @@
 const daisyui = require('daisyui');
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const withMT = require('@material-tailwind/react/utils/withMT');
+
+module.exports = withMT({
   content: [
     './app/**/*.{html,js,jsx}',
     './components/**/*.{html,js,jsx,ts,tsx}',
@@ -36,4 +38,4 @@ module.exports = {
       progress: 'true',
     },
   },
-};
+});

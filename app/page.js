@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Footer, Navbar } from '../components';
 import SponsorSection from '../components/sponsors';
 import { About, Explore, GetStarted, Hero } from '../sections';
@@ -19,13 +19,13 @@ const Page = () => {
     setShowPopup(!showPopup);
   };
 
-  useEffect(() => {
-    const hasVisitedBefore = localStorage.getItem('hasVisited');
-    if (!hasVisitedBefore) {
-      setShowPopup(true);
-      localStorage.setItem('hasVisited', 'true');
-    }
-  }, []);
+  // useEffect(() => {
+  //   const hasVisitedBefore = localStorage.getItem('hasVisited');
+  //   if (!hasVisitedBefore) {
+  //     setShowPopup(true);
+  //     localStorage.setItem('hasVisited', 'true');
+  //   }
+  // }, []);
 
   return (
     <div className="bg-black overflow-hidden">

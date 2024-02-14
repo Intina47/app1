@@ -40,7 +40,7 @@ const ContentCard = ({ img, title, desc }: ContentCardPropsType) => (
   </Card>
   );
 
-const BlogPage = () => (
+export const BlogPage = () => (
   <section className="container mx-auto px-8 py-10 lg:py-28">
     <Typography
       variant="h2"

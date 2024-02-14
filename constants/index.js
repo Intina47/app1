@@ -251,7 +251,7 @@ export const contents = [
   {
     img: '/blog/bjt7.jpg',
     title: 'Citywide Adventures',
-    desc: "Don't limit yourself to one spot – embrace citywide adventures! From rooftop bars with stunning views (let me know when you find one) to hidden speakeasies tucked away in alleys, explore every corner of the city's vibrant nightlife. The best nights are the ones filled with surprises and new discoveries!",
+    desc: "Don't limit yourself to one spot. Embrace citywide adventures! From rooftop bars with stunning views (let me know when you find one) to hidden speakeasies tucked away in alleys, explore every corner of the city's vibrant nightlife. The best nights are the ones filled with surprises and new discoveries!",
   },
   {
     img: '/blog/bjt8.jpg',

@@ -1,5 +1,6 @@
 import React from 'react';
 import { contents } from '../../constants';
+
 const ContentCard = ({ img, title, desc }) => (
   <div className="relative grid min-h-[30rem] items-end overflow-hidden rounded-xl bg-transparent">
     <img

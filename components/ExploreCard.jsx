@@ -1,14 +1,43 @@
 // explore our Event
 
 'use client';
-
+import React, {useEffect, useRef} from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from '../styles';
 import { fadeIn } from '../utils/motion';
 
-const ExploreCard = ({id,imgUrl,title,day,url,index,active,handleClick}) => (
+const ExploreCard = ({id,imgUrl,title,day,url,index,active,handleClick}) => {
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // When the card becomes visible in the viewport, make it the active card
+        if (entry.isIntersecting) {
+          handleClick(id);
+        }
+      },
+      {
+        // Adjust the rootMargin to control when the observer's callback is triggered
+        rootMargin: '0px 0px -50% 0px',
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, [id, handleClick]);
+
+  return (
   <motion.div
+    ref={cardRef}
     variants={fadeIn('right','spring',index * 0.5,0.75)}
     className={`relative ${active === id ? 'lg:flex-[3.5] flex-[10]'
 : 'lg:flex-[0.5] flex-[2]'} flex items-center justify-center min-w-[170px] 
@@ -56,5 +85,6 @@ h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer`}
   )}
   </motion.div>
 );
+}
 
 export default ExploreCard;

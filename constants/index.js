@@ -217,7 +217,6 @@ export const contents = [
     title: 'Budget-Friendly Fun',
     desc: "Maximize the fun without breaking the bank! Discover affordable spots and happy hour specials for a budget-friendly night out with friends. Psst... the basement might just be your wallet's new best friend!",
   },
-
   {
     img: '/blog/bjt1.jpg',
     title: 'Safety First',
@@ -256,6 +255,6 @@ export const contents = [
   {
     img: '/blog/bjt8.jpg',
     title: 'Your Comfort Matters',
-    desc: "Your comfort is our priority! If anything or anyone makes you uncomfortable during your night out, don't let it spoil the fun. Talk to one of our friendly staff members – we're here to ensure everyone has a good time. Your peace of mind is as important as the beats on the dance floor. Let's make your night unforgettable, for all the right reasons.",
+    desc: "Your comfort is our priority! If anything or anyone makes you uncomfortable during your night out, don't let it spoil the fun. Talk to one of our friendly staff members. We're here to ensure everyone has a good time. Your peace of mind is as important as the beats on the dance floor. Let's make your night unforgettable, for all the right reasons.",
   },
 ];

@@ -37,7 +37,7 @@ const Page = () => {
       </div>
       <div className="relative z-0">
         <About />
-        <SponsorSection/>
+        <SponsorSection />
         <div className="gradient-03 z-10" />
         <Explore />
       </div>

@@ -130,7 +130,7 @@ const booking = () => {
                   name="reservationType"
                   value={formData.reservationType}
                   onChange={handleChange}
-                  className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                 >
                   <option value="">Select Reservation Type</option>
@@ -150,7 +150,7 @@ const booking = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                   placeholder="Enter your full Name"
                 />
@@ -165,7 +165,7 @@ const booking = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                   placeholder="Enter your Email"
                 />
@@ -181,7 +181,7 @@ const booking = () => {
                   name="phonenumber"
                   value={formData.phonenumber}
                   onChange={handleChange}
-                  className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                   placeholder="07xxxxxxxxx"
                 />
@@ -196,7 +196,7 @@ const booking = () => {
                   name="date"
                   value={formData.date}
                   onChange={handleChange}
-                  className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                   // min is the current date
                   min={new Date().toISOString().split('T')[0]}
@@ -212,7 +212,7 @@ const booking = () => {
                   name="time"
                   value={formData.time}
                   onChange={handleChange}
-                  className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                   placeholder="OPEN 20:00-2:30"
                 />
@@ -227,7 +227,7 @@ const booking = () => {
                   name="guests"
                   value={formData.guests}
                   onChange={handleChange}
-                  className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                   min={1}
                   placeholder={placeholder}
@@ -242,7 +242,7 @@ const booking = () => {
                   name="specialRequest"
                   value={formData.specialRequest}
                   onChange={handleChange}
-                  className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Enter any special request"
                 />
               </div>

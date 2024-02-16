@@ -100,7 +100,7 @@ const ContactUs = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
                 placeholder={nameplaceholder}
               />
@@ -115,7 +115,7 @@ const ContactUs = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
                 placeholder={emailplaceholder}
               />
@@ -129,7 +129,7 @@ const ContactUs = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
                 placeholder={messageplaceholder}
               />

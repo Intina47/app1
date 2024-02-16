@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 const Drawer = ({ toggle, closeIcon, boldnavlink, navlink, active, setActive, toggleDrawer }) => (
-  <div 
+  <div
     className={`fixed top-0 right-0 bottom-0 left-0 bg-black z-50 transition-transform duration-200 ease-in-out ${toggle ? 'flex' : 'hidden'}`}
     style={{ zIndex: 100 }}
   >

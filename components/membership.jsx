@@ -167,7 +167,7 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
-              className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
               placeholder="Enter your first Name"
               autoComplete="on"
@@ -183,7 +183,7 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
-              className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
               placeholder="Enter your last Name"
               autoComplete="on"
@@ -199,7 +199,7 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
               placeholder="Enter your Email"
               autoComplete="on"
@@ -215,7 +215,7 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
               name="comfirmemail"
               value={formData.comfirmemail}
               onChange={handleChange}
-              className={`bg-transparent border-2 ${
+              className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
             doEmailsMatch() ? 'border-primary-green' : 'border-red-500'
           } rounded-lg text-white px-4 py-2`}
               required
@@ -236,7 +236,7 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
               value={formData.dob}
               onChange={handleChange}
               onBlur={handleChange} // Add onBlur event handler
-              className={`bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2 ${
+              className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${
           isUnder18 ? 'border-red-500' : '' // Apply red border if under 18
         }`}
               required
@@ -255,7 +255,7 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
               name="isStudent"
               value={formData.isStudent}
               onChange={handleChange}
-              className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             >
               <option value="">Please select</option>
@@ -275,7 +275,7 @@ const doEmailsMatch = () => formData.email === formData.comfirmemail;
               name="graduationYear"
               value={formData.graduationYear}
               onChange={handleChange}
-              className="bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
           </div>
           <div className="flex justify-between mt-4">

@@ -19,7 +19,7 @@ const FAQ = ({ faqs }) => {
         {faqs.map((faq, index) => (
           <li key={index} className="mb-4">
             <button
-              className="flex items-center justify-between w-full text-white font-bold text-[18px] bg-transparent border-b border-primary-green py-6"
+              className="flex items-center justify-between w-full text-white font-bold text-[18px] bg-transparent border-b border-gray-300 py-6"
               onClick={() => toggleFAQ(index)}
             >
               {faq.question}

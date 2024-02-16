@@ -25,35 +25,6 @@ export const exploreMore = [
     url: '?type=saturdayzDopeReservation',
   },
 ];
-// promotions section hero section
-export const promotions = [
-{
-  eventId: '103',
-  image: '/dec/eve.JPG',
-  buttonText: 'Don\'t Miss Out, Reserve Now',
-},
-{
-  eventId: '104',
-  image: '/dec/xcape.JPG',
-  // title: '🪩BOTTLE SERVICE🪩',
-  // description: 'available every weekend.join us Saturday night for the best vibes in dundee🎧',
-  buttonText: 'Don\'t Miss Out, Reserve Now',
-},
-{
-  eventId: '105',
-  image: '/dec/nye.JPG',
-  // title: 'Ian Van Dahl Live Set',
-  // description: 'Ian Van Dahl is back to AfroBeats Dundee this September for a Live Set',
-  buttonText: 'Don\'t Miss Out, Reserve Now',
-},
-{
-  eventId: '106',
-  image: '/dec/festive.JPG',
-  // title: 'PFriday Night Party',
-  // description: 'Grab your mates, secure your tickets and come down the Basement...',
-  buttonText: 'Don\'t Miss Out, Reserve Now',
-  },
-];
 
 // Our menu pop Up
 export const menu = [
@@ -153,14 +124,14 @@ export const navlinks = [
   },
   {
     id: 'PrivateHire',
-    title: 'Private Hire',
+    title: 'Private hire',
     url: '/reservation?type=Reservation',
   },
 ];
 export const boldnavlinks = [
   {
     id: 'guestlist',
-    title: 'Join Guest List',
+    title: 'Join guest list',
     url: '/reservation?type=Guestlist',
   },
   {
@@ -184,7 +155,7 @@ export const navlink = [
   },
   {
     id: 'guestlist',
-    title: 'Join Guest List',
+    title: 'Join guest list',
     url: '/reservation?type=Guestlist',
   },
   {
@@ -206,7 +177,7 @@ export const navlink = [
 export const boldnavlink = [
   {
     id: 'PrivateHire',
-    title: 'Private Hire',
+    title: 'Private hire',
     url: '/reservation?type=Reservation',
   },
 ];

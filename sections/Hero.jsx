@@ -29,7 +29,9 @@ const Hero = () => {
   };
 
   const imagePaths = [
+    '/BLH1.png',
     '/resbh1.png',
+    '/blh2.png',
     '/resbh2.png',
   ];
   const imageRef = useRef(null);

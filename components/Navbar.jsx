@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { navlink,boldnavlinks,boldnavlink, menuIcon, closeIcon } from '../constants';
 import Drawer from './Drawer';
@@ -14,6 +14,14 @@ const Navbar = () => {
   const toggleDrawer = () => {
     setToggle(!toggle);
   };
+
+  useEffect(() => {
+    if (toggle) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [toggle]);
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar sticky bg-primary-black-[100]">
@@ -69,6 +77,7 @@ const Navbar = () => {
         navlink={navlink}
         active={active}
         setActive={setActive}
+        toggleDrawer={toggleDrawer}
       />
     </nav>
   );

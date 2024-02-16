@@ -111,7 +111,7 @@ const Footer = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="flex bg-transparent border-2 border-primary-green rounded-lg text-white text-[18px] font-bold p-3 md:p-5 w-full"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
                 placeholder={Nameplaceholder}
               />
@@ -126,7 +126,7 @@ const Footer = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="flex bg-transparent border-2 border-primary-green rounded-lg text-white text-[18px] font-bold p-3 md:p-5 w-full"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
                 placeholder={Emailplaceholder}
               />
@@ -143,7 +143,7 @@ const Footer = () => {
                 onChange={handleChange}
                 // className="flex bg-transparent border-2 border-primary-green rounded-lg text-white text-[18px] font-bold p-3 md:p-5 w-full md:w-auto"
                 onBlur={handleChange}
-                className={`bg-transparent border-2 border-primary-green rounded-lg text-white px-4 py-2 p-3 md:p-5 w-full md:w-auto${
+                className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500${
             isUnder18 ? 'border-red-500' : ''
           }`}
                 required

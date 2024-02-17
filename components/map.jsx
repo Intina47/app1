@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/styles.css';
 
 const Map = () => (
-  <div className="flex flex-col md:flex-row gap-4">p=
+  <div className="flex flex-col md:flex-row gap-4">
     {/* Map Section */}
     <div className="w-full md:w-3/3 xl:w-3/5">
       {/* Embed the map here */}

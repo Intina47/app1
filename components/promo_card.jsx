@@ -26,7 +26,7 @@ const PromoCard = ({ image, title, buttonText, first, last, ticketLink}) => {
         borderRadiusClass += ' rounded-tr-[20px]';
       }
         return (
-          <div className={`w-[300px] overflow-hidden shadow-lg mx-2 ${borderRadiusClass} min-w-[19rem]`}>
+          <div className={`w-[300px] overflow-hidden shadow-lg mx-0 ${borderRadiusClass} min-w-[19rem]`}>
             <div data-event-name="MAGNITO (CANADA ft Olamide) LIVE PERFORMANCE" data-event-date="2024-02-24 Sat" className="relative cursor-pointer" onClick={() => window.open(image, '_blank')}>
               {/* Image section */}
               <LazyLoadImage

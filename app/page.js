@@ -19,14 +19,6 @@ const Page = () => {
     setShowPopup(!showPopup);
   };
 
-  // useEffect(() => {
-  //   const hasVisitedBefore = localStorage.getItem('hasVisited');
-  //   if (!hasVisitedBefore) {
-  //     setShowPopup(true);
-  //     localStorage.setItem('hasVisited', 'true');
-  //   }
-  // }, []);
-
   return (
     <div className="bg-black overflow-hidden">
       <div className="relative z-10 position-sticky">

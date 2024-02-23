@@ -22,7 +22,7 @@ const ContentCard = ({ img, title, desc }) => (
 
 const BlogPage = () => (
   <section className="container mx-auto px-8 py-10 lg:py-28">
-    <h1 className="block text-blue-gray-900 text-2xl leading-snug lg:text-4xl font-sans font-semibold">
+    <h1 className="block text-white text-2xl leading-snug lg:text-4xl font-sans font-semibold">
       Good girl with bad habits
     </h1>
     <p className="max-w-lg font-normal text-gray-500 mt-2 leading-relaxed">

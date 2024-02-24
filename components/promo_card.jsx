@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from 'next/link';
+import { format } from 'date-fns';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { navlink } from '../constants';
 
-const PromoCard = ({ image, title, buttonText, first, last, ticketLink}) => {
+const PromoCard = ({ image, title, buttonText, first, last, ticketLink, eventDate}) => {
   const handleShare = () => {
     console.log('share');
     if (navigator.share) {
@@ -25,6 +26,9 @@ const PromoCard = ({ image, title, buttonText, first, last, ticketLink}) => {
       if (last) {
         borderRadiusClass += ' rounded-tr-[20px]';
       }
+
+      const today = format(new Date(), 'yyyy-MM-dd');
+      const isToday = format(new Date(eventDate), 'yyyy-MM-dd') === today;
         return (
           <div className={`w-[300px] overflow-hidden shadow-lg mx-0 ${borderRadiusClass} min-w-[19rem]`}>
             <div data-event-name="MAGNITO (CANADA ft Olamide) LIVE PERFORMANCE" data-event-date="2024-02-24 Sat" className="relative cursor-pointer" onClick={() => window.open(image, '_blank')}>
@@ -34,7 +38,9 @@ const PromoCard = ({ image, title, buttonText, first, last, ticketLink}) => {
                 alt="MAGNITO (CANADA ft Olamide) LIVE PERFORMANCE on Sat 24th Feb 2024"
                 className="w-full h-[300px] object-cover"
               />
-              {ticketLink && (
+              { isToday ? (
+                <div className="moving-text">Happening Tonight</div>
+              ) : ticketLink && (
               <div className="absolute top-0 right-0 ml-4 text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 bg-green-200 text-green-700 rounded-full opacity-75">
                 <a
                   href={ticketLink}

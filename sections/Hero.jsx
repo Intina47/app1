@@ -111,6 +111,7 @@ const Hero = () => {
                     image={event.previewSource}
                     buttonText="Make a Reservation"
                     ticketLink={event.ticketLink}
+                    eventDate={event.eventDate}
                   />
                 </div>
               ))}

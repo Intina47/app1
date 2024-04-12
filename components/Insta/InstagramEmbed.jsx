@@ -56,6 +56,7 @@ const InstagramEmbed = () => {
             <a href="https://www.instagram.com/p/Cxi5M3bMhbh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" style={{ color: '#c9c8cd', textDecoration: 'none' }} target="_blank" rel="noreferrer">
               A post shared by ACS Dundee (@acsdundee)
             </a>
+            {/* eslint-disable-next-line */}
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `
                 {
                 "@context": "http://schema.org",

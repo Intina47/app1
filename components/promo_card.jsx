@@ -31,11 +31,11 @@ const PromoCard = ({ image, title, buttonText, first, last, ticketLink, eventDat
       const isToday = format(new Date(eventDate), 'yyyy-MM-dd') === today;
         return (
           <div className={`w-[300px] overflow-hidden shadow-lg mx-0 ${borderRadiusClass} min-w-[19rem]`}>
-            <div data-event-name="MAGNITO (CANADA ft Olamide) LIVE PERFORMANCE" data-event-date="2024-02-24 Sat" className="relative cursor-pointer" onClick={() => window.open(image, '_blank')}>
+            <div className="relative cursor-pointer" onClick={() => window.open(image, '_blank')}>
               {/* Image section */}
               <LazyLoadImage
                 src={image}
-                alt="MAGNITO (CANADA ft Olamide) LIVE PERFORMANCE on Sat 24th Feb 2024"
+                alt="Afrobeats Dundee happening soon Event Image, click to view in full screen"
                 className="w-full h-[300px] object-cover"
               />
               { isToday ? (

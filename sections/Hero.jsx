@@ -2,21 +2,23 @@
 
 import {motion} from 'framer-motion';
 import Link from 'next/link';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, Suspense } from 'react';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import useFetchEvents from '../hooks/useFetchEvents';
 import styles from '../styles';
 import { slideIn, staggerContainer } from '../utils/motion';
 import { socials } from '../constants';
 import '../styles/styles.css';
-import Card from '../components/promo_card';
+// import Card from '../components/promo_card';
 import SocialLink from '../components/heroComponents/SocialLink';
 import CarouselImage from '../components/heroComponents/CarouselImage';
 import VideoPlayer from '../components/heroComponents/videoPlayer';
 
+const Card = React.lazy(() => import('../components/promo_card'));
+
 const Hero = () => {
   const flag = 0; // Set the value of the flag to 0 or 1
-  const events = useFetchEvents();
+  const {loading, events} = useFetchEvents();
 
   const locationDetails = {
     icon: (
@@ -105,16 +107,29 @@ const Hero = () => {
           <div id="upcoming-events" className="flex flex-col z-10">
             <h2 className="text-sm sm:text-lg text-left text-white font-bold mb-0 bg-black bg-opacity-50 rounded-tl-[20px] rounded-tr-[20px] p-2">Our Hottest Deals & Upcoming Events</h2>
             <div className="flex overflow-x-scroll gap-0">
-              {events.map((event, index) => (
-                <div key={index} data-event-date={event.eventDate} className="w-[300px] overflow-hidden shadow-lg mx-1 rounded-bl-[20px] rounded-br-[20px] min-w-[19rem]">
-                  <Card
-                    image={event.previewSource}
-                    buttonText="Make a Reservation"
-                    ticketLink={event.ticketLink}
-                    eventDate={event.eventDate}
-                  />
+              {loading ? (
+                <div className="flex flex-row gap-4">
+                  <p className="text-gray-500 item-center text-lg">
+                    Hang tight! We are loading the hottest deals for you
+                    <span className="animate-pulse text-green-500">....</span>
+                  </p>
                 </div>
+              ) : (
+                <Suspense fallback={<div>Loading...</div>}>
+                  <div className="flex flex-row gap-4">
+                    {events.map((event, index) => (
+                      <div key={index} data-event-date={event.eventDate} className="w-[300px] overflow-hidden shadow-lg mx-1 rounded-bl-[20px] rounded-br-[20px] min-w-[19rem]">
+                        <Card
+                          image={event.previewSource}
+                          buttonText="Make a Reservation"
+                          ticketLink={event.ticketLink}
+                          eventDate={event.eventDate}
+                        />
+                      </div>
               ))}
+                  </div>
+                </Suspense>
+              )}
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { toast , ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +9,15 @@ const AdminPage = () => {
   const [code, setCode] = React.useState('');
   const [accessGranted, setAccessGranted] = React.useState(false);
   const [loading, setLoading] = React.useState(false); // new state variable
+
+  useEffect(() => {
+    const sessionCode = sessionStorage.getItem('accessCode');
+    const sessionExpiry = sessionStorage.getItem('sessionExpiry');
+    if (sessionCode && sessionExpiry && new Date().getTime() < parseInt(sessionExpiry, 10)) {
+      setCode(sessionCode);
+      setAccessGranted(true);
+    }
+  }, []);
 
   const generateCode = async () => {
     setLoading(true); // disable the button
@@ -33,6 +42,9 @@ const AdminPage = () => {
     const res = await axios.post('/api/verifyCode', { code });
     if (res.data.accessGranted){
       setAccessGranted(true);
+      const sessionExpiry = new Date().getTime() + 3600000; // 1 hour
+      sessionStorage.setItem('accessCode', code);
+      sessionStorage.setItem('sessionExpiry', sessionExpiry.toString());
     } else {
       toast.error('Invalid access code');
       setAccessGranted(false);

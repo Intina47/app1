@@ -31,7 +31,7 @@ const Hero = () => {
   };
 
   const imagePaths = [
-    '/BLH1.png',
+    '/BLH1.webp',
     '/resbh1.png',
     '/blh2.png',
     '/resbh2.png',
@@ -106,7 +106,7 @@ const Hero = () => {
           // Rendering the promo cards here
           <div id="upcoming-events" className="flex flex-col z-10">
             <h2 className="text-sm sm:text-lg text-left text-white font-bold mb-0 bg-black bg-opacity-50 rounded-tl-[20px] rounded-tr-[20px] p-2">Our Hottest Deals & Upcoming Events</h2>
-            <div className="flex overflow-x-scroll gap-0">
+            <div className="flex overflow-x-auto gap-0">
               {loading ? (
                 <div className="flex flex-row gap-4">
                   <p className="text-gray-500 item-center text-lg">

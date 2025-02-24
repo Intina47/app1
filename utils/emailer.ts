@@ -1,21 +1,17 @@
-// sends an email to the user// emailer.ts
-
 import nodemailer from 'nodemailer';
 import { config } from 'dotenv';
 
 config();
 
-export async function sendEmail(code: string) {
-  // Create a transporter
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.COMPANY_EMAIL,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-  });
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.COMPANY_EMAIL,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+});
 
-  // Email content
+export async function sendEmail(code: string) {
   const mailOptions = {
     from: process.env.COMPANY_EMAIL,
     to: process.env.COMPANY_EMAIL,
@@ -36,7 +32,6 @@ export async function sendEmail(code: string) {
     `,
   };
 
-  // Send the email
   try {
     await transporter.sendMail(mailOptions);
   } catch (error) {

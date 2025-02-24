@@ -1,3 +1,4 @@
+// path: /api/upload
 import { validationResult } from 'express-validator';
 import { v4 as uuidv4 } from 'uuid';
 import { connectToDatabase } from '../../utils/database';
@@ -13,6 +14,7 @@ handler.post(async (req, res) => {
 
     const events = req.body; // Expect an array of events
 
+    console.log('received event: ', events);
     const { db } = await connectToDatabase();
 
     const collection = db.collection('events');

@@ -10,6 +10,7 @@ import OurMenuPopup from '../components/menuPopup';
 import '../styles/styles.css';
 import { chevron } from '../constants';
 import Map from '../components/map';
+import FlagScroller from '../components/FlagScroller';
 
 const Page = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -22,6 +23,7 @@ const Page = () => {
   return (
     <div className="bg-black overflow-hidden">
       <div className="relative z-10 position-sticky">
+        <FlagScroller />
         <Navbar />
       </div>
       <div className="relative z-0">

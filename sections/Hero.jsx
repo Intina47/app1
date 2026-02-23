@@ -78,9 +78,9 @@ const Hero = () => {
         className={`${styles.innerWidth} mx-auto flex flex-col`}
       >
         <motion.div variants={slideIn('left', 'tween', 0.2, 1)} className="flex flex-col gap-4">
-          {/* BAR . NIGHTCLUB . PRIVATE FUNCTIONS . */}
+          {/* EVENT VENUE. NIGHTCLUB. PRIVATE FUNCTION . */}
           <div className="flex flex-col gap-2">
-            <h1 className="hero_description text-[18px] font-thin p-2 rounded">BAR . NIGHTCLUB . PRIVATE FUNCTIONS</h1>
+            <h1 className="hero_description text-[18px] font-thin p-2 rounded">EVENT VENUE. NIGHTCLUB. PRIVATE FUNCTION</h1>
           </div>
           <a href="https://goo.gl/maps/A6f372rpyHWAVSNeA">
             <div className="flex items-center gap-2 " title="Our Location">
